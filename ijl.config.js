@@ -9,6 +9,9 @@ module.exports = {
   },
   navigations: {
     'sirius-x.main': '/sirius-x',
+    'sirius-x.schedule': '/sirius-x/schedule',
+    'sirius-x.attendance': '/sirius-x/attendance',
+    'sirius-x.statistics': '/sirius-x/statistics',
   },
   features: {
     'sirius-x': {

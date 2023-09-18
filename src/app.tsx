@@ -6,15 +6,17 @@ import Schedule from './pages/schedule';
 import Statistics from './pages/statistics';
 import Header from './components/header';
 
+export const BASE_PATH = '/sirius-x'
+
 const App = () => {
   return (
     <BrowserRouter>
-    <Header></Header>
+    <Header />
       <Routes>
-        <Route path="/sirius-x" element={<Main />} />
-        <Route path="/attendance" element={<Attendance />} />
-        <Route path="/schedule" element={<Schedule />} />
-        <Route path="/statistics" element={<Statistics />} />
+        <Route path={BASE_PATH} element={<Main />} />
+        <Route path={`${BASE_PATH}/attendance`} element={<Attendance />} />
+        <Route path={`${BASE_PATH}/schedule`} element={<Schedule />} />
+        <Route path={`${BASE_PATH}/statistics`} element={<Statistics />} />
       </Routes>
     </BrowserRouter>
   )
