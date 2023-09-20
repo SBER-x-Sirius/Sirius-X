@@ -1,7 +1,11 @@
-import React from 'react';
+import React from 'react'
+import { ScheduleContainer } from './styles'
+import { FilterBlock } from '../../components/filter-block'
 
-const Schedule = () => {
-  return <h1>Schedule page</h1>;
-};
-
-export default Schedule;
+export const Schedule = () => {
+  return (
+    <ScheduleContainer>
+      <FilterBlock />
+    </ScheduleContainer>
+  )
+}
