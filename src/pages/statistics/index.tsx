@@ -1,7 +1,14 @@
 import React from 'react';
-
+import {
+    PageContent
+} from "./styles";
+import WelcomeCard from "./welcomeCard/index";
 const Statistics = () => {
-  return <h1>Statistics page</h1>;
+  return (
+      <PageContent>
+        <WelcomeCard/>
+      </PageContent>
+  );
 };
 
 export default Statistics;
