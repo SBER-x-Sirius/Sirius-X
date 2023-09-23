@@ -1,7 +1,15 @@
-import React from 'react';
+import React from 'react'
+import ScheduleGrid from '../../components/schedule-grid'
+import { Grid } from './styles'
 
-const Schedule = () => {
-  return <h1>Schedule page</h1>;
-};
+const Schedule = (): JSX.Element => {
+  return (
+      <>
+          <Grid>
+              <ScheduleGrid></ScheduleGrid>
+          </Grid>
+      </>
+  )
+}
 
-export default Schedule;
+export default Schedule
