@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Input from '../input'
 import { CheckboxContainer, CheckboxInput, FilterContainer, FilterSwitchContainer, FilterSwitchItems } from './styles'
 
 export const FilterBlock = () => {
@@ -12,6 +13,7 @@ export const FilterBlock = () => {
   ]
 
   const [activeTab, setActiveTab] = useState<string>('Группа')
+  const [valueInput, setValueInput] = useState<string>('');
 
   const handleActive = (buttonName: string) => {
     setActiveTab(buttonName)
@@ -40,11 +42,11 @@ export const FilterBlock = () => {
           Преподаватель
         </FilterSwitchItems>
       </FilterSwitchContainer>
-
       <CheckboxContainer>
         <p>Отображать события:</p>
         {checkboxElements}
       </CheckboxContainer>
+      <Input value={valueInput} setValue={setValueInput} />
     </FilterContainer>
   )
 }
