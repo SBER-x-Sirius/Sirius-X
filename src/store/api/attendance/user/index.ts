@@ -6,9 +6,9 @@ export const attendanceApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://attendance.com/api/' }),
   endpoints: (builder) => ({
     getAllUsers: builder.query<GetUser[], void>({
-      query: () => `attendance/users`,
-    }),
-  }),
+      query: () => 'attendance/users'
+    })
+  })
 });
 
 export const { useGetAllUsersQuery } = attendanceApi;
