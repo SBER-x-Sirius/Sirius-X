@@ -1,18 +1,18 @@
-import React, { ChangeEventHandler } from 'react';
+import React from 'react';
 import {CustomInput, ButtonClearInput, InputContainer} from './styles';
 
 type propsInput = {
   value: string,
-  setValue: (e: any) => void
+  setValue: (e: string) => void
 }
 
-const Input = ({value, setValue}: propsInput) => {
+const Input = ({value, setValue}: propsInput): JSX.Element => {
 
   const handleClearInput = () => {
     setValue('');
   }
 
-  const hangleChangeInput = (e: any) => {
+  const hangleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length <= 30) {
       setValue(e.target.value);
     }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Input from '../input'
 import { CheckboxContainer, CheckboxInput, FilterContainer, FilterSwitchContainer, FilterSwitchItems } from './styles'
 
-export const FilterBlock = () => {
+export const FilterBlock = (): JSX.Element  => {
   const checkboxes = [
     { id: 'lectures', label: 'Лекции', color: '#1CB87F' },
     { id: 'seminars', label: 'Семинары', color: '#EAB308' },
