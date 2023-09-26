@@ -1,0 +1,21 @@
+{   
+  "specialtyBlock": {
+    "header": "Choose your area of study",
+    "subheader": "Choose the direction of study.",
+    "buttonText": "More details",
+    "specialties": {
+      "systemAdministrators": "System Administrators",
+      "programmers": "Information Systems and Programming",
+      "computerComplexes": "Computer Complexes",
+      "informationSecurity": "Information Security",
+      "hotelBusiness": "Hotel Business"
+    },
+    "numbers": {
+      "systemAdministrators": "180 people",
+      "programmers": "123 people",
+      "computerComplexes": "228 people",
+      "informationSecurity": "144 people",
+      "hotelBusiness": "133 people"
+    }
+  }
+}
