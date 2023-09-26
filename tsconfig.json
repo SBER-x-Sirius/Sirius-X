@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "es2017"],
+    "lib": [
+      "dom",
+      "es2017"
+    ],
     "outDir": "./dist/",
     "sourceMap": true,
     "esModuleInterop": true,
@@ -9,8 +12,14 @@
     "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
-    "typeRoots": ["node_modules/@types", "src/typings"],
-    "types": ["webpack-env", "node"],
+    "typeRoots": [
+      "node_modules/@types",
+      "src/typings"
+    ],
+    "types": [
+      "webpack-env",
+      "node"
+    ],
     "resolveJsonModule": true
   },
   "exclude": [
@@ -18,5 +27,9 @@
     "**/*.test.ts",
     "**/*.test.tsx",
     "node_modules/@types/jest"
+  ],
+  "include": [
+    "src",
+    "react-app-env.d.ts"
   ]
 }
