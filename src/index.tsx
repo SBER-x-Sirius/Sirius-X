@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 
 import App from './app';
+import { store } from './store/store';
 import './configs/localization/i18n';
 
 export default () => <App />;
@@ -10,7 +12,11 @@ let rootElement: ReactDOM.Root;
 
 export const mount = (Сomponent, element = document.getElementById('app')) => {
   const rootElement = ReactDOM.createRoot(element);
-  rootElement.render(<Сomponent />);
+  rootElement.render(
+    <Provider store={store}>
+      <Сomponent />
+    </Provider>
+  );
 
   if (module.hot) {
     module.hot.accept('./app', () => {
