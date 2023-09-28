@@ -8,11 +8,11 @@ const Attendance = () => {
   return (
     <>
       <AttendanceWrapper>
-        <Sidebar menu={ menu }/>
+        <Sidebar menu={menu} />
         <SessionPage />
       </AttendanceWrapper>
     </>
-  )
+  );
 };
 
 export default Attendance;
