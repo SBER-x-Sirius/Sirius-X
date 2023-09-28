@@ -1,15 +1,12 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from 'react';
 import { FormWrapper } from './styles';
 
 const BaseForm: React.FC = ({ children }: { children: React.ReactNode }): JSX.Element => {
-
   return (
     <>
-        <FormWrapper>
-            { children }
-        </FormWrapper>
+      <FormWrapper>{children}</FormWrapper>
     </>
-  )
-}
+  );
+};
 
-export default BaseForm as React.FC<{children: ReactNode}>;
+export default BaseForm as React.FC<{ children: ReactNode }>;
