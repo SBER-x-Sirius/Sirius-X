@@ -1,7 +1,6 @@
 import React from 'react';
-import {
-    PageContent
-} from "./styles";
+import { PageContent } from "./styles";
+
 import WelcomeCard from "./welcomeCard/index";
 const Statistics = () => {
   return (
