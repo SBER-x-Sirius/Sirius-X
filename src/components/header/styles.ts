@@ -60,7 +60,7 @@ export const LocalizeWrapper = styled.div`
   background: rgba(244, 244, 249, 1);
 `
 
-export const LocalizeButton = styled.button`
+export const LocalizeButton = styled.button<MenuLinkProps>`
   display: flex;
   align-items: center;
   justify-content: center;
