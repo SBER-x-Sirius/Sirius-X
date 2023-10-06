@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { CheckboxContainer, CheckboxInput, FilterContainer, FilterSwitchContainer, FilterSwitchItems } from './styles';
+import React, { useState } from 'react'
+import Input from '../input'
+import { CheckboxContainer, CheckboxInput, FilterContainer, FilterSwitchContainer, FilterSwitchItems } from './styles'
 
-export const FilterBlock = () => {
+export const FilterBlock = (): JSX.Element  => {
   const checkboxes = [
     { id: 'lectures', label: 'Лекции', color: '#1CB87F' },
     { id: 'seminars', label: 'Семинары', color: '#EAB308' },
@@ -11,7 +12,8 @@ export const FilterBlock = () => {
     { id: 'other', label: 'Прочее', color: '#312E81' }
   ];
 
-  const [activeTab, setActiveTab] = useState<string>('Группа');
+  const [activeTab, setActiveTab] = useState<string>('Группа')
+  const [valueInput, setValueInput] = useState<string>('');
 
   const handleActive = (buttonName: string) => {
     setActiveTab(buttonName);
@@ -44,11 +46,11 @@ export const FilterBlock = () => {
           Преподаватель
         </FilterSwitchItems>
       </FilterSwitchContainer>
-
       <CheckboxContainer>
         <p>Отображать события:</p>
         {checkboxElements}
       </CheckboxContainer>
+      <Input value={valueInput} setValue={setValueInput} />
     </FilterContainer>
   );
 };
