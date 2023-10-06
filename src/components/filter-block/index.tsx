@@ -10,33 +10,37 @@ export const FilterBlock = (): JSX.Element  => {
     { id: 'labs', label: 'Лаб.занятия', color: '#818CF8' },
     { id: 'exams', label: 'Экзамены(зачеты)', color: '#FF4848' },
     { id: 'other', label: 'Прочее', color: '#312E81' }
-  ]
+  ];
 
   const [activeTab, setActiveTab] = useState<string>('Группа')
   const [valueInput, setValueInput] = useState<string>('');
 
   const handleActive = (buttonName: string) => {
-    setActiveTab(buttonName)
-  }
+    setActiveTab(buttonName);
+  };
 
-  const checkboxElements = checkboxes.map(checkbox => (
+  const checkboxElements = checkboxes.map((checkbox) => (
     <CheckboxInput key={checkbox.id} color={checkbox.color}>
       <input type="checkbox" id={checkbox.id} name={checkbox.id} />
       <label htmlFor={checkbox.id}>{checkbox.label}</label>
     </CheckboxInput>
-  ))
+  ));
 
   return (
     <FilterContainer>
       <FilterSwitchContainer>
         <FilterSwitchItems
-          onClick={() => { handleActive('Группа') }}
+          onClick={() => {
+            handleActive('Группа');
+          }}
           active={activeTab === 'Группа'}
         >
           Группа
         </FilterSwitchItems>
         <FilterSwitchItems
-          onClick={() => { handleActive('Преподаватель') }}
+          onClick={() => {
+            handleActive('Преподаватель');
+          }}
           active={activeTab === 'Преподаватель'}
         >
           Преподаватель
@@ -48,5 +52,5 @@ export const FilterBlock = (): JSX.Element  => {
       </CheckboxContainer>
       <Input value={valueInput} setValue={setValueInput} />
     </FilterContainer>
-  )
-}
+  );
+};
