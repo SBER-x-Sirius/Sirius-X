@@ -15,7 +15,7 @@ const Input = ({ value, setValue }: propsInput): JSX.Element => {
   };
 
   const hangleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 30) {
+    if (e.target.value.length <= 35) {
       setValue(e.target.value);
     }
   };
