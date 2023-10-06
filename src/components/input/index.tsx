@@ -1,28 +1,34 @@
 import React from 'react';
-import {CustomInput, ButtonClearInput, InputContainer} from './styles';
+import { CustomInput, ButtonClearInput, InputContainer } from './styles';
+import { useTranslation } from 'react-i18next';
 
 type propsInput = {
-  value: string,
-  setValue: (e: string) => void
-}
+  value: string;
+  setValue: (e: string) => void;
+};
 
-const Input = ({value, setValue}: propsInput): JSX.Element => {
+const Input = ({ value, setValue }: propsInput): JSX.Element => {
+  const { t } = useTranslation();
 
   const handleClearInput = () => {
     setValue('');
-  }
+  };
 
   const hangleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length <= 30) {
       setValue(e.target.value);
     }
-  }
+  };
 
-  // TODO: после настройки webpack добавить svg лупы
   return (
     <InputContainer>
-      <CustomInput type='text' placeholder='Поиск...' value={value} onChange={hangleChangeInput}  />
-      <ButtonClearInput onClick={handleClearInput}></ButtonClearInput> 
+      <CustomInput
+        type="text"
+        placeholder={t('schedule:scheduleTranslation.filterBlock.search')}
+        value={value}
+        onChange={hangleChangeInput}
+      />
+      <ButtonClearInput onClick={handleClearInput}></ButtonClearInput>
     </InputContainer>
   );
 };

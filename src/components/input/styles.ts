@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const CustomInput = styled.input`
   width: 100%;
@@ -6,8 +6,8 @@ export const CustomInput = styled.input`
   padding: 15px 20px;
   border: none;
   border-radius: 15px;
-  background-color: #F4F4F9;
-  color: #5D6568;
+  background-color: #f4f4f9;
+  color: #5d6568;
   font-size: 16px;
   font-weight: 400;
   &:focus {
@@ -17,12 +17,12 @@ export const CustomInput = styled.input`
   &:active {
     border: none;
   }
-`
+`;
 
 export const ButtonClearInput = styled.button`
   right: 35px;
   background-color: transparent;
-  color: #5D6568;
+  color: #5d6568;
   position: relative;
   width: 15px;
   height: 15px;
@@ -32,13 +32,14 @@ export const ButtonClearInput = styled.button`
   &:hover {
     cursor: pointer;
   }
-  &:before, &:after {
+  &:before,
+  &:after {
     position: absolute;
     top: 1px;
     content: ' ';
     height: 15px;
     width: 2px;
-    background-color: #5D6568;
+    background-color: #5d6568;
   }
   &:before {
     transform: rotate(45deg);
@@ -46,7 +47,7 @@ export const ButtonClearInput = styled.button`
   &:after {
     transform: rotate(-45deg);
   }
-`
+`;
 
 export const InputContainer = styled.div`
   max-width: 500px;
@@ -56,5 +57,4 @@ export const InputContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0 0 20px 20px;
-`
-
+`;
