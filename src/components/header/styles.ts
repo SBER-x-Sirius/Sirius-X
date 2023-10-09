@@ -9,9 +9,9 @@ export const ContainerHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1536px;
+  max-width: 100%;
   padding: 0 22px 0 7px;
-  margin: 28px auto 0;
+  margin: 28px 0 0;
   height: 50px;
   border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 30px
