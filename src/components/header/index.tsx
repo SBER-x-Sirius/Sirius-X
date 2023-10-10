@@ -7,6 +7,7 @@ import {
   HeaderItemsWrapper
 } from './styles'
 import { getNavigationsValue } from '@ijl/cli'
+import { useTranslation } from 'react-i18next';
 
 type Link = {
     text: string;
@@ -16,6 +17,7 @@ type Link = {
 const Header: React.FC = (): JSX.Element => {
   const [activeLink, setActiveLink] = useState<string>('')
   const [activeLocalizeBtn, setActiveLocalizeBtn] = useState<string>('ru')
+  const {i18n } = useTranslation();
 
   const handleLinkClick = (link: string): void => {
     setActiveLink(link)
@@ -23,6 +25,7 @@ const Header: React.FC = (): JSX.Element => {
 
   const handleLocalizeClick = (btn: string): void => {
     setActiveLocalizeBtn(btn)
+    i18n.changeLanguage(btn)
   }
 
   const links: Link[] = [
