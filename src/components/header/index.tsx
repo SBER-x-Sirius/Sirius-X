@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
+
 import {
   ContainerHeader, MenuNavigation,
   MenuList, MenuItem,
@@ -15,6 +17,8 @@ type Link = {
   };
 
 const Header: React.FC = (): JSX.Element => {
+  const { i18n, t } = useTranslation();
+
   const [activeLink, setActiveLink] = useState<string>('')
   const [activeLocalizeBtn, setActiveLocalizeBtn] = useState<string>('ru')
 
@@ -25,12 +29,13 @@ const Header: React.FC = (): JSX.Element => {
 
   const handleLocalizeClick = (btn: string): void => {
     setActiveLocalizeBtn(btn);
+    i18n.changeLanguage(btn);
   }
 
   const links: Link[] = [
-    { text: 'Расписание', url: 'sirius-x.schedule' },
-    { text: 'Посещаемость', url: 'sirius-x.attendance' },
-    { text: 'Успеваемость', url: 'sirius-x.statistics' }
+    { text:  t('main:header.menuLinks.schedule'), url: 'sirius-x.schedule' },
+    { text: t('main:header.menuLinks.attendance'), url: 'sirius-x.attendance' },
+    { text: t('main:header.menuLinks.statistic'), url: 'sirius-x.statistics' }
   ]
 
   const linkElements = links.map((link) => (
@@ -71,9 +76,9 @@ const Header: React.FC = (): JSX.Element => {
                     >en</LocalizeButton>
                 </LocalizeWrapper>
                 <ProfileLink to={'#'}>
-                    Личный кабинет
+                    {t('main:header.menuLinks.profile')}
                 </ProfileLink>
-                <LogOutSvg src={LogOutSVG} alt="Кнопка выхода из личного кабинета" />
+                <LogOutSvg src={LogOutSVG} alt={t('main:header.logoutIcon')} />
             </HeaderItemsWrapper>
         </ContainerHeader>
   )

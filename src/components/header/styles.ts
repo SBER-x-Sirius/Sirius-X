@@ -80,6 +80,7 @@ export const LocalizeButton = styled.button<MenuLinkProps>`
   color: ${primaryTextColor};
   background-color: ${props => props.activeLocalizeButton ? activeMenuLinkBackground : 'transparent'};
   transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
 `
 
 export const ProfileLink = styled(Link)`
