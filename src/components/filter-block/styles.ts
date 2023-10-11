@@ -1,14 +1,14 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const FilterContainer = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
   border-radius: 15px;
   margin-top: 35px;
   background-color: white;
   flex-direction: column;
   justify-content: center;
-`
+`;
 
 export const FilterSwitchContainer = styled.ul`
   display: flex;
@@ -17,7 +17,7 @@ export const FilterSwitchContainer = styled.ul`
   gap: 50px;
   border-bottom: 1px solid #f4f4f9;
   margin: 20px 20px 0 20px;
-`
+`;
 
 export const FilterSwitchItems = styled.li<{ active: boolean }>`
   margin: 0;
@@ -27,7 +27,7 @@ export const FilterSwitchItems = styled.li<{ active: boolean }>`
   color: ${({ active }) => (active ? '#97ABE0' : 'black')};
   font-weight: ${({ active }) => (active ? '500' : '400')};
   cursor: pointer;
-`
+`;
 
 export const CheckboxContainer = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ export const CheckboxContainer = styled.div`
   & p {
     margin: 0;
   }
-`
+`;
 
 export const CheckboxInput = styled.div<{ color: string }>`
   display: flex;
@@ -63,4 +63,4 @@ export const CheckboxInput = styled.div<{ color: string }>`
   label {
     cursor: pointer;
   }
-`
+`;
