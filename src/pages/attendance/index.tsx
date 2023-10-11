@@ -1,5 +1,5 @@
 import React from 'react';
-import SessionPage from './sessionPage';
+import SessionPage from './accession';
 import Sidebar from './sidebar';
 import menu from './sidebar/data';
 import { AttendanceWrapper } from './style';
