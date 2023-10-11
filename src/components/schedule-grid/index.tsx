@@ -1,67 +1,28 @@
 import React from 'react'
-import { ScheduleContainer, Day, LeftSide, RightSide, Separator, ChooseWeek, Whitespace } from './styles'
-import ScheduleCell from '../schedule-cell';
+import { ScheduleContainer, ChooseWeek, Whitespace } from './styles'
 import RightArrow from '../../assets/svg/right-arrow.svg';
 import LeftArrow from '../../assets/svg/left-arrow.svg';
 import {WeekData} from '../../pages/schedule/test-data';
+import {useTranslation} from 'react-i18next';
+import ScheduleContent, {ScheduleData} from './schedule-content';
 
-const ScheduleGrid = (props: any): JSX.Element => {
-    const {data} = props;
 
-    const content = (schedule) => {
-        const scheduleElements = [];
+const ScheduleGrid = ({data}: ScheduleData): JSX.Element => {
 
-        for (const dayKey in schedule) {
-            // eslint-disable-next-line no-prototype-builtins
-            if (schedule.hasOwnProperty(dayKey)) {
-                const day = schedule[dayKey];
-                let lessonCounter = 0;
-
-                const dayElement = (
-                    <Day key={dayKey}>
-                        <LeftSide>
-                            <div>{day.date}</div>
-                            <div>{day.day}</div>
-                        </LeftSide>
-                        <RightSide className="lessons">
-                            {Object.keys(day.lessons).map((lessonKey) => {
-                                const lesson = day.lessons[lessonKey];
-                                lessonCounter++;
-                                return (
-                                    <>
-                                        <div key={lessonKey} className="lesson">
-                                            <ScheduleCell data={{lessonKey, ...lesson}}/>
-                                        </div>
-                                        {lessonCounter !== Object.keys(day.lessons).length && (
-                                            <Separator/>
-                                        )}
-                                    </>
-
-                                );
-                            })}
-                        </RightSide>
-                    </Day>
-                );
-
-                scheduleElements.push(dayElement);
-            }
-        }
-
-        return <div className="schedule">{scheduleElements}</div>;
-    }
+    const { t } = useTranslation();
 
     return (
         <ScheduleContainer>
             <ChooseWeek>
-                <img src={LeftArrow} alt="Назад" />
+                <img src={LeftArrow} alt={t('schedule:scheduleTranslation.scheduleGrid.backIcon')} />
                 <Whitespace/>
-                <img src={RightArrow} alt="Вперед" />
+                <img src={RightArrow} alt={t('schedule:scheduleTranslation.scheduleGrid.forwardIcon')} />
                 <Whitespace/>
-                {WeekData.month} {WeekData.year} ({WeekData.week} неделя)
+                {WeekData.month} {WeekData.year} ({WeekData.week} {t('schedule:scheduleTranslation.scheduleGrid.week')})
             </ChooseWeek>
-            {content(data)}
+            <ScheduleContent data={data}/>
         </ScheduleContainer>
     )
 }
 
-export default ScheduleGrid
+export default ScheduleGrid;

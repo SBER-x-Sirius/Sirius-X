@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ScheduleContainer = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
   border-radius: 15px;
   margin-top: 35px;
   background-color: white;
@@ -16,7 +16,7 @@ export const Day = styled.div`
   display: flex;
   border: 1px solid;
   border-radius: 15px;
-  min-width: 75vw;
+  min-width: 80vw;
   margin: 20px 0;
   overflow: hidden;
 `;
@@ -36,8 +36,8 @@ export const RightSide = styled.div``;
 export const Separator = styled.div`
   background-color: #97ABE0;
   margin: 0 2vw;
-  height: 2px;
-  min-width: 68vw;
+  height: 1px;
+  min-width: 71vw;
 `;
 
 export const ChooseWeek = styled.div`

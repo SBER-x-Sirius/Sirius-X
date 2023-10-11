@@ -1,1 +1,9 @@
-{}
+{
+  "scheduleGrid": {
+    "infoIcon": "Information Icon",
+    "mapIcon": "Map icon",
+    "backIcon": "Back",
+    "forwardIcon": "Forward",
+    "week": "week"
+  }
+}

@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const ScheduleItem = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 24px 2vw;
+  margin: 20px 2vw;
   font-size: 14px;
 `
 export const MainBlock = styled.div``
 export const Header = styled.div`
   display: flex;
-  padding: 8px 0;
+  padding: 4px 0;
 `
 export const Number = styled.div`
   display: flex;
@@ -24,13 +24,13 @@ export const Time = styled.div`
 export const Name = styled.div`
   display: flex;
   font-weight: bold;
-  padding: 8px 0;
+  padding: 4px 0;
   font-size: 16px;
 `
 export const Place = styled.div`
   margin-left: -4px;
   display: flex;
-  padding: 8px 0;
+  padding: 4px 0;
   text-align: center;
 `
 export const PlaceText = styled.div`
@@ -38,5 +38,5 @@ export const PlaceText = styled.div`
 `
 export const Teacher = styled.div`
   display: flex;
-  padding: 8px 0;
+  padding: 4px 0;
 `

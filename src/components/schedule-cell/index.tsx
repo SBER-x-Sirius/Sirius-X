@@ -2,25 +2,37 @@ import React from 'react';
 import { ScheduleItem, Time, Name, Place, Teacher, MainBlock, PlaceText, Header, Number } from './styles';
 import Map from '../../assets/svg/map.svg';
 import Info from '../../assets/svg/info.svg';
+import {useTranslation} from 'react-i18next';
+
+type propsScheduleCell = {
+    data: {
+        lessonKey: string,
+        name: string,
+        placeActivity: string,
+        teacher: string,
+        time: string,
+    }
+};
 
 
-const ScheduleCell = (data) => {
-    const { lessonKey, time, name, placeActivity, teacher } = data.data;
+const ScheduleCell = ({data}: propsScheduleCell): JSX.Element => {
+
+    const { t } = useTranslation();
 
     return (
         <ScheduleItem>
             <MainBlock>
                 <Header>
-                    <Number>{lessonKey}</Number>
-                    <Time>{time}</Time>
-                    <img src={Info} alt="Иконка информации" />
+                    <Number>{data.lessonKey}</Number>
+                    <Time>{data.time}</Time>
+                    <img src={Info} alt={t('schedule:scheduleTranslation.scheduleGrid.infoIcon')} />
                 </Header>
-                <Name>{name}</Name>
+                <Name>{data.name}</Name>
                 <Place>
-                    <img src={Map} alt="Иконка карты" />
-                    <PlaceText>{placeActivity}</PlaceText>
+                    <img src={Map} alt={t('schedule:scheduleTranslation.scheduleGrid.mapIcon')} />
+                    <PlaceText>{data.placeActivity}</PlaceText>
                 </Place>
-                <Teacher>{teacher}</Teacher>
+                <Teacher>{data.teacher}</Teacher>
             </MainBlock>
         </ScheduleItem>
     );
