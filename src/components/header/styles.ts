@@ -23,9 +23,10 @@ export const ContainerHeader = styled.header`
   background-color: ${primaryBackgroundColor};
   border-radius: 30px
 `
+
 export const MenuNavigation = styled.nav`
   height: 100%;
-`
+`;
 
 export const MenuList = styled.ul`
   display: flex;
@@ -34,14 +35,14 @@ export const MenuList = styled.ul`
   margin: 0;
   padding: 0;
   gap: 5px;
-`
+`;
 
 export const MenuItem = styled.li`
   display: flex;
   align-items: center;
   list-style: none;
   height: 100%;
-`
+`;
 
 export const MenuLink = styled(Link)<MenuLinkProps>`
   display: flex;
@@ -108,4 +109,4 @@ export const HeaderItemsWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
-`
+`;

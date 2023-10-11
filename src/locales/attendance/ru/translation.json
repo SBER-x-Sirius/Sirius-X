@@ -1,3 +1,6 @@
 {
-    
+  "sessionForm": {
+    "inputPlaceholder": "Введите код сессии",
+    "btnText": "Подключиться"
+  }
 }

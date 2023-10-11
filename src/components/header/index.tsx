@@ -12,9 +12,9 @@ import { getNavigationsValue } from '@ijl/cli'
 import LogOutSVG from '../../assets/svg/log-out.svg';
 
 type Link = {
-    text: string;
-    url: string;
-  };
+  text: string;
+  url: string;
+};
 
 const Header: React.FC = (): JSX.Element => {
   const { i18n, t } = useTranslation();
@@ -84,4 +84,4 @@ const Header: React.FC = (): JSX.Element => {
   )
 }
 
-export default Header
+export default Header;
