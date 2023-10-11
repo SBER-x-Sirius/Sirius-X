@@ -18,7 +18,7 @@ import ProgrammersLogo from '../../../assets/svg/ProgrammersLogo.svg';
 import SystemAdministratorsLogo from '../../../assets/svg/SystemAdministratorsLogo.svg';
 import ComputerComplexLogo from '../../../assets/svg/ComputerComplexLogo.svg';
 
-const SpecialtyBlock: React.FC = () => {
+const SpecialtyBlock: React.FC = (): JSX.Element => {
   const { t } = useTranslation();
   const specialtyData = [
     {
