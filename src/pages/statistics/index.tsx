@@ -1,8 +1,17 @@
 import React from 'react';
 import SpecialtyBlock from './specialtyBlock';
-const Statistics = () => {
+import { useTheme } from '@mui/material';
+import LineChart from './lineEchart';
+const Statistics = (): JSX.Element => {
+  const theme = useTheme();
   return (
+    <>
       <SpecialtyBlock/>
+      <LineChart
+          height="350px"
+          color={[theme.palette.primary.main, theme.palette.primary.light]}
+        />
+      </>
 );
 };
 
