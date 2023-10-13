@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FilterContainer = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
   border-radius: 15px;
   margin-top: 35px;
   background-color: white;
