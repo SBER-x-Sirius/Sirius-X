@@ -1,1 +1,17 @@
-{}
+{
+  "filterBlock": {
+    "title": "Display events",
+    "typesClass": {
+      "lectures": "Lectures",
+      "seminars": "Seminars",
+      "practicals": "Practicals",
+      "labs": "Labs",
+      "exams": "Exams",
+      "other": "Other"
+    },
+    "typesTab": {
+      "group": "Group",
+      "teacher": "Teacher"
+    }
+  }
+}
