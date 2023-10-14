@@ -5,5 +5,19 @@
     "backIcon": "Назад",
     "forwardIcon": "Вперед",
     "week": "неделя"
-  }
+  },
+  "filterBlock": {
+    "title": "Отображать события",
+    "typesClass": {
+      "lectures": "Лекции",
+      "seminars": "Семинары",
+      "practicals": "Практ.занятия",
+      "labs": "Лаб.занятия",
+      "exams": "Экзамены(зачеты)",
+      "other": "Прочее"
+    },
+    "typesTab": {
+      "group": "Группа",
+      "teacher": "Преподаватель"
+    }
 }

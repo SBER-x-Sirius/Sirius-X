@@ -1,7 +1,9 @@
 import React from 'react';
-
+import SpecialtyBlock from './specialtyBlock';
 const Statistics = () => {
-  return <h1>Statistics page</h1>;
+  return (
+      <SpecialtyBlock/>
+);
 };
 
 export default Statistics;
