@@ -1,4 +1,11 @@
 {
+  "scheduleGrid": {
+    "infoIcon": "Иконка информации",
+    "mapIcon": "Иконка карты",
+    "backIcon": "Назад",
+    "forwardIcon": "Вперед",
+    "week": "неделя"
+  },
   "filterBlock": {
     "title": "Отображать события",
     "typesClass": {
@@ -13,5 +20,4 @@
       "group": "Группа",
       "teacher": "Преподаватель"
     }
-  }
 }
