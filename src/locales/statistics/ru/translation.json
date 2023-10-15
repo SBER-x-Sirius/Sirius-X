@@ -17,5 +17,16 @@
       "informationSecurity": "144 чел.",
       "hotelBusiness": "133 чел."
     }
+  },
+  "studentsTable": {
+    "header": "Статистика по каждому студенту",
+    "course": "курс",
+    "tableHeaders": {
+      "person": "Личность",
+      "attendance": "Посещаемость",
+      "rating": "Оценка",
+      "scholarship": "Стипендия",
+      "paid": "Бюджет/платка"
+    }
   }
 }

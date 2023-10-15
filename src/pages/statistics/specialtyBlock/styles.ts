@@ -4,7 +4,6 @@ export const SpecialtyBlockContainer = styled.div`
   position: relative;
   width: 415px;
   height: 581px;
-  top: 600px;
   padding: 12px;
   background: #ffffff;
   border-radius: 15px;

@@ -1,7 +1,7 @@
 {
   "specialtyBlock": {
     "header": "Choose your area of study",
-    "subheader": "Choose the direction of study.",
+    "subheader": "Choose the direction of study",
     "buttonText": "More details",
     "specialties": {
       "systemAdministrators": "System Administrators",
@@ -16,6 +16,17 @@
       "computerComplexes": "228 people",
       "informationSecurity": "144 people",
       "hotelBusiness": "133 people"
+    }
+  },
+  "studentsTable": {
+    "header": "Student statistics",
+    "course": "course",
+    "tableHeaders": {
+      "person": "Student",
+      "attendance": "Attendance",
+      "rating": "Perfomance",
+      "scholarship": "Scholarship",
+      "paid": "Free/paid"
     }
   }
 }
