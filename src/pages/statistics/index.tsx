@@ -1,7 +1,9 @@
 import React from 'react';
-
+import StudentsTableBlock from './studentsTable';
 const Statistics = () => {
-  return <h1>Statistics page</h1>;
+  return (
+      <StudentsTableBlock/>
+  )
 };
 
 export default Statistics;
