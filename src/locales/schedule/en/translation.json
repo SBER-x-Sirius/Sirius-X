@@ -1,4 +1,11 @@
 {
+  "scheduleGrid": {
+    "infoIcon": "Information Icon",
+    "mapIcon": "Map icon",
+    "backIcon": "Back",
+    "forwardIcon": "Forward",
+    "week": "week"
+  },
   "filterBlock": {
     "search": "Search...",
     "title": "Display events",

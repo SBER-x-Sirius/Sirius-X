@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const ScheduleContainer = styled.div`
   display: flex;
-  align-content: center;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 100%;
 `;
