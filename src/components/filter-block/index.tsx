@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { CheckboxContainer, CheckboxInput, FilterContainer, FilterSwitchContainer, FilterSwitchItems } from './styles';
 import { useTranslation } from 'react-i18next';
+import Input from '../input'
 
-export const FilterBlock = () => {
+export const FilterBlock = (): JSX.Element => {
   const { t } = useTranslation();
   const checkboxes = [
     { id: 'lectures', label: 'Лекции', color: '#1CB87F' },
@@ -13,7 +14,8 @@ export const FilterBlock = () => {
     { id: 'other', label: 'Прочее', color: '#312E81' }
   ];
 
-  const [activeTab, setActiveTab] = useState<string>('Группа');
+  const [activeTab, setActiveTab] = useState<string>('Группа')
+  const [valueInput, setValueInput] = useState<string>('');
 
   const handleActive = (buttonName: string) => {
     setActiveTab(buttonName);
@@ -52,11 +54,11 @@ export const FilterBlock = () => {
           {t('schedule:scheduleTranslation.filterBlock.typesTab.teacher')}
         </FilterSwitchItems>
       </FilterSwitchContainer>
-
       <CheckboxContainer>
         <p>{t('schedule:scheduleTranslation.filterBlock.title')}:</p>
         {checkboxElements}
       </CheckboxContainer>
+      <Input value={valueInput} setValue={setValueInput} />
     </FilterContainer>
   );
 };
