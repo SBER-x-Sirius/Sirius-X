@@ -3,7 +3,7 @@ import BaseForm from '../../../components/form';
 import { SessionFormContent, SessionInput, SessionButton } from './style';
 import { useTranslation } from 'react-i18next';
 
-const SessionPage: React.FC = (): JSX.Element => {
+const Accession: React.FC = (): JSX.Element => {
   const { t } = useTranslation();
 
   return (
@@ -18,4 +18,4 @@ const SessionPage: React.FC = (): JSX.Element => {
   );
 };
 
-export default SessionPage;
+export default Accession;

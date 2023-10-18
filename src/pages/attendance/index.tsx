@@ -1,5 +1,5 @@
 import React from 'react';
-import SessionPage from './accession';
+import Accession from './accession';
 import Sidebar from './sidebar';
 import menu from './sidebar/data';
 import { AttendanceWrapper } from './style';
@@ -9,7 +9,7 @@ const Attendance = () => {
     <>
       <AttendanceWrapper>
         <Sidebar menu={menu} />
-        <SessionPage />
+        <Accession />
       </AttendanceWrapper>
     </>
   );

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Container, GlobalStyle } from '../global-styled';
 import Header from './components/header';
 import Attendance from './pages/attendance';
-import { Accession } from './pages/attendance/accession';
+import Accession from './pages/attendance/accession';
 import { Meeting } from './pages/attendance/meeting';
 import { NewMeeting } from './pages/attendance/new-meeting';
 import { Users } from './pages/attendance/users';
