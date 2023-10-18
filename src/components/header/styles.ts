@@ -19,7 +19,7 @@ export const ContainerHeader = styled.header`
   max-width: 100%;
   padding: 0 22px 0 7px;
   margin: 28px 0 0;
-  height: 50px;
+  min-height: 50px;
   background-color: ${primaryBackgroundColor};
   border-radius: 30px
 `

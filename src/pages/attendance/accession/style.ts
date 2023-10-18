@@ -12,7 +12,8 @@ export const SessionInput = styled.input`
   padding: 14px 16px;
   border-radius: 35px;
   border: 0;
-  width: 420px;
+  outline: none;
+  width: 400px;
   font-size: 16px;
   color: rgb(93, 101, 104);
 `;
