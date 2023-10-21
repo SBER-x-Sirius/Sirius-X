@@ -1,1 +1,21 @@
-{}
+{   
+  "specialtyBlock": {
+    "header": "Выбор направления обучения",
+    "subheader": "Выберите направление",
+    "buttonText": "Подробнее",
+    "specialties": {
+      "systemAdministrators": "Системные администраторы",
+      "programmers": "Информационные системы и программирование",
+      "computerComplexes": "Компьютерные комплексы",
+      "informationSecurity": "Информационная безопасность",
+      "hotelBusiness": "Гостиничное дело"
+    },
+    "numbers": {
+      "systemAdministrators": "180 чел.",
+      "programmers": "123 чел.",
+      "computerComplexes": "228 чел.",
+      "informationSecurity": "144 чел.",
+      "hotelBusiness": "133 чел."
+    }
+  }
+}

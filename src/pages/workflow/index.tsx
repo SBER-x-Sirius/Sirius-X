@@ -59,7 +59,6 @@ const Workflow = () => {
     event.preventDefault()
     workflowApiGateway({ cmd: 'start', name: 'firstFlow' })
   }
-  console.log('result', result)
   if (result?.data) {
     const Component = process[result?.data?.flowName][result?.data?.stateName]
     if (Component) {

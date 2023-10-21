@@ -1,1 +1,6 @@
-{}
+{
+  "sessionForm": {
+    "inputPlaceholder": "Enter session code",
+    "btnText": "Connect"
+  }
+}

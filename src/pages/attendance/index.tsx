@@ -1,7 +1,18 @@
 import React from 'react';
+import Accession from './accession';
+import Sidebar from './sidebar';
+import menu from './sidebar/data';
+import { AttendanceWrapper } from './style';
 
 const Attendance = () => {
-  return <h1>Attendance page</h1>;
+  return (
+    <>
+      <AttendanceWrapper>
+        <Sidebar menu={menu} />
+        <Accession />
+      </AttendanceWrapper>
+    </>
+  );
 };
 
 export default Attendance;

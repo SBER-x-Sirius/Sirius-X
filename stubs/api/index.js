@@ -29,8 +29,6 @@ router.post('/workflow', (req, res) => {
     req.session.workflow.stateName = stateName
   }
 
-  console.log(req.session.workflow)
-
   res.send({ flowName, stateName })
 })
 

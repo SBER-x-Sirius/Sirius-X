@@ -6,6 +6,6 @@ const menu = [
   { alt: '', title: '', src: SidebarButton, key: '' },
   { alt: '', title: '', src: SidebarButton, key: '' },
   { alt: '', title: '', src: SidebarButton, key: '' }
-]
+];
 
 export default menu;
