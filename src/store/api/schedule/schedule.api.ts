@@ -1,16 +1,18 @@
-import { createApi } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Schedule } from './types';
-import { baseQuery } from '../../utils';
+import { config } from '../../config';
 
 export const apiSchedule = createApi({
   reducerPath: 'apiSchedule',
-  baseQuery,
-  // baseQuery: fetchBaseQuery({ baseUrl: 'http://212.193.62.200:3007/api/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: config.baseScheduleAPI }),
   endpoints: (builder) => ({
     getAllSchedule: builder.query<Schedule[], void>({
       query: () => '/schedule',
+    }),
+    getScheduleById: builder.query<Schedule, string>({
+      query: scheduleId => `/schedule/${scheduleId}`
     })
   })
 });
 
-export const { useGetAllScheduleQuery } = apiSchedule;
+export const { useGetAllScheduleQuery, useGetScheduleByIdQuery } = apiSchedule;
