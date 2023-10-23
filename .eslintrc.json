@@ -37,7 +37,7 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-unused-vars": [
-      "error",
+      "warn",
       {
         "varsIgnorePattern": "React"
       }

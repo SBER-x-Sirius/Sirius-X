@@ -2,5 +2,10 @@
   "sessionForm": {
     "inputPlaceholder": "Enter session code",
     "btnText": "Connect"
+  },
+  "new-meeting": {
+    "groupSelector": "Select groups",
+    "userSelector": "Add other teachers",
+    "buttonTitle": "Create a new meeting"
   }
 }
