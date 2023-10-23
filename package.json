@@ -1,7 +1,7 @@
 {
   "name": "sirius-x",
   "description": "",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "./src/index.tsx",
   "scripts": {
     "start": "ijl-cli server --port=8099 --with-open-browser",
