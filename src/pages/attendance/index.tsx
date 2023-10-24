@@ -1,14 +1,13 @@
 import React from 'react';
 import Accession from './accession';
-import Sidebar from './sidebar';
-import menu from './sidebar/data';
 import { AttendanceWrapper } from './style';
+import Sidebar from '../../components/sidebar';
 
 const Attendance = () => {
   return (
     <>
       <AttendanceWrapper>
-        <Sidebar menu={menu} />
+        <Sidebar />
         <Accession />
       </AttendanceWrapper>
     </>

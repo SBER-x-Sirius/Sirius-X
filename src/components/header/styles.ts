@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 type MenuLinkProps = {
   activeMenuLink?: boolean;
   activeLocalizeButton?: boolean;
-}
+};
 
 const primaryBackgroundColor = '#FFFFFF';
 const primaryTextColor = '#343F42';
-const activeMenuLinkColor = '#FFFFFF'
+const activeMenuLinkColor = '#FFFFFF';
 const activeMenuLinkBackground = '#97ABE0';
 const localizeBackground = '#F4F4F9';
 
@@ -21,8 +21,8 @@ export const ContainerHeader = styled.header`
   margin: 28px 0 0;
   min-height: 50px;
   background-color: ${primaryBackgroundColor};
-  border-radius: 30px
-`
+  border-radius: 30px;
+`;
 
 export const MenuNavigation = styled.nav`
   height: 100%;
@@ -52,10 +52,12 @@ export const MenuLink = styled(Link)<MenuLinkProps>`
   text-decoration: none;
   min-width: 160px;
   height: 40px;
-  background-color: ${props => props.activeMenuLink ? activeMenuLinkBackground : 'transparent' };
-  color: ${props => props.activeMenuLink ? activeMenuLinkColor : primaryTextColor };
-  transition: background-color 0.3s, color 0.3s;
-`
+  background-color: ${(props) => (props.activeMenuLink ? activeMenuLinkBackground : 'transparent')};
+  color: ${(props) => (props.activeMenuLink ? activeMenuLinkColor : primaryTextColor)};
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+`;
 
 export const LocalizeWrapper = styled.div`
   display: flex;
@@ -66,7 +68,7 @@ export const LocalizeWrapper = styled.div`
   min-width: 60px;
   min-height: 24px;
   background-color: ${localizeBackground};
-`
+`;
 
 export const LocalizeButton = styled.button<MenuLinkProps>`
   display: flex;
@@ -79,10 +81,12 @@ export const LocalizeButton = styled.button<MenuLinkProps>`
   border: 0;
   border-radius: 35px;
   color: ${primaryTextColor};
-  background-color: ${props => props.activeLocalizeButton ? activeMenuLinkBackground : 'transparent'};
-  transition: background-color 0.3s, color 0.3s;
+  background-color: ${(props) => (props.activeLocalizeButton ? activeMenuLinkBackground : 'transparent')};
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   cursor: pointer;
-`
+`;
 
 export const ProfileLink = styled(Link)`
   display: flex;
@@ -93,17 +97,19 @@ export const ProfileLink = styled(Link)`
   text-decoration: none;
   min-width: 160px;
   height: 40px;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 
   &:hover {
     background-color: ${activeMenuLinkBackground};
     color: ${activeMenuLinkColor};
   }
-`
+`;
 
 export const LogOutSvg = styled.img`
   cursor: pointer;
-`
+`;
 
 export const HeaderItemsWrapper = styled.div`
   display: flex;
