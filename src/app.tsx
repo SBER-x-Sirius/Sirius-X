@@ -10,13 +10,16 @@ import { Users } from './pages/attendance/users';
 import Main from './pages/main';
 import { Schedule } from './pages/schedule';
 import Statistics from './pages/statistics';
+import Workflow from './pages/workflow';
+
+export const BASE_PATH = '/sirius-x';
 
 const App = () => {
   return (
     <BrowserRouter>
       <GlobalStyle />
       <Container>
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path={'sirius-x'}>
             <Route index element={<Main />} />
@@ -27,6 +30,7 @@ const App = () => {
               <Route path={'meeting/:meetingId'} element={<Meeting />} />
               <Route path={'users'} element={<Users />} />
             </Route>
+            <Route path={'workflow'} element={<Workflow />} />
             <Route path={'schedule'} element={<Schedule />} />
             <Route path={'statistics'} element={<Statistics />} />
           </Route>
