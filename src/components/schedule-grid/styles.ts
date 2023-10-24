@@ -24,7 +24,18 @@ export const Day = styled.div`
 export const LeftSide = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #97ABE0;
+  background-color: #97abe0;
+  color: white;
+  overflow: hidden;
+  min-width: 50px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const LeftSideCurrent = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #605dc7;
   color: white;
   overflow: hidden;
   min-width: 50px;
@@ -34,7 +45,7 @@ export const LeftSide = styled.div`
 export const RightSide = styled.div``;
 
 export const Separator = styled.div`
-  background-color: #97ABE0;
+  background-color: #97abe0;
   margin: 0 2vw;
   height: 1px;
   min-width: 71vw;
@@ -44,9 +55,9 @@ export const ChooseWeek = styled.div`
   margin-top: 20px;
   margin-left: 4%;
   display: flex;
-  color: #97ABE0;
+  color: #97abe0;
   align-self: flex-start;
-`
+`;
 export const Whitespace = styled.div`
   width: 10px;
-`
+`;
