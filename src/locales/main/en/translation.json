@@ -1,12 +1,11 @@
 {
-    "header": {
-      "menuLinks": {
-        "schedule": "Schedule",
-        "attendance": "Attendance",
-        "statistic": "Statistic",
-        "profile": "Profile"
-      },
-      "logoutIcon": "button exit personal account"
-    }
+  "header": {
+    "menuLinks": {
+      "schedule": "Schedule",
+      "attendance": "Attendance",
+      "statistic": "Statistic",
+      "profile": "Profile"
+    },
+    "logoutIcon": "button exit personal account"
   }
-  
+}

@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Accession from './accession';
+import { AttendanceWrapper } from './style';
+import Sidebar from '../../components/sidebar';
 import { Navigate } from 'react-router-dom';
 
 const Attendance = () => {
@@ -7,6 +10,7 @@ const Attendance = () => {
 
   return (
     <>
+      <Sidebar />
       {isStudent ? (
         <Navigate to={location.pathname.concat('/accession')} replace />
       ) : (

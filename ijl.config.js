@@ -26,6 +26,9 @@ module.exports = {
     'sirius-x.main': '/sirius-x',
     'sirius-x.schedule': '/sirius-x/schedule',
     'sirius-x.attendance': '/sirius-x/attendance',
+    'sirius-x.attendance.new-meeting': '/sirius-x/attendance/new-meeting',
+    'sirius-x.attendance.accession': '/sirius-x/attendance/accession',
+    'sirius-x.attendance.users': '/sirius-x/attendance/users',
     'sirius-x.statistics': '/sirius-x/statistics'
   },
   features: {

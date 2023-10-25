@@ -2,10 +2,9 @@ import { t } from 'i18next';
 import React, { useState } from 'react';
 import BaseForm from '../../../components/form';
 import { SessionButton, SessionFormContent } from '../accession/style';
-import Sidebar from '../sidebar';
-import menu from '../sidebar/data';
 import { AttendanceWrapper } from '../style';
 import { AttendanceSelector } from '../../../components/attendance-selector';
+import Sidebar from '../../../components/sidebar';
 
 export type AttendanceUser = {
   id: string;
@@ -65,7 +64,7 @@ export const NewMeeting: React.FC = (): JSX.Element => {
 
   return (
     <AttendanceWrapper>
-      <Sidebar menu={menu} />
+      <Sidebar />
       <BaseForm>
         <SessionFormContent>
           <AttendanceSelector selectItem={groups} onSelectionChange={handleGroupSelection} />

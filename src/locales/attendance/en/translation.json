@@ -3,6 +3,20 @@
     "inputPlaceholder": "Enter session code",
     "btnText": "Connect"
   },
+  "sidebar": {
+    "newMeeting": {
+      "alt": "create meeting",
+      "title": "Create meeting"
+    },
+    "accession": {
+      "alt": "connect to meeting",
+      "title": "Connect to meeting"
+    },
+    "getUsers": {
+      "alt": "get list of users",
+      "title": "Get list of users"
+    }
+  },
   "new-meeting": {
     "groupSelector": "Select groups",
     "userSelector": "Add other teachers",
