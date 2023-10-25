@@ -1,16 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-    SpecialtyBlockContainer,
-    Header,
-    Subheader,
-    SpecialtyBlockContainerList,
-    ListItem,
-    ListItemText,
-    ListItemImageBlock,
-    ListItemImage,
-    ListItemNum,
-    Button
+  SpecialtyBlockContainer,
+  Header,
+  Subheader,
+  SpecialtyBlockContainerList,
+  ListItem,
+  ListItemText,
+  ListItemImageBlock,
+  ListItemImage,
+  ListItemNum,
+  Button
 } from './styles';
 import HotelBusinessLogo from '../../../assets/svg/HotelBusinessLogo.svg';
 import InformationSecurityLogo from '../../../assets/svg/InformationSecurityLogo.svg';
@@ -49,23 +49,23 @@ const SpecialtyBlock: React.FC = (): JSX.Element => {
   ];
 
   return (
-        <SpecialtyBlockContainer>
-            <Header>{t('statistics:statisticsTranslation.specialtyBlock.header')}</Header>
-            <Subheader>{t('statistics:statisticsTranslation.specialtyBlock.subheader')}</Subheader>
-            <SpecialtyBlockContainerList>
-              {specialtyData.map((specialty, index) => (
-                <ListItem key={index}>
-                <ListItemImageBlock>
-                <ListItemImage src={specialty.logoSrc} />
-                </ListItemImageBlock>
-                <ListItemText>{t(specialty.text)}</ListItemText>
-                <ListItemNum>{t(specialty.num)}</ListItemNum>
-                </ListItem>
-              ))}
-            </SpecialtyBlockContainerList>
-            <Button>{t('statistics:statisticsTranslation.specialtyBlock.buttonText')}</Button>
-        </SpecialtyBlockContainer>
-    );
+    <SpecialtyBlockContainer>
+      <Header>{t('statistics:statisticsTranslation.specialtyBlock.header')}</Header>
+      <Subheader>{t('statistics:statisticsTranslation.specialtyBlock.subheader')}</Subheader>
+      <SpecialtyBlockContainerList>
+        {specialtyData.map((specialty, index) => (
+          <ListItem key={index}>
+            <ListItemImageBlock>
+              <ListItemImage src={specialty.logoSrc} />
+            </ListItemImageBlock>
+            <ListItemText>{t(specialty.text)}</ListItemText>
+            <ListItemNum>{t(specialty.num)}</ListItemNum>
+          </ListItem>
+        ))}
+      </SpecialtyBlockContainerList>
+      <Button>{t('statistics:statisticsTranslation.specialtyBlock.buttonText')}</Button>
+    </SpecialtyBlockContainer>
+  );
 };
 
 export default SpecialtyBlock;

@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import Sidebar from '../../../components/sidebar';
 import BaseForm from '../../../components/form';
-import Sidebar from '../sidebar';
-import menu from '../sidebar/data';
 import { AttendanceWrapper } from '../style';
 import { SessionButton, SessionFormContent, SessionInput } from './style';
 
@@ -11,7 +10,7 @@ const Accession: React.FC = (): JSX.Element => {
 
   return (
     <AttendanceWrapper>
-      <Sidebar menu={menu} />
+      <Sidebar />
       <BaseForm>
         <SessionFormContent>
           <SessionInput type='text' placeholder={t('attendance:attendanceTranslation.sessionForm.inputPlaceholder')} />
