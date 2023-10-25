@@ -7,6 +7,24 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: 400;
   }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #D1D5DB;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #6F7379;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `
 
 export const Container = styled.div`

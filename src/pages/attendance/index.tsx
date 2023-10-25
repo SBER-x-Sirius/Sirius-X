@@ -1,5 +1,4 @@
 import React from 'react';
-import Accession from './accession';
 import { AttendanceWrapper } from './style';
 import Sidebar from '../../components/sidebar';
 
@@ -8,7 +7,7 @@ const Attendance = () => {
     <>
       <AttendanceWrapper>
         <Sidebar />
-        <Accession />
+        <h1>Attendance Main Page</h1>
       </AttendanceWrapper>
     </>
   );
