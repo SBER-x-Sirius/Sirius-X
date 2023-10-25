@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Schedule } from './types';
-import { config } from '../../config';
+import { configApi } from '../../../../configs/config-api';
 
 export const apiSchedule = createApi({
   reducerPath: 'apiSchedule',
-  baseQuery: fetchBaseQuery({ baseUrl: config.baseScheduleAPI }),
+  baseQuery: fetchBaseQuery({ baseUrl: configApi.baseScheduleAPI }),
   endpoints: (builder) => ({
     getAllSchedule: builder.query<Schedule[], void>({
       query: () => '/schedule',

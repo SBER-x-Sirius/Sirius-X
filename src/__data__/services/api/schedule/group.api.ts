@@ -1,11 +1,11 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { Group } from './types';
 import { fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { config } from '../../config';
+import { configApi } from '../../../../configs/config-api';
 
 export const apiScheduleGroup = createApi({
   reducerPath: 'apiScheduleGroup',
-  baseQuery: fetchBaseQuery({ baseUrl: config.baseScheduleAPI }),
+  baseQuery: fetchBaseQuery({ baseUrl: configApi.baseScheduleAPI }),
   endpoints: (builder) => ({
     getAllGroup: builder.query<Group[], void>({
       query: () => '/group'
