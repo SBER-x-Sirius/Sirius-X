@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { attendanceApi } from './api/attendance/user';
+import { attendanceApi } from './services/api/attendance/user';
 
 const rootReducer = combineReducers({
   [attendanceApi.reducerPath]: attendanceApi.reducer
