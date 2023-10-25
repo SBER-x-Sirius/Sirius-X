@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type LeftSideProps = {
-    currentDay?: boolean;
+  currentDay?: boolean;
 };
 
 export const ScheduleContainer = styled.div`
