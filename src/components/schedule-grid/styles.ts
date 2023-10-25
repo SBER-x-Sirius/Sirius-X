@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type LeftSideProps = {
+    currentDay?: boolean;
+};
+
 export const ScheduleContainer = styled.div`
   display: flex;
   width: 100%;
@@ -21,10 +25,10 @@ export const Day = styled.div`
   overflow: hidden;
 `;
 
-export const LeftSide = styled.div`
+export const LeftSide = styled.div<LeftSideProps>`
   display: flex;
   flex-direction: column;
-  background-color: #97abe0;
+  background-color: ${(props) => (props.currentDay ? '#605dc7' : '#97abe0')};
   color: white;
   overflow: hidden;
   min-width: 50px;
@@ -32,16 +36,6 @@ export const LeftSide = styled.div`
   align-items: center;
 `;
 
-export const LeftSideCurrent = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: #605dc7;
-  color: white;
-  overflow: hidden;
-  min-width: 50px;
-  justify-content: center;
-  align-items: center;
-`;
 export const RightSide = styled.div``;
 
 export const Separator = styled.div`
