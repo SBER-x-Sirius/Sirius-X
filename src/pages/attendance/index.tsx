@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Accession from './accession';
 import { AttendanceWrapper } from './style';
 import Sidebar from '../../components/sidebar';
+import { Navigate } from 'react-router-dom';
 
 const Attendance = () => {
+  //TODO: механизм определения роли пользователя
+  const [isStudent, setIsStudent] = useState<boolean>(false);
+
   return (
     <>
-      <AttendanceWrapper>
-        <Sidebar />
-        <Accession />
-      </AttendanceWrapper>
+      <Sidebar />
+      {isStudent ? (
+        <Navigate to={location.pathname.concat('/accession')} replace />
+      ) : (
+        <Navigate to={location.pathname.concat('/new-meeting')} replace />
+      )}
     </>
   );
 };

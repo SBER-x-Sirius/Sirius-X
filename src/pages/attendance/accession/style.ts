@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// TODO: название
 export const SessionFormContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,6 +19,7 @@ export const SessionInput = styled.input`
   color: rgb(93, 101, 104);
 `;
 
+// TODO: название
 export const SessionButton = styled.button`
   padding: 12px 40px;
   border: 0;

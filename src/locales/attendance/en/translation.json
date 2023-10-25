@@ -16,5 +16,10 @@
       "alt": "get list of users",
       "title": "Get list of users"
     }
+  },
+  "new-meeting": {
+    "groupSelector": "Select groups",
+    "userSelector": "Add other teachers",
+    "buttonTitle": "Create a new meeting"
   }
 }

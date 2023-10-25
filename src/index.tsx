@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import App from './app';
-import { store } from './store/store';
+import { store } from './__data__/store';
 import './configs/localization/i18n';
 
 export default () => <App />;
