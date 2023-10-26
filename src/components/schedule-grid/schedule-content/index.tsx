@@ -1,6 +1,7 @@
 import React from 'react';
 import { Day, LeftSide, RightSide, Separator } from '../styles';
 import ScheduleCell from '../../schedule-cell';
+import useCurrentDate from './useCurrentDate';
 
 export type Lesson = {
   time: string;
@@ -18,29 +19,30 @@ type DaySchedule = {
 export type ScheduleData = Record<string, DaySchedule>;
 
 const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
+
+  const { day, date } = useCurrentDate();
   const scheduleElements = [];
 
   for (const dayKey in data) {
     if (Object.prototype.hasOwnProperty.call(data, dayKey)) {
-      const day = data[dayKey];
+      const dataDay = data[dayKey];
       let lessonCounter = 0;
-
       const dayElement = (
         <Day key={dayKey}>
-          <LeftSide>
-            <div>{day.day}</div>
-            <div>{day.date}</div>
+          <LeftSide currentDay={dataDay.day === day && dataDay.date == date}>
+            <div>{dataDay.day}</div>
+            <div>{dataDay.date}</div>
           </LeftSide>
           <RightSide className='lessons'>
-            {Object.keys(day.lessons).map((lessonKey) => {
-              const lesson = day.lessons[lessonKey];
+            {Object.keys(dataDay.lessons).map((lessonKey) => {
+              const lesson = dataDay.lessons[lessonKey];
               lessonCounter++;
               return (
                 <>
                   <div key={lessonKey} className='lesson'>
                     <ScheduleCell data={{ lessonKey, ...lesson }} />
                   </div>
-                  {lessonCounter !== Object.keys(day.lessons).length && <Separator />}
+                  {lessonCounter !== Object.keys(dataDay.lessons).length && <Separator />}
                 </>
               );
             })}
@@ -52,7 +54,7 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
     }
   }
 
-  return <div className='schedule'>{scheduleElements}</div>;
+  return <div>{scheduleElements}</div>;
 };
 
 export default ScheduleContent;

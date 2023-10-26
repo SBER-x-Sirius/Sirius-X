@@ -1,6 +1,6 @@
 export const ScheduleData = {
   1: {
-    date: '18',
+    date: '23',
     day: 'ПН',
     lessons: {
       1: {
@@ -30,7 +30,7 @@ export const ScheduleData = {
     }
   },
   2: {
-    date: '19',
+    date: '24',
     day: 'ВТ',
     lessons: {
       1: {
@@ -60,7 +60,7 @@ export const ScheduleData = {
     }
   },
   3: {
-    date: '20',
+    date: '25',
     day: 'СР',
     lessons: {
       1: {
@@ -72,7 +72,7 @@ export const ScheduleData = {
     }
   },
   4: {
-    date: '21',
+    date: '26',
     day: 'ЧТ',
     lessons: {
       1: {
@@ -90,7 +90,7 @@ export const ScheduleData = {
     }
   },
   5: {
-    date: '22',
+    date: '27',
     day: 'ПТ',
     lessons: {
       1: {
@@ -102,7 +102,7 @@ export const ScheduleData = {
     }
   },
   6: {
-    date: '23',
+    date: '28',
     day: 'СБ',
     lessons: {
       1: {
