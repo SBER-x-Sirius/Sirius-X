@@ -19,6 +19,7 @@ type DaySchedule = {
 export type ScheduleData = Record<string, DaySchedule>;
 
 const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
+
   const { day, date } = useCurrentDate();
   const scheduleElements = [];
 
