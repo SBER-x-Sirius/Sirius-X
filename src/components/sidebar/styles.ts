@@ -18,7 +18,7 @@ export const SidebarMenu = styled.ul`
   left: 30px;
   top: 50%;
   transform: translate(-50%, -50%);
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     border-radius: 0 26px 26px 0;
     width: 40px;
     left: 20px;
@@ -28,7 +28,7 @@ export const SidebarMenu = styled.ul`
 export const SidebarElement = styled.li`
   padding-top: 20px;
   padding-bottom: 20px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding-top: 30px;
     padding-bottom: 30px;
   }
@@ -42,7 +42,7 @@ export const SidebarFocus = styled.div<SidebarFocusProps>`
   &:hover {
     background-color: ${activeBackground};
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 2px;
     margin: 0 2px;
   }
@@ -54,7 +54,7 @@ export const Button = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 20px;
   }
 `;
