@@ -21,5 +21,11 @@
     "groupSelector": "Выберите группы",
     "userSelector": "Добавьте других преподавателей",
     "buttonTitle": "Создать новую встречу"
+  },
+  "session-page": {
+    "groupList": "Присутствующие группы",
+    "shareButton": "Поделиться",
+    "shareButtonAlt": "Кнопка настроек",
+    "TableIconAlt": "Кнопка дополнительных действий"
   }
 }

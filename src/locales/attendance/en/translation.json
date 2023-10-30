@@ -21,5 +21,11 @@
     "groupSelector": "Select groups",
     "userSelector": "Add other teachers",
     "buttonTitle": "Create a new meeting"
+  },
+  "session-page": {
+    "groupList": "Groups attending",
+    "shareButton": "Share",
+    "shareButtonAlt": "Settings button",
+    "TableIconAlt": "Additional action button"
   }
 }
