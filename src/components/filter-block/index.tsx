@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { CheckboxContainer, CheckboxInput, FilterContainer, FilterSwitchContainer, FilterSwitchItems } from './styles';
 import { useTranslation } from 'react-i18next';
 import Input from '../input';
@@ -17,9 +17,9 @@ export const FilterBlock = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState<string>('Группа');
   const [valueInput, setValueInput] = useState<string>('');
 
-  const handleActive = (buttonName: string) => {
+  const handleActive = useCallback((buttonName: string) => {
     setActiveTab(buttonName);
-  };
+  }, [activeTab]);
 
   const checkboxElements = checkboxes.map((checkbox) => {
     const translationKey = `schedule:scheduleTranslation.filterBlock.typesClass.${checkbox.id}`;
