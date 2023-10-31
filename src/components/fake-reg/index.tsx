@@ -1,8 +1,12 @@
+import { getNavigationsValue } from '@ijl/cli';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useRegistrationMutation } from '../../__data__/services/api/attendance/auth';
+import { RegistrationData } from '../../__data__/services/api/attendance/auth/types';
 
 type Fields = {
   firstName?: string;
-  midlleName?: string;
+  middleName?: string;
   lastName?: string;
   email?: string;
   password?: string;
@@ -13,9 +17,11 @@ type FakeRegProps = {
 };
 
 export const FakeReg = (projectTitle: FakeRegProps) => {
+  const navigate = useNavigate();
+  const [attendanceRegistration, { error: attendanceRegistrationSuccess }] = useRegistrationMutation();
   const [fields, setFields] = useState<Fields>({
     firstName: '',
-    midlleName: '',
+    middleName: '',
     lastName: '',
     email: '',
     password: ''
@@ -28,11 +34,13 @@ export const FakeReg = (projectTitle: FakeRegProps) => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     switch (projectTitle.projectTitle) {
       case 'attendance':
-        // тут прописываем вызов нужных запросов
-
+        await attendanceRegistration(fields as RegistrationData);
+        if (!attendanceRegistrationSuccess) {
+          navigate(getNavigationsValue('sirius-x.attendance'), { replace: true });
+        }
         break;
       case 'main':
         // тут прописываем вызов нужных запросов
