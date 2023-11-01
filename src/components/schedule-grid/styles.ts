@@ -69,6 +69,7 @@ export const ChooseWeek = styled.div`
   color: #97abe0;
   align-self: flex-start;
 `;
+
 export const Whitespace = styled.div`
   width: 10px;
 `;
