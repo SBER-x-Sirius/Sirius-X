@@ -14,7 +14,7 @@ export type Lesson = {
   teacher: string;
 };
 
-type DaySchedule = {
+export type DaySchedule = {
   date: string;
   day: string;
   lessons: Record<string, Lesson>;
@@ -23,7 +23,8 @@ type DaySchedule = {
 export type ScheduleData = Record<string, DaySchedule>;
 
 const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
-  const { day, date } = useCurrentDate();
+
+  const { day, date, week } = useCurrentDate(data);
   const scheduleElements = [];
 
   const classTypeFilter = useSelector((state: any) => state.filters.classTypeFilter);
