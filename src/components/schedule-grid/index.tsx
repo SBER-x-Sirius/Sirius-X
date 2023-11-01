@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScheduleContainer, ChooseWeek, Whitespace } from './styles';
+import { ScheduleContainer, ChooseWeek, Whitespace, ScheduleWrapper } from './styles';
 import RightArrow from '../../assets/svg/right-arrow.svg';
 import LeftArrow from '../../assets/svg/left-arrow.svg';
 import { WeekData } from '../../pages/schedule/test-data';
@@ -11,14 +11,16 @@ const ScheduleGrid = ({ data }: ScheduleData): JSX.Element => {
 
   return (
     <ScheduleContainer>
-      <ChooseWeek>
-        <img src={LeftArrow} alt={t('schedule:scheduleTranslation.scheduleGrid.backIcon')} />
-        <Whitespace />
-        <img src={RightArrow} alt={t('schedule:scheduleTranslation.scheduleGrid.forwardIcon')} />
-        <Whitespace />
-        {WeekData.month} {WeekData.year} ({WeekData.week} {t('schedule:scheduleTranslation.scheduleGrid.week')})
-      </ChooseWeek>
-      <ScheduleContent data={data} />
+      <ScheduleWrapper>
+        <ChooseWeek>
+          <img src={LeftArrow} alt={t('schedule:scheduleTranslation.scheduleGrid.backIcon')} />
+          <Whitespace />
+          <img src={RightArrow} alt={t('schedule:scheduleTranslation.scheduleGrid.forwardIcon')} />
+          <Whitespace />
+          {WeekData.month} {WeekData.year} ({WeekData.week} {t('schedule:scheduleTranslation.scheduleGrid.week')})
+        </ChooseWeek>
+        <ScheduleContent data={data} />
+      </ScheduleWrapper>
     </ScheduleContainer>
   );
 };

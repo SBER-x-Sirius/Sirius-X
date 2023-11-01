@@ -8,6 +8,7 @@ type propsScheduleCell = {
   data: {
     lessonKey: string;
     name: string;
+    classType: string;
     placeActivity: string;
     teacher: string;
     time: string;
@@ -25,7 +26,7 @@ const ScheduleCell = ({ data }: propsScheduleCell): JSX.Element => {
           <Time>{data.time}</Time>
           <img src={Info} alt={t('schedule:scheduleTranslation.scheduleGrid.infoIcon')} />
         </Header>
-        <Name>{data.name}</Name>
+        <Name>{`${data.name} (${data.classType})`}</Name>
         <Place>
           <img src={Map} alt={t('schedule:scheduleTranslation.scheduleGrid.mapIcon')} />
           <PlaceText>{data.placeActivity}</PlaceText>
