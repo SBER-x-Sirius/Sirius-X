@@ -16,7 +16,12 @@ export const FilterBlock = (): JSX.Element => {
     { id: 'other', label: 'Прочее', color: '#312E81' }
   ];
 
-  const [activeTab, setActiveTab] = useState<string>('Группа');
+  const tabs = {
+    group: 'schedule:scheduleTranslation.filterBlock.typesTab.group',
+    teacher: 'schedule:scheduleTranslation.filterBlock.typesTab.teacher',
+  };
+
+  const [activeTab, setActiveTab] = useState<string>(tabs.group);
   const [valueInput, setValueInput] = useState<string>('');
 
   const classTypeFilter = useSelector((state: any) => state.filters.classTypeFilter);
@@ -52,17 +57,17 @@ export const FilterBlock = (): JSX.Element => {
       <FilterSwitchContainer>
         <FilterSwitchItems
           onClick={() => {
-            handleActive('Группа');
+            handleActive(tabs.group);
           }}
-          active={activeTab === 'Группа'}
+          active={activeTab === tabs.group}
         >
           {t('schedule:scheduleTranslation.filterBlock.typesTab.group')}
         </FilterSwitchItems>
         <FilterSwitchItems
           onClick={() => {
-            handleActive('Преподаватель');
+            handleActive(tabs.teacher);
           }}
-          active={activeTab === 'Преподаватель'}
+          active={activeTab === tabs.teacher}
         >
           {t('schedule:scheduleTranslation.filterBlock.typesTab.teacher')}
         </FilterSwitchItems>
