@@ -39,8 +39,8 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
         const filteredLessonKeys = filterLessons(dataDay.lessons, translatedFilters);
 
         const dayElement = (
-          <Day key={dayKey}>
-            <LeftSide currentDay={dataDay.day === day && dataDay.date == date}>
+          <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
+            <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
               <div>{dataDay.day}</div>
               <div>{dataDay.date}</div>
             </LeftSide>
@@ -67,8 +67,8 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
         scheduleElements.push(dayElement);
       } else {
         scheduleElements.push(
-          <Day key={dayKey}>
-            <LeftSide currentDay={dataDay.day === day && dataDay.date == date}>
+          <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
+            <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
               <div>{dataDay.day}</div>
               <div>{dataDay.date}</div>
             </LeftSide>
