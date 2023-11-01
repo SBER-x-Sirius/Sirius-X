@@ -10,7 +10,7 @@ export type Lesson = {
   teacher: string;
 };
 
-type DaySchedule = {
+export type DaySchedule = {
   date: string;
   day: string;
   lessons: Record<string, Lesson>;
@@ -20,7 +20,7 @@ export type ScheduleData = Record<string, DaySchedule>;
 
 const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
 
-  const { day, date } = useCurrentDate();
+  const { day, date, week } = useCurrentDate(data);
   const scheduleElements = [];
 
   for (const dayKey in data) {
@@ -28,8 +28,8 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
       const dataDay = data[dayKey];
       let lessonCounter = 0;
       const dayElement = (
-        <Day key={dayKey}>
-          <LeftSide currentDay={dataDay.day === day && dataDay.date == date}>
+        <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
+          <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
             <div>{dataDay.day}</div>
             <div>{dataDay.date}</div>
           </LeftSide>

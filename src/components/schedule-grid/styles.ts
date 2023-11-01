@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 type LeftSideProps = {
-  currentDay?: boolean;
+  currentday?: boolean;
+};
+
+type DayProps = {
+  lastday?: boolean;
 };
 
 export const ScheduleContainer = styled.div`
@@ -16,19 +20,20 @@ export const ScheduleContainer = styled.div`
   margin-bottom: 30px;
 `;
 
-export const Day = styled.div`
+export const Day = styled.div<DayProps>`
   display: flex;
   border: 1px solid;
   border-radius: 15px;
   min-width: 80vw;
   margin: 20px 0;
   overflow: hidden;
+  opacity: ${(props) => (props.lastday ? '40%' : '100%')};
 `;
 
 export const LeftSide = styled.div<LeftSideProps>`
   display: flex;
   flex-direction: column;
-  background-color: ${(props) => (props.currentDay ? '#605dc7' : '#97abe0')};
+  background-color: ${(props) => (props.currentday ? '#605dc7' : '#97abe0')};
   color: white;
   overflow: hidden;
   min-width: 50px;
