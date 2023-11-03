@@ -1,25 +1,34 @@
+import { getNavigationsValue } from '@ijl/cli';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useLoginMutation } from '../../__data__/services/api/attendance/auth';
+import { LoginData } from '../../__data__/services/api/attendance/auth/types';
 
 type FakeRegProps = {
   projectTitle: 'attendance' | 'main' | 'schedule' | 'atatistics';
 };
 
 export const FakeLogin = (projectTitle: FakeRegProps) => {
-  const [login, setLogin] = useState<string>('');
+  const navigate = useNavigate();
+  const [attendanceLogin, { error: attendanceLoginSuccess }] = useLoginMutation();
+  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const hendlerLogin = (login: string) => {
-    setLogin(login);
+  const hendlerEmail = (email: string) => {
+    setEmail(email);
   };
 
   const hendlerPassword = (password: string) => {
     setPassword(password);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     switch (projectTitle.projectTitle) {
       case 'attendance':
-        // тут прописываем вызов нужных запросов
+        await attendanceLogin({ email, password } as LoginData);
+        if (!attendanceLoginSuccess) {
+          navigate(getNavigationsValue('sirius-x.attendance'), { replace: true });
+        }
 
         break;
       case 'main':
@@ -43,8 +52,8 @@ export const FakeLogin = (projectTitle: FakeRegProps) => {
   return (
     <form style={{ display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <label htmlFor='login'>login</label>
-        <input id='login' type='text' autoComplete='off' value={login} onChange={(e) => hendlerLogin(e.target.value)} />
+        <label htmlFor='email'>email</label>
+        <input id='email' type='text' autoComplete='off' value={email} onChange={(e) => hendlerEmail(e.target.value)} />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <label htmlFor='password'>password</label>
