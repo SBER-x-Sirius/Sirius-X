@@ -1,5 +1,10 @@
 import React from 'react';
+import Sidebar from '../../../components/sidebar';
 
 export const Meeting = () => {
-  return <></>;
+  return (
+    <>
+      <Sidebar />
+    </>
+  );
 };

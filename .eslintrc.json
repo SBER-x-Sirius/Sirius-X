@@ -29,19 +29,17 @@
   "plugins": ["react", "react-hooks", "@typescript-eslint", "import", "prettier"],
   "rules": {
     "no-var": "error",
-    "quotes": [
-      "error",
-      "single"
-    ],
+    "quotes": ["error", "single"],
     "no-duplicate-imports": "error",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-unused-vars": [
-      "error",
+      "warn",
       {
         "varsIgnorePattern": "React"
       }
     ],
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "@typescript-eslint/no-explicit-any": "warn"
   }
 }

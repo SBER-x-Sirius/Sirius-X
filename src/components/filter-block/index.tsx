@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CheckboxContainer, CheckboxInput, FilterContainer, FilterSwitchContainer, FilterSwitchItems } from './styles';
 import { useTranslation } from 'react-i18next';
-import Input from '../input'
+import Input from '../input';
 
 export const FilterBlock = (): JSX.Element => {
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ export const FilterBlock = (): JSX.Element => {
     { id: 'other', label: 'Прочее', color: '#312E81' }
   ];
 
-  const [activeTab, setActiveTab] = useState<string>('Группа')
+  const [activeTab, setActiveTab] = useState<string>('Группа');
   const [valueInput, setValueInput] = useState<string>('');
 
   const handleActive = (buttonName: string) => {
@@ -26,10 +26,8 @@ export const FilterBlock = (): JSX.Element => {
 
     return (
       <CheckboxInput key={checkbox.id} color={checkbox.color}>
-        <input type="checkbox" id={checkbox.id} name={checkbox.id} />
-        <label htmlFor={checkbox.id}>
-          {t(translationKey as any)}
-        </label>
+        <input type='checkbox' id={checkbox.id} name={checkbox.id} />
+        <label htmlFor={checkbox.id}>{t(translationKey as any)}</label>
       </CheckboxInput>
     );
   });

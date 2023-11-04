@@ -23,7 +23,7 @@ const Input = ({ value, setValue }: propsInput): JSX.Element => {
   return (
     <InputContainer>
       <CustomInput
-        type="text"
+        type='text'
         placeholder={t('schedule:scheduleTranslation.filterBlock.search')}
         value={value}
         onChange={hangleChangeInput}

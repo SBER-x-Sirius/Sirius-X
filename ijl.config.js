@@ -26,6 +26,11 @@ module.exports = {
     'sirius-x.main': '/sirius-x',
     'sirius-x.schedule': '/sirius-x/schedule',
     'sirius-x.attendance': '/sirius-x/attendance',
+    'sirius-x.attendance.new-meeting': '/sirius-x/attendance/new-meeting',
+    'sirius-x.attendance.accession': '/sirius-x/attendance/accession',
+    'sirius-x.attendance.users': '/sirius-x/attendance/users',
+    'sirius-x.attendance.auth.login': '/sirius-x/attendance/auth/login',
+    'sirius-x.attendance.auth.registration': '/sirius-x/attendance/auth/registration',
     'sirius-x.statistics': '/sirius-x/statistics'
   },
   features: {
@@ -34,6 +39,6 @@ module.exports = {
     }
   },
   config: {
-    'sirius-x.attendance': '/api/'
+    'sirius-x.attendance': 'http://sirius.inno-js.ru:3002'
   }
 };
