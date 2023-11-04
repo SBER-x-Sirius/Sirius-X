@@ -1,50 +1,60 @@
 import styled from 'styled-components';
-export const WelcomeCardContainer = styled.div`
-  position: relative;
-  background-color: #EBF3FE;
-  width: 754px;
-  height: 300px;
-  border-radius: 12px;
-  color: #2A3547;
+
+export const Card = styled.div`
+  justify-content: space-between;
+  padding: 0 20px;
+  border-radius: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  min-width: 600px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `
-export const TextContent = styled.div`
-  position: absolute;
-  width: 341px;
-  height: 209px;
-  margin: 37px 378px 54px 35px;
+export const ContainerLeft = styled.div`
 `
-export const TextContentHeaderTeam = styled.h1`
-  margin: 0;
-  font-size: 23px;
-  margin-bottom: 24px;
-`
-export const TextContentDescriptionProject = styled.span`
-  margin-top: 24px;
-  font-size: 14px;
-`
-export const TextContentHeaderButton = styled.div`
-  margin-top: 24px;
-`
-export const TextContentHeaderButtonText = styled.span`
-  font-size: 21px;
-`
-export const TextContentHeaderButtonDate = styled.span`
-  font-size: 14px;
-  margin-left: 16px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background-color: white;
-  color: #7C8FAC;
-`
-export const TextContentButton = styled.button`
-  margin-top: 24px;
-  background-color: #5D87FF;
-  border-radius: 12px;
-  color: white;
-  padding: 16px;
+export const Date = styled.button`
+  align-items: center;
   border: 0;
+  border-radius: 4px;
+  padding: 4px 12px;
+  background: #babafc;
+  color: white;
 `
-export const ImageContent = styled.img`
-  position: absolute;
-  margin: 50px 47px 1px 380px;
+export const ContentCard = styled.div`
+  margin-top: 40px;
+`
+export const Header = styled.div`
+  font-size: 20px;
+`
+export const Subtitle = styled.div`
+  margin-top: 8px;
+  font-size: 16px;
+`
+export const ContainerButton = styled.div`
+  margin-top: 25px;
+`
+export const HeaderButton = styled.div`
+  margin-bottom: 16px;
+  font-size: 20px;
+`
+export const ButtonCard = styled.button`
+  align-items: center;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 24px;
+  background: #babafc;
+  color: white;
+`
+export const ContainerRight = styled.div``
+export const Logo = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+`
+export const LogoCard = styled.img``
+export const NameLogoCard = styled.div`
+  margin-left: 8px;
+  font-size: 28px;
+`
+export const MainImageCard = styled.img` 
 `
