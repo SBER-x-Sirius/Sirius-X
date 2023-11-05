@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Container, GlobalStyle } from '../global-styled';
 import Header from './components/header';
+import { PrivateRouter } from './components/privat-router';
 import Attendance from './pages/attendance';
 import Accession from './pages/attendance/accession';
 import { Login } from './pages/attendance/login';
@@ -24,11 +25,11 @@ const App = () => {
           <Route path={'sirius-x'}>
             <Route index element={<Main />} />
             <Route path={'attendance'}>
-              <Route index element={<Attendance />} />
-              <Route path={'accession'} element={<Accession />} />
-              <Route path={'new-meeting'} element={<NewMeeting />} />
-              <Route path={'meeting/:meetingId'} element={<Meeting />} />
-              <Route path={'users'} element={<Users />} />
+              <Route index element={<PrivateRouter element={<Attendance />} />} />
+              <Route path={'accession'} element={<PrivateRouter element={<Accession />} />} />
+              <Route path={'new-meeting'} element={<PrivateRouter element={<NewMeeting />} />} />
+              <Route path={'meeting/:meetingId'} element={<PrivateRouter element={<Meeting />} />} />
+              <Route path={'users'} element={<PrivateRouter element={<Users />} />} />
               <Route path={'auth'}>
                 <Route
                   index
