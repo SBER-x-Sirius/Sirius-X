@@ -28,3 +28,13 @@ export const SessionButton = styled.button`
   color: white;
   font-size: 16px;
 `;
+
+export const MeetingTitle = styled.input`
+  width: 280px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  height: 40px;
+  outline: none;
+  border-radius: 5px;
+`

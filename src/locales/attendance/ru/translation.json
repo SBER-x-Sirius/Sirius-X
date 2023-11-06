@@ -20,7 +20,8 @@
   "new-meeting": {
     "groupSelector": "Выберите группы",
     "userSelector": "Добавьте других преподавателей",
-    "buttonTitle": "Создать новую встречу"
+    "buttonTitle": "Создать новую встречу",
+    "titlePlaceholder": "Введите название"
   },
   "session-page": {
     "groupList": "Присутствующие группы",

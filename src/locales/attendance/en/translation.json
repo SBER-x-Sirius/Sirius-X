@@ -20,7 +20,8 @@
   "new-meeting": {
     "groupSelector": "Select groups",
     "userSelector": "Add other teachers",
-    "buttonTitle": "Create a new meeting"
+    "buttonTitle": "Create a new meeting",
+    "titlePlaceholder": "Enter a name"
   },
   "session-page": {
     "groupList": "Groups attending",
