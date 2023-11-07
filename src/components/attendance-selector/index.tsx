@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { DropdownContainer, SelectedText, DropdownContent, DropdownOption } from './style';
 import { AttendanceUser, AttendanceGroup } from '../../pages/attendance/new-meeting';
 import { t } from 'i18next';
@@ -18,7 +18,7 @@ export const AttendanceSelector = ({ selectItem, onSelectionChange }: Attendance
     setIsOpen(!isOpen);
   };
 
-  const toggleOption = (event: React.MouseEvent<HTMLDivElement>): void => {
+  const toggleOption = useCallback((event: React.MouseEvent<HTMLDivElement>): void => {
     const target = event.target as HTMLElement;
 
     if (event) {
@@ -30,7 +30,7 @@ export const AttendanceSelector = ({ selectItem, onSelectionChange }: Attendance
         setSelectedOptions([...selectedOptions, text]);
       }
     }
-  };
+  }, [selectedOptions]);
 
   const itsGroup = (): boolean => {
     return !selectItem[0]?.first_name;
