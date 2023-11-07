@@ -1,6 +1,7 @@
 import { getConfigValue } from '@ijl/cli';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { AuthResponse } from '../../../../../@types/api/attendance/auth/types';
+import { useAuth } from '../../../../../hooks/attendance/auth';
 import { LoginData, RegistrationData } from './types';
 
 export const attendanceApi = createApi({
@@ -20,8 +21,8 @@ export const attendanceApi = createApi({
         }
       }),
       transformResponse: (response: AuthResponse): AuthResponse => {
-        localStorage.setItem('attendanceAccessToken', response.newAccessToken);
-        localStorage.setItem('attendanceRefreshToken', response.newRefreshToken);
+        const { initSetup } = useAuth();
+        initSetup(response.newAccessToken, response.newRefreshToken);
         return response;
       }
     }),
@@ -33,10 +34,10 @@ export const attendanceApi = createApi({
           email: loginData.email,
           password: loginData.password
         }
-      }), 
+      }),
       transformResponse: (response: AuthResponse): AuthResponse => {
-        localStorage.setItem('attendanceAccessToken', response.newAccessToken);
-        localStorage.setItem('attendanceRefreshToken', response.newRefreshToken);
+        const { initSetup } = useAuth();
+        initSetup(response.newAccessToken, response.newRefreshToken);
         return response;
       }
     })
