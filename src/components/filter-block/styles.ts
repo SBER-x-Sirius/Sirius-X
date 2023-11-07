@@ -33,8 +33,9 @@ export const CheckboxContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding-top: 28px;
-  gap: 28px;
-  margin: 0 0 20px 20px;
+  grid-column-gap: 28px;
+  grid-row-gap: 10px;
+  margin: 0 20px 20px 20px;
   flex-wrap: wrap;
   align-items: center;
   & p {
