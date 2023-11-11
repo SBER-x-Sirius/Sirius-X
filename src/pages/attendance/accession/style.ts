@@ -17,6 +17,7 @@ export const SessionInput = styled.input`
   width: 400px;
   font-size: 16px;
   color: rgb(93, 101, 104);
+  font-family: 'Jost', sans-serif;
 `;
 
 // TODO: название
@@ -27,4 +28,5 @@ export const SessionButton = styled.button`
   background-color: rgb(96, 93, 199);
   color: white;
   font-size: 16px;
+  font-family: 'Jost', sans-serif;
 `;

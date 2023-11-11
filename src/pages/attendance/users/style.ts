@@ -43,6 +43,7 @@ export const ShareButton = styled.button`
   background-color: rgb(96, 93, 199);
   color: #FFFFFF;
   font-size: 16px;
+  font-family: 'Jost', sans-serif;
 `
 
 export const SettingsIcon = styled.img`
