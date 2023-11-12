@@ -4,15 +4,22 @@ import { attendanceApi } from './services/api/attendance/user';
 import { apiSchedule } from './services/api/schedule/schedule.api';
 import { apiScheduleGroup } from './services/api/schedule/group.api';
 import { filterReducer } from './slices/schedule/filters';
+import { apiUser } from './services/api/schedule/user.api';
 
 const rootReducer = combineReducers({
   [attendanceApi.reducerPath]: attendanceApi.reducer,
+  [apiUser.reducerPath]: apiUser.reducer,
   [apiSchedule.reducerPath]: apiSchedule.reducer,
   [apiScheduleGroup.reducerPath]: apiScheduleGroup.reducer,
   filters: filterReducer
 });
 
-const apiMiddleware = [attendanceApi.middleware, apiSchedule.middleware, apiScheduleGroup.middleware];
+const apiMiddleware = [
+  attendanceApi.middleware,
+  apiSchedule.middleware,
+  apiScheduleGroup.middleware,
+  apiUser.middleware
+];
 
 export const store = configureStore({
   reducer: rootReducer,
