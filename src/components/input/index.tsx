@@ -1,34 +1,58 @@
-import React from 'react';
-import { CustomInput, ButtonClearInput, InputContainer } from './styles';
+import React, { useEffect } from 'react';
+import { InputContainer, CustomTextField } from './styles';
 import { useTranslation } from 'react-i18next';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { useGetTeacherOrGroupQuery } from '../../__data__/services/api/schedule/user.api';
+import { Group, User } from '../../__data__/services/api/schedule/types';
 
 type propsInput = {
-  value: string;
-  setValue: (e: string) => void;
+  activeTab: string;
+  tabs: {
+    teacher: string;
+    group: string;
+  };
 };
 
-const Input = ({ value, setValue }: propsInput): JSX.Element => {
+const Input = ({ activeTab, tabs }: propsInput): JSX.Element => {
   const { t } = useTranslation();
+  const { data, isLoading, error } = useGetTeacherOrGroupQuery(activeTab === tabs.teacher ? 'преподаватель' : 'группа');
 
-  const handleClearInput = () => {
-    setValue('');
-  };
-
-  const hangleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 35) {
-      setValue(e.target.value);
+  const defaultProps = {
+    options: data || [],
+    getOptionLabel: (option: User | Group) => {
+      if (activeTab === tabs.teacher) {
+        const teacher = option as User;
+        return `${teacher.name} ${teacher.surName} ${teacher.lastName}`;
+      } else {
+        const group = option as Group;
+        return `${group.name}`;
+      }
     }
   };
 
+  useEffect(() => {}, [activeTab]);
+
   return (
     <InputContainer>
-      <CustomInput
-        type='text'
-        placeholder={t('schedule:scheduleTranslation.filterBlock.search')}
-        value={value}
-        onChange={hangleChangeInput}
+      <Autocomplete
+        disabled={isLoading || !!error}
+        disablePortal
+        noOptionsText={t('schedule:scheduleTranslation.filterBlock.search.option')}
+        sx={{ width: '100%' }}
+        {...defaultProps}
+        renderInput={(params) => (
+          <CustomTextField
+            sx={{ border: 'none', '& fieldset': { border: 'none' } }}
+            placeholder={
+              activeTab === tabs.group
+                ? t('schedule:scheduleTranslation.filterBlock.search.group')
+                : t('schedule:scheduleTranslation.filterBlock.search.teacher')
+            }
+            {...params}
+          />
+        )}
       />
-      <ButtonClearInput onClick={handleClearInput}></ButtonClearInput>
     </InputContainer>
   );
 };
