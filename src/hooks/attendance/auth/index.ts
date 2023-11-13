@@ -2,6 +2,8 @@ export const useAuth = (): {
   initSetup: (accessToken: string, refreshToken: string) => void;
   getStatus: () => boolean;
   setStatus: (status: boolean) => void;
+  decryptionUserId: () => string;
+  decryptionUserRole: () => string;
 } => {
   const initSetup = (accessToken: string, refreshToken: string): void => {
     localStorage.setItem('attendanceAccessToken', accessToken);
@@ -17,5 +19,17 @@ export const useAuth = (): {
     sessionStorage.setItem('attendanceUserAuthentication', status ? 'true' : 'false');
   };
 
-  return { initSetup, getStatus, setStatus };
+  const tokenParser = (token: string): string => {
+    return token.split('.')[1];
+  };
+
+  const decryptionUserId = (): string => {
+    return JSON.parse(atob(tokenParser(localStorage.getItem('attendanceAccessToken')))).userId;
+  };
+
+  const decryptionUserRole = (): string => {
+    return JSON.parse(atob(tokenParser(localStorage.getItem('attendanceAccessToken')))).role;
+  };
+
+  return { initSetup, getStatus, setStatus, decryptionUserId, decryptionUserRole };
 };

@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import {
-  ContainerHeader,
-  MenuNavigation,
-  MenuList,
-  MenuItem,
-  MenuLink,
-  LocalizeWrapper,
-  LocalizeButton,
-  ProfileLink,
-  HeaderItemsWrapper,
-  LogOutSvg
-} from './styles';
 import { getNavigationsValue } from '@ijl/cli';
 import LogOutSVG from '../../assets/svg/log-out.svg';
+import {
+  ContainerHeader,
+  HeaderItemsWrapper,
+  LocalizeButton,
+  LocalizeWrapper,
+  LogOutSvg,
+  MenuItem,
+  MenuLink,
+  MenuList,
+  MenuNavigation,
+  ProfileLink
+} from './styles';
 
 type Link = {
   text: string;
