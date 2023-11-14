@@ -58,11 +58,11 @@ const StudentsTableBlock: React.FC = (): JSX.Element => {
   ];
 
   const [columnDefs] = useState([
-    { headerName: "Личность", field: 'studentName', lockPosition: true, width: 280 },
-    { headerName: "Успеваемость", field: 'attendance', lockPosition: true},
-    { headerName: "Оценка", field: 'rating', lockPosition: true},
-    { headerName: "Стипендия", field: 'scholarship', lockPosition: true },
-    { headerName: "Бюджет/платка", field: 'paid', lockPosition: true },
+    { headerName: 'Личность', field: 'studentName', lockPosition: true, width: 280 },
+    { headerName: 'Посещаемость', field: 'attendance', lockPosition: true},
+    { headerName: 'Оценка', field: 'rating', lockPosition: true},
+    { headerName: 'Стипендия', field: 'scholarship', lockPosition: true },
+    { headerName: 'Бюджет/платка', field: 'paid', lockPosition: true },
   ]);
 
   return (
