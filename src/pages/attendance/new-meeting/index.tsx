@@ -1,19 +1,11 @@
 import { t } from 'i18next';
 import React, { useState } from 'react';
+import { AttendanceUser } from '../../../@types/attendance/user';
+import { AttendanceSelector } from '../../../components/attendance-selector';
 import BaseForm from '../../../components/form';
+import Sidebar from '../../../components/sidebar';
 import { SessionButton, SessionFormContent } from '../accession/style';
 import { AttendanceWrapper } from '../style';
-import { AttendanceSelector } from '../../../components/attendance-selector';
-import Sidebar from '../../../components/sidebar';
-
-export type AttendanceUser = {
-  id: string;
-  first_name: string;
-  last_name: string;
-  middle_name: string;
-  email: string;
-  role: string;
-};
 
 export type AttendanceGroup = {
   id: string;

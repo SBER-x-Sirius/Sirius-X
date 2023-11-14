@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Sidebar from '../../components/sidebar';
+import React from 'react';
 import { Navigate } from 'react-router-dom';
+import Sidebar from '../../components/sidebar';
+import { useUserInfo } from '../../hooks/attendance/user-info';
 
 const Attendance = () => {
-  //TODO: механизм определения роли пользователя
-  const [isStudent, setIsStudent] = useState<boolean>(false);
+  const { isStudent } = useUserInfo();
 
   return (
     <>

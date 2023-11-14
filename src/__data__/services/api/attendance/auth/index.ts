@@ -1,6 +1,6 @@
 import { getConfigValue } from '@ijl/cli';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { AuthResponse } from '../../../../../@types/api/attendance/auth/types';
+import { AuthResponse } from '../../../../../@types/attendance/api/auth/types';
 import { useAuth } from '../../../../../hooks/attendance/auth';
 import { LoginData, RegistrationData } from './types';
 

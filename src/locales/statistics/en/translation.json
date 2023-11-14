@@ -1,7 +1,7 @@
 {
   "specialtyBlock": {
     "header": "Choose your area of study",
-    "subheader": "Choose the direction of study.",
+    "subheader": "Choose the direction of study",
     "buttonText": "More details",
     "specialties": {
       "systemAdministrators": "System Administrators",

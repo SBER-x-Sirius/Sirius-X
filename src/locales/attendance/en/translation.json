@@ -4,7 +4,7 @@
     "btnText": "Connect"
   },
   "sidebar": {
-    "newMeeting": {
+    "new-meeting": {
       "alt": "create meeting",
       "title": "Create meeting"
     },
@@ -12,7 +12,7 @@
       "alt": "connect to meeting",
       "title": "Connect to meeting"
     },
-    "getUsers": {
+    "users": {
       "alt": "get list of users",
       "title": "Get list of users"
     }
