@@ -1,26 +1,38 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
+import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
+import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 import {
-  StudentsTable, TableHead,
-  TableRow, TableHeader,
-  TableBody, CourseButton,
-  TableContainer, TableData,
-  DataButton, Header,
-  HeaderBlock, ButtonsBlock,
-  TableBlock
+  CourseButton, TableBlock,
+  TableContainer, DataButton,
+  Header, HeaderBlock, 
+  ButtonsBlock, StyledGrid
 } from './styles';
 
 const StudentsTableBlock: React.FC = (): JSX.Element => {
   const [activeCourse, setActiveCourse] = useState(1);
 
-  const showCourse = (course) => {
-    setActiveCourse(course);
+  const [rowData, setRowData] = useState([]);
+
+  const updateRowData = () => {
+    const students = studentData.find((data) => data.course === activeCourse).students;
+    setRowData(students);
   };
+  
+  useEffect(() => {
+    updateRowData();
+  }, [activeCourse]);
 
   const studentData = [
     {
       course: 1,
       students: [
+        { studentName: 'Студент 1', rating: '4.5', attendance: '90%', scholarship: 'Да', paid: 'Бюджет' },
+        { studentName: 'Студент 2', rating: '3.2', attendance: '80%', scholarship: 'Нет', paid: 'Бюджет' },
+        { studentName: 'Студент 3', rating: '4.8', attendance: '95%', scholarship: 'Нет', paid: 'Платка' },
+        { studentName: 'Студент 1', rating: '4.5', attendance: '90%', scholarship: 'Да', paid: 'Бюджет' },
+        { studentName: 'Студент 2', rating: '3.2', attendance: '80%', scholarship: 'Нет', paid: 'Бюджет' },
+        { studentName: 'Студент 3', rating: '4.8', attendance: '95%', scholarship: 'Нет', paid: 'Платка' }, 
         { studentName: 'Студент 1', rating: '4.5', attendance: '90%', scholarship: 'Да', paid: 'Бюджет' },
         { studentName: 'Студент 2', rating: '3.2', attendance: '80%', scholarship: 'Нет', paid: 'Бюджет' },
         { studentName: 'Студент 3', rating: '4.8', attendance: '95%', scholarship: 'Нет', paid: 'Платка' },
@@ -45,6 +57,14 @@ const StudentsTableBlock: React.FC = (): JSX.Element => {
     }
   ];
 
+  const [columnDefs] = useState([
+    { headerName: 'Личность', field: 'studentName', lockPosition: true, width: 280 },
+    { headerName: 'Посещаемость', field: 'attendance', lockPosition: true},
+    { headerName: 'Оценка', field: 'rating', lockPosition: true},
+    { headerName: 'Стипендия', field: 'scholarship', lockPosition: true },
+    { headerName: 'Бюджет/платка', field: 'paid', lockPosition: true },
+  ]);
+
   return (
       <TableContainer>
           <HeaderBlock>
@@ -55,40 +75,17 @@ const StudentsTableBlock: React.FC = (): JSX.Element => {
             {[1, 2, 3].map((course) => (
                 <CourseButton
                   key={course}
-                  onClick={() => showCourse(course)}
+                  onClick={() => setActiveCourse(course)}
                 >
                 {course} курс
                 </CourseButton>
                ))}
           </ButtonsBlock>
-          <TableBlock>
-              <StudentsTable>
-                     <TableHead>
-                     <TableRow>
-                            <TableHeader>Личность</TableHeader>
-                            <TableHeader>Посещаемость</TableHeader>
-                            <TableHeader>Оценка</TableHeader>
-                            <TableHeader>Стипендия</TableHeader>
-                            <TableHeader>Бюджет/платка</TableHeader>
-                     </TableRow>
-                     </TableHead>
-                     <TableBody>
-                       {studentData.map(({course, students}) => (
-                         activeCourse === course &&
-                         students.map(({studentName, attendance, rating, 
-                            scholarship, paid}) => (
-                                <TableRow>
-                                    <TableData>{studentName}</TableData>
-                                    <TableData>{attendance}</TableData>
-                                    <TableData>{rating}</TableData>
-                                    <TableData>{scholarship}</TableData>
-                                    <TableData>{paid}</TableData>
-                                </TableRow>
-                            ))
-                       ))}
-                     </TableBody>
-              </StudentsTable>
-          </TableBlock>
+          <div className="ag-theme-alpine" style={{ height: 400, width: 'auto', marginTop: '20px' }}>
+            <StyledGrid 
+              rowData={rowData} columnDefs={columnDefs}>
+            </StyledGrid>
+          </div>
       </TableContainer>
   );
 };

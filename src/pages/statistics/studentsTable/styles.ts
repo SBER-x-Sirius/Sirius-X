@@ -1,4 +1,26 @@
 import styled from 'styled-components';
+import { AgGridReact } from 'ag-grid-react';
+
+export const StyledGrid = styled(AgGridReact)`
+  .ag-root-wrapper {
+    border: none;
+  }
+  .ag-header {
+    background-color: white;
+  }
+  .ag-header-cell-text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: -0.01em;
+    color: #5D6568; 
+  }
+  .ag-cell {
+    font-size: 12px;
+    color: #333;
+  }
+`
 
 export const TableContainer = styled.div`
   width: 1095px;
