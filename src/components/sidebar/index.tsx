@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { SidebarElement, SidebarMenu, Button, SidebarFocus } from './styles';
-import { useTranslation } from 'react-i18next';
-import SidebarButton from '../../assets/svg/SidebarButton.svg';
-import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
 import { getNavigationsValue } from '@ijl/cli';
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link, useLocation } from 'react-router-dom';
+import SidebarButton from '../../assets/svg/SidebarButton.svg';
+import { useUserInfo } from '../../hooks/attendance/user-info';
+import { Button, SidebarElement, SidebarFocus, SidebarMenu } from './styles';
 
 type MenuItem = {
   alt: string;
@@ -13,61 +12,59 @@ type MenuItem = {
   key: string;
   src: string;
   title: string;
-  url: string;
 };
 
 const Sidebar: React.FC = (): JSX.Element => {
+  const staticPath = 'sirius-x.attendance.';
   const { t } = useTranslation();
   const location = useLocation();
-
+  const { isStudent, isTeacher } = useUserInfo();
   const [activeLink, setActiveLink] = useState<string>('');
 
   useEffect(() => {
-    const currentURL = location.pathname;
-    const urlParts = currentURL.split('/');
+    const urlParts = location.pathname.split('/');
     setActiveLink(urlParts[urlParts.length - 1]);
   }, [location.pathname]);
 
   const menu: MenuItem[] = [
     {
-      alt: t('attendance:attendanceTranslation.sidebar.newMeeting.alt'),
+      alt: t('attendance:attendanceTranslation.sidebar.new-meeting.alt'),
       endpoint: 'new-meeting',
-      title: t('attendance:attendanceTranslation.sidebar.newMeeting.title'),
+      title: t('attendance:attendanceTranslation.sidebar.new-meeting.title'),
       src: SidebarButton,
-      key: 'create_meeting',
-      url: 'sirius-x.attendance.new-meeting'
+      key: 'create_meeting'
     },
     {
       alt: t('attendance:attendanceTranslation.sidebar.accession.alt'),
       endpoint: 'accession',
       title: t('attendance:attendanceTranslation.sidebar.accession.title'),
       src: SidebarButton,
-      key: 'connect',
-      url: 'sirius-x.attendance.accession'
+      key: 'connect'
     },
     {
-      alt: t('attendance:attendanceTranslation.sidebar.getUsers.alt'),
+      alt: t('attendance:attendanceTranslation.sidebar.users.alt'),
       endpoint: 'users',
-      title: t('attendance:attendanceTranslation.sidebar.getUsers.title'),
+      title: t('attendance:attendanceTranslation.sidebar.users.title'),
       src: SidebarButton,
-      key: 'user_list',
-      url: 'sirius-x.attendance.users'
+      key: 'user_list'
     }
   ];
 
   return (
     <>
-      <SidebarMenu>
-        {menu.map((item) => (
-          <SidebarElement key={item.key}>
-            <Link to={getNavigationsValue(item.url)}>
-              <SidebarFocus active={activeLink == item.endpoint}>
-                <Button src={item.src} alt={item.alt} title={item.title} />
-              </SidebarFocus>
-            </Link>
-          </SidebarElement>
-        ))}
-      </SidebarMenu>
+      {!isStudent && (
+        <SidebarMenu>
+          {menu.slice(0, isTeacher() ? menu.length - 1 : menu.length).map((item) => (
+            <SidebarElement key={item.key}>
+              <Link to={getNavigationsValue(staticPath + item.endpoint)}>
+                <SidebarFocus active={activeLink == item.endpoint}>
+                  <Button src={item.src} alt={item.alt} title={item.title} />
+                </SidebarFocus>
+              </Link>
+            </SidebarElement>
+          ))}
+        </SidebarMenu>
+      )}
     </>
   );
 };

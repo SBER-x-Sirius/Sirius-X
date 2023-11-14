@@ -1,7 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { DropdownContainer, SelectedText, DropdownContent, DropdownOption } from './style';
-import { AttendanceUser, AttendanceGroup } from '../../pages/attendance/new-meeting';
 import { t } from 'i18next';
+import React, { useEffect, useRef, useState } from 'react';
+import { AttendanceUser } from '../../@types/attendance/user';
+import { AttendanceGroup } from '../../pages/attendance/new-meeting';
+import { buildFullName } from '../../utils/attendance';
+import { DropdownContainer, DropdownContent, DropdownOption, SelectedText } from './style';
 
 type AttendanceSelectorProps = {
   selectItem: AttendanceUser[] | AttendanceGroup[];
@@ -48,10 +50,6 @@ export const AttendanceSelector = ({ selectItem, onSelectionChange }: Attendance
     } else {
       return selectedOptionsText;
     }
-  };
-
-  const buildFullName = (user: AttendanceUser): string => {
-    return user.middle_name + ' ' + user.first_name + ' ' + user.last_name;
   };
 
   useEffect(() => {
