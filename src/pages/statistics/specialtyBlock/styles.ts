@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 export const SpecialtyBlockContainer = styled.div`
-  position: relative;
-  width: 415px;
-  height: 581px;
-  top: 600px;
+  max-width: 415px;
+  max-height: 581px;
   padding: 12px;
   background: #ffffff;
   border-radius: 15px;
