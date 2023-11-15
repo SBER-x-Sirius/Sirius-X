@@ -27,6 +27,15 @@
       "rating": "Raiting",
       "scholarship": "Scholarship",
       "paid": "Free/paid"
-    }
+   },
+  "welcomeCard": {
+    "dateCard": "September 2023",
+    "headerCard": "Welcome to the dashboard from «Fathers Frontend»",
+    "subtitle": "Here are the college statistics",
+    "headerButton": "Forward!",
+    "buttonCard": "details",
+    "logoCardAlt": "Father",
+    "nameLogoCard": "Father",
+    "mainImageCardAlt": "Girl working at the table"
   }
 }
