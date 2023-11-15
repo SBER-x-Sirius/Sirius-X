@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
-import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
-import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
 import {
-  CourseButton, TableBlock,
-  TableContainer, DataButton,
-  Header, HeaderBlock, 
-  ButtonsBlock, StyledGrid
+  CourseButton,TableContainer, 
+  DataButton, Header,
+  HeaderBlock, ButtonsBlock,
+  StyledGrid
 } from './styles';
 
 const StudentsTableBlock: React.FC = (): JSX.Element => {
+  const { t } = useTranslation();
   const [activeCourse, setActiveCourse] = useState(1);
-
   const [rowData, setRowData] = useState([]);
 
   const updateRowData = () => {
@@ -58,18 +58,18 @@ const StudentsTableBlock: React.FC = (): JSX.Element => {
   ];
 
   const [columnDefs] = useState([
-    { headerName: 'Личность', field: 'studentName', lockPosition: true, width: 280 },
-    { headerName: 'Посещаемость', field: 'attendance', lockPosition: true},
-    { headerName: 'Оценка', field: 'rating', lockPosition: true},
-    { headerName: 'Стипендия', field: 'scholarship', lockPosition: true },
-    { headerName: 'Бюджет/платка', field: 'paid', lockPosition: true },
+    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.person'), field: 'studentName', lockPosition: true, width: 280 },
+    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.attendance'), field: 'attendance', lockPosition: true},
+    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.rating'), field: 'rating', lockPosition: true},
+    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.scholarship'), field: 'scholarship', lockPosition: true },
+    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.paid'), field: 'paid', lockPosition: true },
   ]);
 
   return (
       <TableContainer>
           <HeaderBlock>
-              <Header>Статистика по каждому студенту</Header>
-              <DataButton>Сентябрь 2020</DataButton>
+              <Header>{t('statistics:statisticsTranslation.studentsTable.header')}</Header>
+              <DataButton>{}</DataButton>
           </HeaderBlock>
           <ButtonsBlock>
             {[1, 2, 3].map((course) => (
@@ -77,7 +77,7 @@ const StudentsTableBlock: React.FC = (): JSX.Element => {
                   key={course}
                   onClick={() => setActiveCourse(course)}
                 >
-                {course} курс
+                {course} {t('statistics:statisticsTranslation.studentsTable.course')}
                 </CourseButton>
                ))}
           </ButtonsBlock>

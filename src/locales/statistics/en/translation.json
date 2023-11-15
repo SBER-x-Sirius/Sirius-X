@@ -1,0 +1,13 @@
+{
+  "studentsTable": {
+    "header": "Student statistics",
+    "course": "course",
+    "tableHeaders": {
+      "person": "Student",
+      "attendance": "Attendance",
+      "rating": "Perfomance",
+      "scholarship": "Scholarship",
+      "paid": "Free/paid"
+    }
+  }
+}
