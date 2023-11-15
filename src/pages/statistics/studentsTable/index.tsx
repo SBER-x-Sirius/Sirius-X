@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import {
@@ -9,39 +7,13 @@ import {
   DataButton, Header,
   HeaderBlock, ButtonsBlock,
   StyledGrid
-=======
-import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
-import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
-import {
-  CourseButton, TableBlock,
-  TableContainer, DataButton,
-  Header, HeaderBlock, 
-  ButtonsBlock, StyledGrid
->>>>>>> ff11b01... fix: minor fixes
-=======
-import 'ag-grid-community/styles/ag-grid.css';
-import 'ag-grid-community/styles/ag-theme-alpine.css';
-import {
-  CourseButton,TableContainer, 
-  DataButton, Header,
-  HeaderBlock, ButtonsBlock,
-  StyledGrid
->>>>>>> 4df333e... fix: i18next
 } from './styles';
 
 const StudentsTableBlock: React.FC = (): JSX.Element => {
   const { t } = useTranslation();
   const [activeCourse, setActiveCourse] = useState(1);
-<<<<<<< HEAD
   const [rowData, setRowData] = useState([]);
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 4df333e... fix: i18next
-  const [rowData, setRowData] = useState([]);
-
->>>>>>> ff11b01... fix: minor fixes
   const updateRowData = () => {
     const students = studentData.find((data) => data.course === activeCourse).students;
     setRowData(students);
@@ -86,11 +58,11 @@ const StudentsTableBlock: React.FC = (): JSX.Element => {
   ];
 
   const [columnDefs] = useState([
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.person'), field: 'studentName', lockPosition: true, width: 280 },
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.attendance'), field: 'attendance', lockPosition: true},
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.rating'), field: 'rating', lockPosition: true},
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.scholarship'), field: 'scholarship', lockPosition: true },
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.paid'), field: 'paid', lockPosition: true },
+    { headerName: 'Личность', field: 'studentName', lockPosition: true, width: 280 },
+    { headerName: 'Посещаемость', field: 'attendance', lockPosition: true},
+    { headerName: 'Оценка', field: 'rating', lockPosition: true},
+    { headerName: 'Стипендия', field: 'scholarship', lockPosition: true },
+    { headerName: 'Бюджет/платка', field: 'paid', lockPosition: true },
   ]);
 
   return (
