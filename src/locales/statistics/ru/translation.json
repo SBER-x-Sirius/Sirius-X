@@ -17,5 +17,15 @@
       "informationSecurity": "144 чел.",
       "hotelBusiness": "133 чел."
     }
+  },
+  "welcomeCard": {
+    "dateCard": "Сентябрь 2023",
+    "headerCard": "Добро пожаловать на дашборд от «Отцов Фронтенда»",
+    "subtitle": "Здесь отображена статистика по всему колледжу",
+    "headerButton": "Вперед!",
+    "buttonCard": "Подробнее",
+    "logoCardAlt": "Father",
+    "nameLogoCard": "Father",
+    "mainImageCardAlt": "Девушка работающая за столом"
   }
 }
