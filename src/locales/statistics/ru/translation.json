@@ -18,6 +18,16 @@
       "hotelBusiness": "133 чел."
     }
   },
+  "studentsTable": {
+    "header": "Статистика по каждому студенту",
+    "course": "курс",
+    "tableHeaders": {
+      "person": "Личность",
+      "attendance": "Посещаемость",
+      "rating": "Оценка",
+      "scholarship": "Стипендия",
+      "paid": "Бюджет/платка"
+   },
   "welcomeCard": {
     "dateCard": "Сентябрь 2023",
     "headerCard": "Добро пожаловать на дашборд от «Отцов Фронтенда»",
