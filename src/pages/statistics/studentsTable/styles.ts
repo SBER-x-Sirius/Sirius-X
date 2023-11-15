@@ -58,6 +58,7 @@ export const CourseButton = styled.button`
   border-radius: 7px;
 `
 export const ButtonsBlock = styled.div`
+
 `
 export const Header = styled.p`
   font-style: normal;
@@ -89,6 +90,7 @@ export const TableRow = styled.tr`
   height: 80px;
 `
 export const TableHeader = styled.th`
+
 `
 export const BodyBlock = styled.div`
 `

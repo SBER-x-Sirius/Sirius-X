@@ -58,11 +58,11 @@ const StudentsTableBlock: React.FC = (): JSX.Element => {
   ];
 
   const [columnDefs] = useState([
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.person'), field: 'studentName', lockPosition: true, width: 280 },
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.attendance'), field: 'attendance', lockPosition: true},
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.rating'), field: 'rating', lockPosition: true},
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.scholarship'), field: 'scholarship', lockPosition: true },
-    { headerName: t('statistics:statisticsTranslation.studentsTable.tableHeaders.paid'), field: 'paid', lockPosition: true },
+    { headerName: 'Личность', field: 'studentName', lockPosition: true, width: 280 },
+    { headerName: 'Посещаемость', field: 'attendance', lockPosition: true},
+    { headerName: 'Оценка', field: 'rating', lockPosition: true},
+    { headerName: 'Стипендия', field: 'scholarship', lockPosition: true },
+    { headerName: 'Бюджет/платка', field: 'paid', lockPosition: true },
   ]);
 
   return (

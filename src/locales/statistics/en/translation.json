@@ -17,5 +17,16 @@
       "informationSecurity": "144 people",
       "hotelBusiness": "133 people"
     }
+  },
+  "studentsTable": {
+    "header": "Students statistic",
+    "course": "course",
+    "tableHeaders": {
+      "person": "Person",
+      "attendance": "Attendance",
+      "rating": "Raiting",
+      "scholarship": "Scholarship",
+      "paid": "Free/paid"
+    }
   }
 }
