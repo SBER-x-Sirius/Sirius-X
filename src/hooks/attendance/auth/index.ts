@@ -23,12 +23,16 @@ export const useAuth = (): {
     return token.split('.')[1];
   };
 
+  const checkToken = (): boolean => {
+    return localStorage.getItem('attendanceAccessToken') ? true : false;
+  };
+
   const decryptionUserId = (): string => {
-    return JSON.parse(atob(tokenParser(localStorage.getItem('attendanceAccessToken')))).userId;
+    return checkToken() ? JSON.parse(atob(tokenParser(localStorage.getItem('attendanceAccessToken')))).userId : '';
   };
 
   const decryptionUserRole = (): string => {
-    return JSON.parse(atob(tokenParser(localStorage.getItem('attendanceAccessToken')))).role;
+    return checkToken() ? JSON.parse(atob(tokenParser(localStorage.getItem('attendanceAccessToken')))).role : '';
   };
 
   return { initSetup, getStatus, setStatus, decryptionUserId, decryptionUserRole };
