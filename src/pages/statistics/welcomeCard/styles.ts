@@ -7,6 +7,7 @@ export const Card = styled.div`
   background: white;
   display: flex;
   align-items: center;
+  max-width: 1000px;
   min-width: 600px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `
