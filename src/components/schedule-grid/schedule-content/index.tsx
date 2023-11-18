@@ -5,7 +5,7 @@ import useCurrentDate from '../../../utils/schedule/useCurrentDate';
 import { ScheduleItem } from '../../schedule-cell/styles';
 import { useSelector } from 'react-redux';
 import { translateClassType } from '../../../utils/schedule/translations';
-import { filterLessons } from '../../../utils/schedule/filter-lesson';
+import { filterLessons } from '../../../utils/schedule/filter-lesson';;
 
 export type Lesson = {
   time: string;

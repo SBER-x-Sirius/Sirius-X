@@ -4,7 +4,8 @@
     "mapIcon": "Map icon",
     "backIcon": "Back",
     "forwardIcon": "Forward",
-    "week": "week"
+    "week": "week",
+    "error": "There is no schedule for this period"
   },
   "filterBlock": {
     "search": "Search...",

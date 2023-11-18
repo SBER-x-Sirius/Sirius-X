@@ -6,13 +6,12 @@ import { useTranslation } from 'react-i18next';
 
 type propsScheduleCell = {
   data: {
-    lessonKey: string;
-    name: string;
-    classType: string;
-    placeActivity: string;
     teacher: string;
+    name: string;
+    lessonKey: string;
     time: string;
-  };
+    placeActivity: string;
+};
 };
 
 const ScheduleCell = ({ data }: propsScheduleCell): JSX.Element => {
