@@ -2,13 +2,18 @@ import React, { useState, useRef, useEffect } from 'react';
 import { DropdownContainer, SelectedText, DropdownContent, DropdownOption } from './style';
 import { AttendanceUser, AttendanceGroup } from '../../pages/attendance/new-meeting';
 import { t } from 'i18next';
+import { GetGroupsResponse } from '../../@types/api/attendance/group/types';
+import { GetTeachersResponse } from '../../@types/api/attendance/teacher/types';
 
 type AttendanceSelectorProps = {
-  selectItem: AttendanceUser[] | AttendanceGroup[];
+  selectItem: GetTeachersResponse | GetGroupsResponse;
   onSelectionChange: (selectedItems: any) => void;
 };
 
 export const AttendanceSelector = ({ selectItem, onSelectionChange }: AttendanceSelectorProps): JSX.Element => {
+  if (!selectItem) {
+    return;
+  }
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const maxWidth = 150;
@@ -72,7 +77,7 @@ export const AttendanceSelector = ({ selectItem, onSelectionChange }: Attendance
       <DropdownContent isOpen={isOpen}>
         {selectItem.map((item: AttendanceUser & AttendanceGroup) => (
           <DropdownOption key={item.id} onClick={toggleOption}>
-            {item.first_name ? buildFullName(item) : item?.title}
+            {item.first_name ? buildFullName(item) : item?.name}
           </DropdownOption>
         ))}
       </DropdownContent>

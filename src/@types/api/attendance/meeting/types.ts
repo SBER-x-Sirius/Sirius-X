@@ -1,3 +1,3 @@
 export type CreateMeetingResponse = {
-  message: string;
+  meetingId: string;
 };

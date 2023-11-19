@@ -1,5 +1,5 @@
 export type CreateMeetingData = {
-  groupIds?: string[] | undefined;
-  teacherIds?: string[] | undefined;
+  groupIds: string[];
+  teacherIds: string[] | undefined;
   title: string;
 };
