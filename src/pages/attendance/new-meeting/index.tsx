@@ -67,7 +67,7 @@ export const NewMeeting: React.FC = (): JSX.Element => {
     <AttendanceWrapper>
       <Sidebar />
       <BaseForm>
-        <SessionFormContent onClick={handleGroupSelection}>
+        <SessionFormContent>
           <MeetingTitle onChange={handleTitleChange} placeholder={t('attendance:attendanceTranslation.new-meeting.titlePlaceholder')} />
           <AttendanceSelector selectItem={groups} onSelectionChange={handleGroupSelection} />
           <AttendanceSelector selectItem={teachers} onSelectionChange={handleUserSelection} />
