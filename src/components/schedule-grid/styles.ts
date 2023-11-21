@@ -30,8 +30,8 @@ export const ScheduleWrapper = styled.div`
 
 export const Day = styled.div<DayProps>`
   display: flex;
-  border: 1px solid;
   border-radius: 15px;
+  border: 1px solid #5D6568;
   margin: 20px 0;
   overflow: hidden;
   opacity: ${(props) => (props.lastday ? '40%' : '100%')};

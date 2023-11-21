@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CustomInput = styled.input`
+  font-family: 'Jost', sans-serif;
   width: 100%;
   margin: 0;
   padding: 15px 20px;

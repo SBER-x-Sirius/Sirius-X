@@ -23,7 +23,7 @@ export const Time = styled.div`
 `;
 export const Name = styled.div`
   display: flex;
-  font-weight: bold;
+  font-weight: 500;
   padding: 4px 0;
   font-size: 16px;
 `;
