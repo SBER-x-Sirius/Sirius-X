@@ -5,7 +5,8 @@
     "backIcon": "Back",
     "forwardIcon": "Forward",
     "week": "week",
-    "error": "There is no schedule for this period"
+    "error": "There is no schedule for this period",
+    "audience": "audience"
   },
   "filterBlock": {
     "search": "Search...",

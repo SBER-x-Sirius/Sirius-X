@@ -65,17 +65,19 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
         );
         scheduleElements.push(dayElement);
       } else {
-        scheduleElements.push(
-          <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
-            <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
-              <div>{dataDay.day}</div>
-              <div>{dataDay.date}</div>
-            </LeftSide>
-            <RightSide>
-              <ScheduleItem>Данные о занятиях отсутствуют.</ScheduleItem>
-            </RightSide>
-          </Day>
-        );
+        if (dayKey != 'weekData') {
+          scheduleElements.push(
+            <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
+              <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
+                <div>{dataDay.day}</div>
+                <div>{dataDay.date}</div>
+              </LeftSide>
+              <RightSide>
+                <ScheduleItem>Данные о занятиях отсутствуют.</ScheduleItem>
+              </RightSide>
+            </Day>
+          );
+        }
       }
     }
   }

@@ -29,7 +29,6 @@ export const ScheduleWrapper = styled.div`
 `;
 
 export const Day = styled.div<DayProps>`
-  text-transform: capitalize;
   display: flex;
   border: 1px solid;
   border-radius: 15px;
@@ -64,7 +63,6 @@ export const Separator = styled.div`
 `;
 
 export const ChooseWeek = styled.div`
-  text-transform: capitalize;
   margin-top: 26px;
   margin-left: 8px;
   display: flex;
