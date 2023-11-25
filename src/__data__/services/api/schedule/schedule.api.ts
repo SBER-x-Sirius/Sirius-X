@@ -11,8 +11,11 @@ export const apiSchedule = createApi({
     }),
     getScheduleById: builder.query<Schedule, string>({
       query: scheduleId => `/schedule/${scheduleId}`
+    }),
+    getWeeklySchedule: builder.query<Schedule[], void>({
+      query: weekNumber => `/schedule/week/${weekNumber}`,
     })
-  })
+  }),
 });
 
-export const { useGetAllScheduleQuery, useGetScheduleByIdQuery } = apiSchedule;
+export const { useGetAllScheduleQuery, useGetScheduleByIdQuery, useGetWeeklyScheduleQuery} = apiSchedule;

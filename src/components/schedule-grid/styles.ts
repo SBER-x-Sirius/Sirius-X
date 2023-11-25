@@ -73,3 +73,12 @@ export const ChooseWeek = styled.div`
 export const Whitespace = styled.div`
   width: 10px;
 `;
+
+export const ScheduleError = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 20%;
+  height: 30vh;
+  color: gray;
+  font-size: 20px;
+`;
