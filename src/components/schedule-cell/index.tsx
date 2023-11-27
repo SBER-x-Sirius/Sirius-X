@@ -1,7 +1,20 @@
-import React from 'react';
-import { ScheduleItem, Time, Name, Place, Teacher, MainBlock, PlaceText, Header, Number } from './styles';
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+  ScheduleItem,
+  Time,
+  Name,
+  Place,
+  Teacher,
+  MainBlock,
+  PlaceText,
+  Header,
+  Number,
+  TeacherInfo,
+  Icons, CustomTooltip, IconCopy
+} from './styles';
 import Map from '../../assets/svg/map.svg';
 import Info from '../../assets/svg/info.svg';
+import Copy from '../../assets/svg/copy.svg'
 import { useTranslation } from 'react-i18next';
 
 type propsScheduleCell = {
@@ -26,7 +39,17 @@ const time = {
 };
 
 const ScheduleCell = ({ data }: propsScheduleCell): JSX.Element => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [tooltipText, setTooltipText] = useState(t('schedule:scheduleTranslation.scheduleGrid.copy'));
+
+  const handleCopyClick = useCallback(() => {
+    navigator.clipboard.writeText(data.teacher);
+    setTooltipText(t('schedule:scheduleTranslation.scheduleGrid.copied'))
+  }, [data.teacher]);
+
+  useEffect(() => {
+    setTooltipText(t('schedule:scheduleTranslation.scheduleGrid.copy'));
+  }, [i18n.language, t]);
 
   return (
     <ScheduleItem>
@@ -38,10 +61,15 @@ const ScheduleCell = ({ data }: propsScheduleCell): JSX.Element => {
         </Header>
         <Name>{`${data.name} (${data.classType})`}</Name>
         <Place>
-          <img src={Map} alt={t('schedule:scheduleTranslation.scheduleGrid.mapIcon')} />
+          <Icons src={Map} alt={t('schedule:scheduleTranslation.scheduleGrid.mapIcon')} />
           <PlaceText>{data.placeActivity}, {t('schedule:scheduleTranslation.scheduleGrid.audience')} {data.classRoom}</PlaceText>
         </Place>
-        <Teacher>{data.teacher}</Teacher>
+        <TeacherInfo>
+          <Teacher>{data.teacher}</Teacher>
+          <CustomTooltip title={tooltipText} placement='top' arrow>
+            <IconCopy src={Copy} alt={t('schedule:scheduleTranslation.scheduleGrid.copyIcon')} onClick={handleCopyClick} />
+          </CustomTooltip>
+        </TeacherInfo>
       </MainBlock>
     </ScheduleItem>
   );

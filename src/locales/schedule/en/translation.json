@@ -6,7 +6,10 @@
     "forwardIcon": "Forward",
     "week": "week",
     "error": "There is no schedule for this period",
-    "audience": "audience"
+    "audience": "audience",
+    "copyIcon": "Copy Icon",
+    "copy": "Copy",
+    "copied": "Copied!"
   },
   "filterBlock": {
     "search": "Search...",
