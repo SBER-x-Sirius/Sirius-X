@@ -1,7 +1,9 @@
 {
   "sessionForm": {
     "inputPlaceholder": "Введите код сессии",
-    "btnText": "Подключиться"
+    "btnText": "Подключиться",
+    "completed": "Успешно",
+    "error": "Ошибка. Попробуйте снова или проверьте код встречи"
   },
   "sidebar": {
     "new-meeting": {
