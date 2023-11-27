@@ -47,10 +47,10 @@ const Accession: React.FC = (): JSX.Element => {
             onChange={handleMeetingId}
             type='text'
             placeholder={t('attendance:attendanceTranslation.sessionForm.inputPlaceholder')}
-            disabled={showCompletedPopup || showErrorPopup}
+            disabled={showCompletedPopup}
           />
           <SessionButton onClick={(e) => handleSubmit(e)}
-                      disabled={showCompletedPopup || showErrorPopup}
+                      disabled={showCompletedPopup}
                       >
             {t('attendance:attendanceTranslation.sessionForm.btnText')}
           </SessionButton>
