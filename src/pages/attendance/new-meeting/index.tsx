@@ -1,5 +1,6 @@
 import { t } from 'i18next';
-import React, { useState } from 'react';
+import React from 'react';
+import { AttendanceGroup } from '../../../@types/attendance/group';
 import { AttendanceUser } from '../../../@types/attendance/user';
 import { AttendanceSelector } from '../../../components/attendance-selector';
 import BaseForm from '../../../components/form';
@@ -7,18 +8,10 @@ import Sidebar from '../../../components/sidebar';
 import { SessionButton, SessionFormContent } from '../accession/style';
 import { AttendanceWrapper } from '../style';
 
-export type AttendanceGroup = {
-  id: string;
-  title: string;
-};
-
 export const NewMeeting: React.FC = (): JSX.Element => {
-  const [selectUsers, setSelectUsers] = useState<(prevState: AttendanceUser) => undefined>();
-  const [selectGroups, setSelectGroups] = useState<(prevState: AttendanceGroup) => undefined>();
-
   const users: AttendanceUser[] = [
     {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+      userId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       first_name: 'Иван',
       last_name: 'Иванович',
       middle_name: 'Иванов',
@@ -26,10 +19,42 @@ export const NewMeeting: React.FC = (): JSX.Element => {
       role: 'Студент'
     },
     {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa5',
+      userId: '3fa85f64-5717-4562-b3fc-2c963f66afa5',
       first_name: 'Петр',
       last_name: 'Петрович',
       middle_name: 'Петров',
+      email: 'myemail',
+      role: 'Студент'
+    },
+    {
+      userId: '3fa85f64-5717-4562-b3fc-2c963f6adss6afa6',
+      first_name: 'Иван1',
+      last_name: 'Иванович1',
+      middle_name: 'Иванов1',
+      email: 'myemail',
+      role: 'Студент'
+    },
+    {
+      userId: '3fa85f64-5717-4562-b3fc-2c963f66adsadaafa5',
+      first_name: 'Петр1',
+      last_name: 'Петрович1',
+      middle_name: 'Петров1',
+      email: 'myemail',
+      role: 'Студент'
+    },
+    {
+      userId: '3fa85f64-5717-4562-b3fc-2c963f66afadaa6',
+      first_name: 'Иван2',
+      last_name: 'Иванович2',
+      middle_name: 'Иванов2',
+      email: 'myemail',
+      role: 'Студент'
+    },
+    {
+      userId: '3fa85f64-5717-4562-b3fc-2c963f66asdadafa5',
+      first_name: 'Петр2',
+      last_name: 'Петрович2',
+      middle_name: 'Петров2',
       email: 'myemail',
       role: 'Студент'
     }
@@ -37,30 +62,22 @@ export const NewMeeting: React.FC = (): JSX.Element => {
 
   const groups: AttendanceGroup[] = [
     {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+      groupId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       title: 'K0711-21/1'
     },
     {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa5',
+      groupId: '3fa85f64-5717-4562-b3fc-2c963f66afa5',
       title: 'K0711-21/2'
     }
   ];
-
-  const handleUserSelection = (selectedUsers: (prevState: AttendanceUser) => undefined): void => {
-    setSelectUsers(selectedUsers);
-  };
-
-  const handleGroupSelection = (selectedGroups: (prevState: AttendanceGroup) => undefined): void => {
-    setSelectGroups(selectedGroups);
-  };
 
   return (
     <AttendanceWrapper>
       <Sidebar />
       <BaseForm>
         <SessionFormContent>
-          <AttendanceSelector selectItem={groups} onSelectionChange={handleGroupSelection} />
-          <AttendanceSelector selectItem={users} onSelectionChange={handleUserSelection} />
+          <AttendanceSelector selectItems={groups} />
+          <AttendanceSelector selectItems={users} />
           <SessionButton>{t('attendance:attendanceTranslation.new-meeting.buttonTitle')}</SessionButton>
         </SessionFormContent>
       </BaseForm>
