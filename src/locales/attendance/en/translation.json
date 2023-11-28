@@ -1,10 +1,12 @@
 {
   "sessionForm": {
     "inputPlaceholder": "Enter session code",
-    "btnText": "Connect"
+    "btnText": "Connect",
+    "completed": "Completed",
+    "error": "Error. Try again or check the meeting code"
   },
   "sidebar": {
-    "newMeeting": {
+    "new-meeting": {
       "alt": "create meeting",
       "title": "Create meeting"
     },
@@ -12,7 +14,7 @@
       "alt": "connect to meeting",
       "title": "Connect to meeting"
     },
-    "getUsers": {
+    "users": {
       "alt": "get list of users",
       "title": "Get list of users"
     }

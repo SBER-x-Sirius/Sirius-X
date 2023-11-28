@@ -10,7 +10,7 @@ type FakeRegProps = {
 
 export const FakeLogin = (projectTitle: FakeRegProps) => {
   const navigate = useNavigate();
-  const [attendanceLogin, { error: attendanceLoginSuccess }] = useLoginMutation();
+  const [attendanceLogin, { data, error: attendanceLoginSuccess }] = useLoginMutation();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 

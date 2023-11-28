@@ -20,14 +20,25 @@ export const ScheduleContainer = styled.div`
   margin-bottom: 30px;
 `;
 
+export const ScheduleWrapper = styled.div`
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Day = styled.div<DayProps>`
   display: flex;
-  border: 1px solid;
   border-radius: 15px;
-  min-width: 80vw;
+  border: 1px solid #5D6568;
   margin: 20px 0;
   overflow: hidden;
   opacity: ${(props) => (props.lastday ? '40%' : '100%')};
+`;
+
+export const ScheduleCellsContainer = styled.div`
+  width: 100%;
 `;
 
 export const LeftSide = styled.div<LeftSideProps>`
@@ -41,22 +52,33 @@ export const LeftSide = styled.div<LeftSideProps>`
   align-items: center;
 `;
 
-export const RightSide = styled.div``;
+export const RightSide = styled.div`
+  width: 100%;
+`;
 
 export const Separator = styled.div`
   background-color: #97abe0;
   margin: 0 2vw;
   height: 1px;
-  min-width: 71vw;
 `;
 
 export const ChooseWeek = styled.div`
-  margin-top: 20px;
-  margin-left: 4%;
+  margin-top: 26px;
+  margin-left: 8px;
   display: flex;
   color: #97abe0;
   align-self: flex-start;
 `;
+
 export const Whitespace = styled.div`
   width: 10px;
+`;
+
+export const ScheduleError = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 20%;
+  height: 30vh;
+  color: gray;
+  font-size: 20px;
 `;

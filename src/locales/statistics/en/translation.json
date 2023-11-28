@@ -1,7 +1,7 @@
 {
   "specialtyBlock": {
     "header": "Choose your area of study",
-    "subheader": "Choose the direction of study.",
+    "subheader": "Choose the direction of study",
     "buttonText": "More details",
     "specialties": {
       "systemAdministrators": "System Administrators",
@@ -17,5 +17,26 @@
       "informationSecurity": "144 people",
       "hotelBusiness": "133 people"
     }
+  },
+  "studentsTable": {
+    "header": "Students statistic",
+    "course": "course",
+    "tableHeaders": {
+      "person": "Person",
+      "attendance": "Attendance",
+      "rating": "Raiting",
+      "scholarship": "Scholarship",
+      "paid": "Free/paid"
+    }
+  },
+  "welcomeCard": {
+    "dateCard": "September 2023",
+    "headerCard": "Welcome to the dashboard from «Fathers Frontend»",
+    "subtitle": "Here are the college statistics",
+    "headerButton": "Forward!",
+    "buttonCard": "details",
+    "logoCardAlt": "Father",
+    "nameLogoCard": "Father",
+    "mainImageCardAlt": "Girl working at the table"
   }
 }

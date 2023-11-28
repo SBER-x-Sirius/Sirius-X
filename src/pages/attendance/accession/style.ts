@@ -17,6 +17,7 @@ export const SessionInput = styled.input`
   width: 400px;
   font-size: 16px;
   color: rgb(93, 101, 104);
+  font-family: 'Jost', sans-serif;
 `;
 
 // TODO: название
@@ -27,6 +28,16 @@ export const SessionButton = styled.button`
   background-color: rgb(96, 93, 199);
   color: white;
   font-size: 16px;
+  font-family: 'Jost', sans-serif;
+  cursor: pointer;
+`;
+
+export const AccessionAlert = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 `;
 
 export const MeetingTitle = styled.input`

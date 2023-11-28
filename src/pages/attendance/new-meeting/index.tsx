@@ -13,8 +13,8 @@ import { useGetTeachersQuery } from '../../../__data__/services/api/attendance/t
 
 export type AttendanceUser = {
   id: string;
-  first_name: string;
-  last_name: string;
+  firstname: string;
+  lastname: string;
   middle_name: string;
   email: string;
   role: string;
@@ -30,13 +30,24 @@ export const NewMeeting: React.FC = (): JSX.Element => {
 
   const { data: groups } = useGetGroupsQuery();
   const { data: teachers } = useGetTeachersQuery();
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [selectedTeachers, setSelectedTeachers] = useState([]);
   const [selectedGroups, setSelectedGroups] = useState([]);
   const [selectedTitle, setSelectedTitle] = useState("");
-  const [attendanceCreateMeeting, { data: attendanceCreateMeetingData, error: attendanceCreateMeetingSuccess }] = useCreateMeetingMutation();
+  const [attendanceCreateMeeting, { data: attendanceCreateMeetingData, error: attendanceCreateMeetingError }] = useCreateMeetingMutation();
 
-  const handleUserSelection = (selectedUsers): void => {
-    setSelectedUsers(selectedUsers);
+  useEffect(() => {
+    console.log(attendanceCreateMeetingError, attendanceCreateMeetingData)
+    if (attendanceCreateMeetingError) {
+      navigate(getNavigationsValue('sirius-x.attendance'), { replace: true });
+    } else if (attendanceCreateMeetingData) {
+      const meetingId = attendanceCreateMeetingData.meetingId;
+      const route = `/sirius-x/attendance/meeting/${meetingId}`;
+      navigate(route, { replace: true });
+    }
+  }, [attendanceCreateMeetingData, attendanceCreateMeetingError]);
+
+  const handleTeacherSelection = (selectedTeachers): void => {
+    setSelectedTeachers(selectedTeachers);
   };
 
   const handleGroupSelection = (selectedGroups): void => {
@@ -51,15 +62,8 @@ export const NewMeeting: React.FC = (): JSX.Element => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    if (selectedGroups && selectedUsers && selectedTitle) {
-      await attendanceCreateMeeting({ groupIds: selectedGroups ? selectedGroups : [], teacherIds: selectedUsers ? selectedUsers : [''], title: selectedTitle });
-      if (!attendanceCreateMeetingSuccess) {
-        navigate(getNavigationsValue('sirius-x.attendance'), { replace: true });
-      } else {
-        const meetingId = attendanceCreateMeetingData.meetingId;
-        const route = `/sirius-x/attendance/meeting/${meetingId}`;
-        navigate(route, { replace: true });
-      }
+    if (selectedGroups && selectedTeachers && selectedTitle) {
+      await attendanceCreateMeeting({ groupIds: selectedGroups ? selectedGroups : [], teacherIds: selectedTeachers ? selectedTeachers : [''], title: selectedTitle });
     }
   }
 
@@ -69,8 +73,8 @@ export const NewMeeting: React.FC = (): JSX.Element => {
       <BaseForm>
         <SessionFormContent>
           <MeetingTitle onChange={handleTitleChange} placeholder={t('attendance:attendanceTranslation.new-meeting.titlePlaceholder')} />
-          <AttendanceSelector selectItem={groups} onSelectionChange={handleGroupSelection} />
-          <AttendanceSelector selectItem={teachers} onSelectionChange={handleUserSelection} />
+          {groups && (<AttendanceSelector selectItems={groups} onSelectionChange={handleGroupSelection} />)}
+          {teachers && (<AttendanceSelector selectItems={teachers} onSelectionChange={handleTeacherSelection} />)}
           <SessionButton onClick={(e) => handleSubmit(e)}>{t('attendance:attendanceTranslation.new-meeting.buttonTitle')}</SessionButton>
         </SessionFormContent>
       </BaseForm>
