@@ -4,12 +4,14 @@ import StudentsTableBlock from './studentsTable';
 import { useTheme } from '@mui/material';
 import LineChart from './lineChart';
 import WelcomeCard from './welcomeCard/index';
+import AdditionalCard1 from './additionalCard1/index';
 import DoughnutChart from "./eChart/index";
 
 const Statistics = (): JSX.Element => {
   const theme = useTheme();
   return (
     <>
+      <AdditionalCard1/>
       <SpecialtyBlock/>
       <DoughnutChart
           height="350px"

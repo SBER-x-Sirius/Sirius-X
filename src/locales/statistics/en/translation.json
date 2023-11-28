@@ -38,5 +38,11 @@
     "logoCardAlt": "Father",
     "nameLogoCard": "Father",
     "mainImageCardAlt": "Girl working at the table"
+  },
+  "additionalCard1": {
+    "header": "667",
+    "imgAlt": "chat",
+    "nameSchedule": "I came to college today",
+    "percentSchedule": "80%"
   }
 }
