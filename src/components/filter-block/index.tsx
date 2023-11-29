@@ -18,11 +18,10 @@ export const FilterBlock = (): JSX.Element => {
 
   const tabs = {
     group: 'schedule:scheduleTranslation.filterBlock.typesTab.group',
-    teacher: 'schedule:scheduleTranslation.filterBlock.typesTab.teacher',
+    teacher: 'schedule:scheduleTranslation.filterBlock.typesTab.teacher'
   };
 
   const [activeTab, setActiveTab] = useState<string>(tabs.group);
-  const [valueInput, setValueInput] = useState<string>('');
 
   const classTypeFilter = useSelector((state: any) => state.filters.classTypeFilter);
   const dispatch = useDispatch();
@@ -76,7 +75,7 @@ export const FilterBlock = (): JSX.Element => {
         <p>{t('schedule:scheduleTranslation.filterBlock.title')}:</p>
         {checkboxElements}
       </CheckboxContainer>
-      <Input value={valueInput} setValue={setValueInput} />
+      <Input activeTab={activeTab} tabs={tabs} />
     </FilterContainer>
   );
 };
