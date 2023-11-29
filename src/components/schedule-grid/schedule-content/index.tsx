@@ -5,7 +5,7 @@ import useCurrentDate from '../../../utils/schedule/useCurrentDate';
 import { ScheduleItem } from '../../schedule-cell/styles';
 import { useSelector } from 'react-redux';
 import { translateClassType } from '../../../utils/schedule/translations';
-import { filterLessons } from '../../../utils/schedule/filter-lesson';;
+import { filterLessons } from '../../../utils/schedule/filter-lesson';
 
 export type Lesson = {
   time: string;
@@ -49,7 +49,7 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
                 lessonCounter++;
                 return (
                   <React.Fragment key={lessonKey}>
-                    <ScheduleCell data={{ lessonKey, ...lesson }} />
+                    <ScheduleCell data={{ lessonKey, ...lesson, dataDay }} />
                     {index < filteredLessonKeys.length - 1 && <Separator />}
                   </React.Fragment>
                 );

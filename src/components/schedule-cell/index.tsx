@@ -1,8 +1,10 @@
-import React from 'react';
-import { ScheduleItem, Time, Name, Place, Teacher, MainBlock, PlaceText, Header, Number } from './styles';
+import React, { useState } from 'react';
+import { ScheduleItem, Time, Name, Place, Teacher, MainBlock, PlaceText, Header, Number, InfoIcon } from './styles';
 import Map from '../../assets/svg/map.svg';
 import Info from '../../assets/svg/info.svg';
 import { useTranslation } from 'react-i18next';
+import { UIModalSchedule } from '@Olegyesterdays/ui-kit-sirius-x/dist/cjs';
+import { createPortal } from 'react-dom';
 
 type propsScheduleCell = {
   data: {
@@ -28,22 +30,39 @@ const time = {
 const ScheduleCell = ({ data }: propsScheduleCell): JSX.Element => {
   const { t } = useTranslation();
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
-    <ScheduleItem>
-      <MainBlock>
-        <Header>
-          <Number>{time[data.time]}</Number>
-          <Time>{data.time}</Time>
-          <img src={Info} alt={t('schedule:scheduleTranslation.scheduleGrid.infoIcon')} />
-        </Header>
-        <Name>{`${data.name} (${data.classType})`}</Name>
-        <Place>
-          <img src={Map} alt={t('schedule:scheduleTranslation.scheduleGrid.mapIcon')} />
-          <PlaceText>{data.placeActivity}, {t('schedule:scheduleTranslation.scheduleGrid.audience')} {data.classRoom}</PlaceText>
-        </Place>
-        <Teacher>{data.teacher}</Teacher>
-      </MainBlock>
-    </ScheduleItem>
+    <>
+      <ScheduleItem>
+        <MainBlock>
+          <Header>
+            <Number>{time[data.time] ? time[data.time] : '0'}</Number>
+            <Time>{data.time}</Time>
+            <InfoIcon src={Info} alt={t('schedule:scheduleTranslation.scheduleGrid.infoIcon')} onClick={toggleModal}/>
+          </Header>
+          <Name>{`${data.name} (${data.classType})`}</Name>
+          <Place>
+            <img src={Map} alt={t('schedule:scheduleTranslation.scheduleGrid.mapIcon')} />
+            <PlaceText>{data.placeActivity}, {t('schedule:scheduleTranslation.scheduleGrid.audience')} {data.classRoom}</PlaceText>
+          </Place>
+          <Teacher>{data.teacher}</Teacher>
+        </MainBlock>
+      </ScheduleItem>
+
+      {isModalOpen && createPortal(
+          <UIModalSchedule
+            title={'Информация о событии'}
+            data={data}
+            isOpen={isModalOpen}
+            onClose={toggleModal}
+          />, document.querySelector("#schedule-container")
+      )}
+    </>
   );
 };
 

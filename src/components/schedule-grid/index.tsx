@@ -13,7 +13,7 @@ const ScheduleGrid = (): JSX.Element => {
   const {data} = useGetWeeklyScheduleQuery(weekNumber);
 
   return (
-    <ScheduleContainer>
+    <ScheduleContainer id="schedule-container">
       <ScheduleWrapper>
           <ChooseWeek>
             <img src={LeftArrow} alt={t('schedule:scheduleTranslation.scheduleGrid.backIcon')} />
