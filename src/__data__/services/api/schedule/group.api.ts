@@ -11,8 +11,8 @@ export const apiScheduleGroup = createApi({
       query: () => '/group'
     }),
     getGroupById: builder.query<Group, string>({
-      query: groupName => `/group/${groupName}`
-    }),
+      query: (groupName) => `/group/${groupName}`
+    })
   })
 });
 

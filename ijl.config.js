@@ -28,6 +28,7 @@ module.exports = {
     'sirius-x.attendance': '/sirius-x/attendance',
     'sirius-x.attendance.new-meeting': '/sirius-x/attendance/new-meeting',
     'sirius-x.attendance.accession': '/sirius-x/attendance/accession',
+    'sirius-x.attendance.meeting': '/sirius-x/attendance/meeting',
     'sirius-x.attendance.users': '/sirius-x/attendance/users',
     'sirius-x.attendance.auth.login': '/sirius-x/attendance/auth/login',
     'sirius-x.attendance.auth.registration': '/sirius-x/attendance/auth/registration',
@@ -39,6 +40,6 @@ module.exports = {
     }
   },
   config: {
-    'sirius-x.attendance': 'http://sirius.inno-js.ru:3002'
+    'sirius-x.attendance': 'http://localhost:3002'
   }
 };

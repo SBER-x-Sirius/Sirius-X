@@ -1,15 +1,20 @@
-import { getConfigValue } from '@ijl/cli';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import { AttendanceUser } from '../../../../../@types/attendance/user';
+import { attendanceBaseQuery } from '../../../../../utils/attendance/api';
 
-export const attendanceApi = createApi({
-  reducerPath: 'attendanceApi',
-  baseQuery: fetchBaseQuery({ baseUrl: getConfigValue('sirius-x.attendance') }),
+export const userApi = createApi({
+  reducerPath: 'userApi',
+  baseQuery: attendanceBaseQuery,
   endpoints: (builder) => ({
     getAllUsers: builder.query<AttendanceUser[], void>({
-      query: () => 'attendance/users'
+      query: () => 'users'
+    }),
+    getAllTeachers: builder.query<AttendanceUser[], void>({
+      query: () => ({
+        url: '/teachers'
+      })
     })
   })
 });
 
-export const { useGetAllUsersQuery } = attendanceApi;
+export const { useGetAllUsersQuery, useGetAllTeachersQuery } = userApi;

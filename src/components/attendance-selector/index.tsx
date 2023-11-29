@@ -1,8 +1,10 @@
 import { MenuItem, TextField } from '@mui/material';
 import { t } from 'i18next';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { AttendanceGroup } from '../../@types/attendance/group';
 import { AttendanceUser } from '../../@types/attendance/user';
+import { setGroups, setTeachers } from '../../__data__/slices/attendance/new-meeting';
 import { buildNameWithInitials } from '../../utils/attendance';
 
 type AttendanceSelectorProps = {
@@ -12,6 +14,7 @@ type SelectItem = AttendanceUser | AttendanceGroup;
 
 export const AttendanceSelector = ({ selectItems }: AttendanceSelectorProps): JSX.Element => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const dispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedItems(event.target.value as unknown as string[]);
@@ -24,6 +27,10 @@ export const AttendanceSelector = ({ selectItems }: AttendanceSelectorProps): JS
   function isAttendanceGroup(item: SelectItem): item is AttendanceGroup {
     return 'groupId' in item;
   }
+
+  useEffect((): void => {
+    isAttendanceGroup(selectItems[0]) ? dispatch(setGroups(selectedItems)) : dispatch(setTeachers(selectedItems));
+  }, [selectedItems]);
 
   return (
     <TextField
@@ -43,7 +50,7 @@ export const AttendanceSelector = ({ selectItems }: AttendanceSelectorProps): JS
       SelectProps={{
         multiple: true
       }}
-      sx={{ width: '400px', backgroundColor: 'white', borderRadius: 1 }}
+      sx={{ width: '25rem', backgroundColor: 'white', borderRadius: 1 }}
     >
       {selectItems.map((item: SelectItem) =>
         isAttendanceUser(item) ? (
@@ -52,7 +59,7 @@ export const AttendanceSelector = ({ selectItems }: AttendanceSelectorProps): JS
           </MenuItem>
         ) : (
           <MenuItem key={item.groupId} value={item.groupId} tabIndex={0}>
-            {`${item.title}`}
+            {`${item.name}`}
           </MenuItem>
         )
       )}

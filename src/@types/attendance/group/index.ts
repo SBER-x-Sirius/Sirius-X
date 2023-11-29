@@ -1,4 +1,6 @@
 export type AttendanceGroup = {
   groupId: string;
-  title: string;
+  meeting: [];
+  name: string;
+  users: string[];
 };
