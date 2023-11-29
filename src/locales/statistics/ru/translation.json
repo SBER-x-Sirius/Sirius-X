@@ -18,6 +18,11 @@
       "hotelBusiness": "133 чел."
     }
   },
+  "additionalCard2": {
+    "header": "Пришло",
+    "imagePercentageAlt": "Стрелочка",
+    "amountOfInterest": "+9%"
+  },
   "studentsTable": {
     "header": "Статистика по каждому студенту",
     "course": "курс",

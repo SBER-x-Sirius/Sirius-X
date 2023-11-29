@@ -18,6 +18,11 @@
       "hotelBusiness": "133 people"
     }
   },
+  "additionalCard2": {
+    "header": "has arrived",
+    "imagePercentageAlt": "arrow",
+    "amountOfInterest": "+9%"
+  },
   "studentsTable": {
     "header": "Students statistic",
     "course": "course",
