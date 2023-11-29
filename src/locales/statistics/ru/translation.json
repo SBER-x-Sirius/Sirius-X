@@ -18,6 +18,11 @@
       "hotelBusiness": "133 чел."
     }
   },
+  "additionalCard2": {
+    "header": "Пришло",
+    "imagePercentageAlt": "Стрелочка",
+    "amountOfInterest": "+9%"
+  },
   "studentsTable": {
     "header": "Статистика по каждому студенту",
     "course": "курс",
@@ -38,5 +43,11 @@
     "logoCardAlt": "Father",
     "nameLogoCard": "Father",
     "mainImageCardAlt": "Девушка работающая за столом"
+  },
+  "additionalCard1": {
+    "header": "667",
+    "imgAlt": "чат",
+    "nameSchedule": "Сегодня пришла в колледж",
+    "percentSchedule": "80%"
   }
 }

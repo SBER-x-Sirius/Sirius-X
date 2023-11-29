@@ -4,10 +4,16 @@
     "mapIcon": "Map icon",
     "backIcon": "Back",
     "forwardIcon": "Forward",
-    "week": "week"
+    "week": "week",
+    "error": "There is no schedule for this period",
+    "audience": "audience"
   },
   "filterBlock": {
-    "search": "Search...",
+    "search": {
+      "teacher": "Choose a teacher...",
+      "group": "Choose a group...",
+      "option": "Nothing found..."
+    },
     "title": "Display events",
     "typesClass": {
       "lectures": "Lectures",

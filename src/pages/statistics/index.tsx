@@ -1,4 +1,5 @@
 import React from 'react';
+import AdditionalCard2 from './additionalCard2'
 import SpecialtyBlock from './specialtyBlock';
 import StudentsTableBlock from './studentsTable';
 import { useTheme } from '@mui/material';
@@ -8,12 +9,14 @@ import DoughnutChart from './eChart/index';
 import {
   MainContainer, DoubleCard, FlexContainer,
 } from './styles'
+import AdditionalCard1 from './additionalCard1/index';
+import DoughnutChart from "./eChart/index";
 
 const Statistics = (): JSX.Element => {
   const theme = useTheme();
   return (
     <>
-      <FlexContainer>
+     <FlexContainer>
     <WelcomeCard/>
     <DoubleCard>
     </DoubleCard>
@@ -22,6 +25,9 @@ const Statistics = (): JSX.Element => {
     <LineChart
         color={[theme.palette.primary.main, theme.palette.primary.light]}
       />
+      <AdditionalCard1/>
+      <AdditionalCard2 />
+      <SpecialtyBlock/>
       <DoughnutChart
           color={[
             theme.palette.primary.dark,

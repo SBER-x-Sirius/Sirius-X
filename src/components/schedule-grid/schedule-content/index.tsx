@@ -27,6 +27,8 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
   const scheduleElements = [];
 
   const classTypeFilter = useSelector((state: any) => state.filters.classTypeFilter);
+  const inputFilterGroup = useSelector((state: any) => state.filters.inputFilterGroup);
+  const inputFilterTeacher = useSelector((state: any) => state.filters.inputFilterTeacher);
   const translatedFilters = classTypeFilter.map((filter) => translateClassType(filter));
 
   for (const dayKey in data) {
@@ -35,7 +37,12 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
 
       if (dataDay.lessons && Object.keys(dataDay.lessons).length > 0) {
         let lessonCounter = 0;
-        const filteredLessonKeys = filterLessons(dataDay.lessons, translatedFilters);
+        const filteredLessonKeys = filterLessons(
+          dataDay.lessons,
+          inputFilterGroup,
+          inputFilterTeacher,
+          translatedFilters
+        );
 
         const dayElement = (
           <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
@@ -65,17 +72,19 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
         );
         scheduleElements.push(dayElement);
       } else {
-        scheduleElements.push(
-          <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
-            <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
-              <div>{dataDay.day}</div>
-              <div>{dataDay.date}</div>
-            </LeftSide>
-            <RightSide>
-              <ScheduleItem>Данные о занятиях отсутствуют.</ScheduleItem>
-            </RightSide>
-          </Day>
-        );
+        if (dayKey != 'weekData') {
+          scheduleElements.push(
+            <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
+              <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
+                <div>{dataDay.day}</div>
+                <div>{dataDay.date}</div>
+              </LeftSide>
+              <RightSide>
+                <ScheduleItem>Данные о занятиях отсутствуют.</ScheduleItem>
+              </RightSide>
+            </Day>
+          );
+        }
       }
     }
   }

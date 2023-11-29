@@ -30,8 +30,8 @@ export const ScheduleWrapper = styled.div`
 
 export const Day = styled.div<DayProps>`
   display: flex;
-  border: 1px solid;
   border-radius: 15px;
+  border: 1px solid #5D6568;
   margin: 20px 0;
   overflow: hidden;
   opacity: ${(props) => (props.lastday ? '40%' : '100%')};
@@ -72,4 +72,13 @@ export const ChooseWeek = styled.div`
 
 export const Whitespace = styled.div`
   width: 10px;
+`;
+
+export const ScheduleError = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 20%;
+  height: 30vh;
+  color: gray;
+  font-size: 20px;
 `;
