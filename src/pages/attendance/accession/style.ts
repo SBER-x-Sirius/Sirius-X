@@ -29,4 +29,13 @@ export const SessionButton = styled.button`
   color: white;
   font-size: 16px;
   font-family: 'Jost', sans-serif;
+  cursor: pointer;
+`;
+
+export const AccessionAlert = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 `;

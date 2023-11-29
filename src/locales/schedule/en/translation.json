@@ -9,7 +9,11 @@
     "audience": "audience"
   },
   "filterBlock": {
-    "search": "Search...",
+    "search": {
+      "teacher": "Choose a teacher...",
+      "group": "Choose a group...",
+      "option": "Nothing found..."
+    },
     "title": "Display events",
     "typesClass": {
       "lectures": "Lectures",

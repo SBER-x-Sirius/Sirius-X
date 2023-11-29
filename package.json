@@ -1,7 +1,7 @@
 {
   "name": "sirius-x",
   "description": "",
-  "version": "1.2.1",
+  "version": "1.4.1",
   "main": "./src/index.tsx",
   "scripts": {
     "start": "ijl-cli server --port=8099 --with-open-browser",
@@ -28,6 +28,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@ijl/cli": "^5.0.3",
+    "@mui/x-charts": "^6.18.1",
     "@mui/material": "^5.14.17",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react": "^18.2.21",

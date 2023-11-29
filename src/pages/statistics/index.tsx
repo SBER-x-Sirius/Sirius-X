@@ -1,4 +1,5 @@
 import React from 'react';
+import AdditionalCard2 from './additionalCard2'
 import SpecialtyBlock from './specialtyBlock';
 import StudentsTableBlock from './studentsTable';
 import { useTheme } from '@mui/material';
@@ -12,6 +13,7 @@ const Statistics = (): JSX.Element => {
   return (
     <>
       <AdditionalCard1/>
+      <AdditionalCard2 />
       <SpecialtyBlock/>
       <DoughnutChart
           height="350px"
