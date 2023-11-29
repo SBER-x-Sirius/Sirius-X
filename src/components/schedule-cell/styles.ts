@@ -10,6 +10,7 @@ export const MainBlock = styled.div``;
 export const Header = styled.div`
   display: flex;
   padding: 4px 0;
+  align-items: center;
 `;
 export const Number = styled.div`
   display: flex;
@@ -39,4 +40,8 @@ export const PlaceText = styled.div`
 export const Teacher = styled.div`
   display: flex;
   padding: 4px 0;
+`;
+
+export const InfoIcon = styled.img`
+  cursor: pointer;
 `;
