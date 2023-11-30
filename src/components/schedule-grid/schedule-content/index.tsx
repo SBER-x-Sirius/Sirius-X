@@ -56,7 +56,7 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
                 lessonCounter++;
                 return (
                   <React.Fragment key={lessonKey}>
-                    <ScheduleCell data={{ lessonKey, ...lesson }} />
+                    <ScheduleCell data={{ lessonKey, ...lesson, dataDay }} />
                     {index < filteredLessonKeys.length - 1 && <Separator />}
                   </React.Fragment>
                 );
