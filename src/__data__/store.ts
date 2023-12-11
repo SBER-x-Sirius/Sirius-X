@@ -1,21 +1,37 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { attendanceApi } from './services/api/attendance/user';
-import { apiSchedule } from './services/api/schedule/schedule.api';
+
 import { apiScheduleGroup } from './services/api/schedule/group.api';
-import { filterReducer } from './slices/schedule/filters';
+import { apiSchedule } from './services/api/schedule/schedule.api';
 import { apiUser } from './services/api/schedule/user.api';
+import { filterReducer } from './slices/schedule/filters';
+
+import { authApi } from './services/api/attendance/auth';
+import { groupsAPI } from './services/api/attendance/group';
+import { meetingApi } from './services/api/attendance/meeting';
+import { userApi } from './services/api/attendance/user';
+import { newMeetingReducer } from './slices/attendance/new-meeting';
 
 const rootReducer = combineReducers({
-  [attendanceApi.reducerPath]: attendanceApi.reducer,
+  [userApi.reducerPath]: userApi.reducer,
+  [authApi.reducerPath]: authApi.reducer,
+  [meetingApi.reducerPath]: meetingApi.reducer,
+  [groupsAPI.reducerPath]: groupsAPI.reducer,
+
   [apiSchedule.reducerPath]: apiSchedule.reducer,
   [apiUser.reducerPath]: apiUser.reducer,
   [apiScheduleGroup.reducerPath]: apiScheduleGroup.reducer,
-  filters: filterReducer
+
+  filters: filterReducer,
+  newMeetingSlice: newMeetingReducer
 });
 
 const apiMiddleware = [
-  attendanceApi.middleware,
+  userApi.middleware,
+  authApi.middleware,
+  meetingApi.middleware,
+  groupsAPI.middleware,
+
   apiSchedule.middleware,
   apiScheduleGroup.middleware,
   apiUser.middleware

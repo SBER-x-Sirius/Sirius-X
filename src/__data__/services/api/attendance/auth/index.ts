@@ -4,8 +4,8 @@ import { AuthResponse } from '../../../../../@types/attendance/api/auth/types';
 import { useAuth } from '../../../../../hooks/attendance/auth';
 import { LoginData, RegistrationData } from './types';
 
-export const attendanceApi = createApi({
-  reducerPath: 'attendanceApi',
+export const authApi = createApi({
+  reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({ baseUrl: getConfigValue('sirius-x.attendance') }),
   endpoints: (builder) => ({
     registration: builder.mutation<AuthResponse, RegistrationData>({
@@ -44,4 +44,4 @@ export const attendanceApi = createApi({
   })
 });
 
-export const { useRegistrationMutation, useLoginMutation } = attendanceApi;
+export const { useRegistrationMutation, useLoginMutation } = authApi;

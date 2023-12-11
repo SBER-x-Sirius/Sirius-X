@@ -13,29 +13,20 @@ const Statistics = (): JSX.Element => {
   const theme = useTheme();
   return (
     <>
-     <FlexContainer>
-    <WelcomeCard/>
-    <DoubleCard>
-    </DoubleCard>
-    </FlexContainer>
-    <FlexContainer>
-    <LineChart
-        color={[theme.palette.primary.main, theme.palette.primary.light]}
-      />
-      <AdditionalCard1/>
-      <AdditionalCard2 />
-      <SpecialtyBlock/>
-      <DoughnutChart
-          color={[
-            theme.palette.primary.dark,
-            theme.palette.primary.main,
-            theme.palette.primary.light
-          ]}
-        />
+      <FlexContainer>
+        <WelcomeCard />
+        <DoubleCard></DoubleCard>
       </FlexContainer>
       <FlexContainer>
-      <SpecialtyBlock/>
-      <StudentsTableBlock/>
+        <LineChart color={[theme.palette.primary.main, theme.palette.primary.light]} />
+        <AdditionalCard1 />
+        <AdditionalCard2 />
+        <SpecialtyBlock />
+        <DoughnutChart color={[theme.palette.primary.dark, theme.palette.primary.main, theme.palette.primary.light]} />
+      </FlexContainer>
+      <FlexContainer>
+        <SpecialtyBlock />
+        <StudentsTableBlock />
       </FlexContainer>
     </>
   );

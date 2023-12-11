@@ -7,15 +7,15 @@ export const apiSchedule = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: configApi.baseScheduleAPI }),
   endpoints: (builder) => ({
     getAllSchedule: builder.query<Schedule[], never>({
-      query: () => '/schedule',
+      query: () => '/schedule'
     }),
     getScheduleById: builder.query<Schedule, string>({
-      query: scheduleId => `/schedule/${scheduleId}`
+      query: (scheduleId) => `/schedule/${scheduleId}`
     }),
     getWeeklySchedule: builder.query<Schedule[], void>({
-      query: weekNumber => `/schedule/week/${weekNumber}`,
+      query: (weekNumber) => `/schedule/week/${weekNumber}`
     })
-  }),
+  })
 });
 
-export const { useGetAllScheduleQuery, useGetScheduleByIdQuery, useGetWeeklyScheduleQuery} = apiSchedule;
+export const { useGetAllScheduleQuery, useGetScheduleByIdQuery, useGetWeeklyScheduleQuery } = apiSchedule;
