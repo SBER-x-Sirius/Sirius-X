@@ -11,7 +11,6 @@ import { Meeting } from './pages/attendance/meeting';
 import { NewMeeting } from './pages/attendance/new-meeting';
 import { Registration } from './pages/attendance/registration';
 import { Users } from './pages/attendance/users';
-import Main from './pages/main';
 import { Schedule } from './pages/schedule';
 import Statistics from './pages/statistics';
 
@@ -23,7 +22,6 @@ const App = () => {
         <Header />
         <Routes>
           <Route path={'sirius-x'}>
-            <Route index element={<Main />} />
             <Route path={'attendance'}>
               <Route index element={<PrivateRouter element={<Attendance />} />} />
               <Route path={'accession'} element={<PrivateRouter element={<Accession />} />} />
@@ -41,6 +39,7 @@ const App = () => {
             </Route>
             <Route path={'schedule'} element={<Schedule />} />
             <Route path={'statistics'} element={<Statistics />} />
+            <Route path={'/sirius-x'} element={<Navigate to='/sirius-x/schedule' replace />} />
           </Route>
         </Routes>
       </Container>

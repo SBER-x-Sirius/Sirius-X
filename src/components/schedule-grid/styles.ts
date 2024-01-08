@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { styled as styledMui } from '@mui/system';
+import { CircularProgress } from '@mui/material';
 
 type LeftSideProps = {
   currentday?: boolean;
@@ -81,4 +83,16 @@ export const ScheduleError = styled.div`
   height: 30vh;
   color: gray;
   font-size: 20px;
+`;
+
+export const Arrows = styled.img`
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const CustomCircularProgress = styledMui(CircularProgress)`
+  color: #605DC7;
+  margin: 142px 0;
+  text-align: center;
 `;
