@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { getNavigationsValue } from '@ijl/cli';
 import LogOutSVG from '../../assets/svg/log-out.svg';
 import {
@@ -15,6 +14,7 @@ import {
   MenuNavigation,
   ProfileLink
 } from './styles';
+import { Burger } from './burger';
 
 type Link = {
   text: string;
@@ -79,6 +79,7 @@ const Header: React.FC = (): JSX.Element => {
         <ProfileLink to={'#'}>{t('main:header.menuLinks.profile')}</ProfileLink>
         <LogOutSvg src={LogOutSVG} alt={t('main:header.logoutIcon')} />
       </HeaderItemsWrapper>
+      <Burger />
     </ContainerHeader>
   );
 };
