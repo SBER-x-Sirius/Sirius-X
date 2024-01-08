@@ -4,7 +4,8 @@
       "schedule": "Schedule",
       "attendance": "Attendance",
       "statistic": "Statistic",
-      "profile": "Profile"
+      "profile": "Profile",
+      "logout": "Logout"
     },
     "logoutIcon": "button exit personal account"
   }
