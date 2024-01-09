@@ -18,7 +18,7 @@ export const ContainerHeader = styled.header`
   justify-content: space-between;
   max-width: 100%;
   margin: 28px 0 0;
-  height: 50px;
+  min-height: 50px;
   background-color: ${primaryBackgroundColor};
   border-radius: 30px;
   font-family: 'Jost', sans-serif;

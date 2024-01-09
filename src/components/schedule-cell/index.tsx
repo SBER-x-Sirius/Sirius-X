@@ -17,7 +17,7 @@ import {
 } from './styles';
 import Map from '../../assets/svg/map.svg';
 import Info from '../../assets/svg/info.svg';
-import Copy from '../../assets/svg/copy.svg'
+import Copy from '../../assets/svg/copy.svg';
 import { useTranslation } from 'react-i18next';
 import { UIModalSchedule } from '@Olegyesterdays/ui-kit-sirius-x/dist/cjs';
 import { createPortal } from 'react-dom';
@@ -49,7 +49,7 @@ const ScheduleCell = ({ data }: propsScheduleCell): JSX.Element => {
 
   const handleCopyClick = useCallback(() => {
     navigator.clipboard.writeText(data.teacher);
-    setTooltipText(t('schedule:scheduleTranslation.scheduleGrid.copied'))
+    setTooltipText(t('schedule:scheduleTranslation.scheduleGrid.copied'));
   }, [data.teacher]);
 
   useEffect(() => {
@@ -78,12 +78,16 @@ const ScheduleCell = ({ data }: propsScheduleCell): JSX.Element => {
               {data.placeActivity}, {t('schedule:scheduleTranslation.scheduleGrid.audience')} {data.classRoom}
             </PlaceText>
           </Place>
-        <TeacherInfo>
-          <Teacher>{data.teacher}</Teacher>
-          <CustomTooltip title={tooltipText} placement='top' arrow>
-            <IconCopy src={Copy} alt={t('schedule:scheduleTranslation.scheduleGrid.copyIcon')} onClick={handleCopyClick} />
-          </CustomTooltip>
-        </TeacherInfo>
+          <TeacherInfo>
+            <Teacher>{data.teacher}</Teacher>
+            <CustomTooltip title={tooltipText} placement='top' arrow>
+              <IconCopy
+                src={Copy}
+                alt={t('schedule:scheduleTranslation.scheduleGrid.copyIcon')}
+                onClick={handleCopyClick}
+              />
+            </CustomTooltip>
+          </TeacherInfo>
         </MainBlock>
       </ScheduleItem>
 

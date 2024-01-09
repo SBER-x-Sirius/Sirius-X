@@ -80,7 +80,7 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
                 <div>{dataDay.date}</div>
               </LeftSide>
               <RightSide>
-                <ScheduleItem>Данные о занятиях отсутствуют.</ScheduleItem>
+                <ScheduleItem>Занятия отсутствуют.</ScheduleItem>
               </RightSide>
             </Day>
           );
