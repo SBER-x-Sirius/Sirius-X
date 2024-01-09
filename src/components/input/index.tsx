@@ -46,6 +46,7 @@ const Input = ({ activeTab, tabs }: propsInput): JSX.Element => {
         key={autocompleteKey}
         disabled={isLoading || !!error}
         disablePortal
+        ListboxProps={{ style: { maxHeight: 150 } }}
         noOptionsText={t('schedule:scheduleTranslation.filterBlock.search.option')}
         sx={{ width: '100%' }}
         onChange={(event, newValue) => {

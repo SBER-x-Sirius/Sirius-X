@@ -9,7 +9,7 @@ export const InputContainer = myStyled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 0 0 20px 20px;
+  margin: 0 20px 20px 20px;
 `;
 
 export const CustomTextField = styled(TextField)`
@@ -20,5 +20,9 @@ export const CustomTextField = styled(TextField)`
     font-family: 'Jost', sans-serif;
     font-size: 16px;
     font-weight: 400;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
   }
 `;

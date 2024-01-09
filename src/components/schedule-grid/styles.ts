@@ -20,14 +20,22 @@ export const ScheduleContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
 `;
 
 export const ScheduleWrapper = styled.div`
-  width: 97%;
+  width: 98%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1000px) {
+    width: 95%;
+  }
 `;
 
 export const Day = styled.div<DayProps>`
@@ -65,11 +73,14 @@ export const Separator = styled.div`
 `;
 
 export const ChooseWeek = styled.div`
-  margin-top: 26px;
-  margin-left: 8px;
+  margin: 20px 0 0 5px;
   display: flex;
   color: #97abe0;
   align-self: flex-start;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const Whitespace = styled.div`
@@ -79,10 +90,16 @@ export const Whitespace = styled.div`
 export const ScheduleError = styled.div`
   width: 100%;
   text-align: center;
-  margin-top: 20%;
-  height: 30vh;
+  height: 50vh;
   color: gray;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const Arrows = styled.img`
@@ -93,6 +110,7 @@ export const Arrows = styled.img`
 
 export const CustomCircularProgress = styledMui(CircularProgress)`
   color: #605DC7;
-  margin: 142px 0;
+  height: 100%;
   text-align: center;
+  margin: 23vh;
 `;
