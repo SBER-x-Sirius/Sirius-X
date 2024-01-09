@@ -35,6 +35,7 @@ const Header: React.FC = (): JSX.Element => {
   const handleLocalizeClick = (btn: string): void => {
     setActiveLocalizeBtn(btn);
     i18n.changeLanguage(btn);
+    localStorage.setItem('language', btn);
   };
 
   const links: Link[] = [
@@ -57,10 +58,17 @@ const Header: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     const storedActiveLink = localStorage.getItem('activeMenuLink');
+    const storedActiveLanguage = localStorage.getItem('language');
+
     if (storedActiveLink) {
       setActiveLink(storedActiveLink);
     }
-  }, []);
+
+    if (storedActiveLanguage) {
+      setActiveLocalizeBtn(storedActiveLanguage);
+      i18n.changeLanguage(storedActiveLanguage);
+    }
+  }, [i18n]);
 
   return (
     <ContainerHeader>

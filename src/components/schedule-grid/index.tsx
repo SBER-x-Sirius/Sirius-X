@@ -25,6 +25,8 @@ const ScheduleGrid = (): JSX.Element => {
   const inputFilterGroup = useSelector((state: any) => state.filters.inputFilterGroup);
   const inputFilterTeacher = useSelector((state: any) => state.filters.inputFilterTeacher);
 
+  const translateMonth = `schedule:scheduleTranslation.months.${monthName}`;
+
   const handleClickPrevWeek = () => {
     if (currentWeek <= 0) {
       return;
@@ -55,7 +57,7 @@ const ScheduleGrid = (): JSX.Element => {
             onClick={handleClickNextWeek}
           />
           <Whitespace />
-          {monthName} {year} ({currentWeek} {t('schedule:scheduleTranslation.scheduleGrid.week')})
+          {t(translateMonth as any)} {year} ({currentWeek} {t('schedule:scheduleTranslation.scheduleGrid.week')})
         </ChooseWeek>
         {isFetching ? (
           <CustomCircularProgress />
