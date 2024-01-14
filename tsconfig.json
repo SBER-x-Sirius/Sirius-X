@@ -18,7 +18,9 @@
     ],
     "types": [
       "webpack-env",
-      "node"
+      "node",
+      "jest",
+      "@testing-library/jest-dom"
     ],
     "resolveJsonModule": true
   },
