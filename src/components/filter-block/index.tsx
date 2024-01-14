@@ -5,21 +5,33 @@ import Input from '../input';
 import { useDispatch, useSelector } from 'react-redux';
 import { setClassTypeFilter } from '../../__data__/slices/schedule/filters';
 
+export type Checkbox = {
+  id: string;
+  label: string;
+  color: string;
+};
+
+export type Tab = {
+  group: string;
+  teacher: string;
+};
+
+export const checkboxes: Checkbox[] = [
+  { id: 'lectures', label: 'Лекции', color: '#1CB87F' },
+  { id: 'seminars', label: 'Семинары', color: '#EAB308' },
+  { id: 'practicals', label: 'Практ.занятия', color: '#38BDF8' },
+  { id: 'labs', label: 'Лаб.занятия', color: '#818CF8' },
+  { id: 'exams', label: 'Экзамены(зачеты)', color: '#FF4848' },
+  { id: 'other', label: 'Прочее', color: '#312E81' }
+];
+
+export const tabs: Tab = {
+  group: 'schedule:scheduleTranslation.filterBlock.typesTab.group',
+  teacher: 'schedule:scheduleTranslation.filterBlock.typesTab.teacher'
+};
+
 export const FilterBlock = (): JSX.Element => {
   const { t } = useTranslation();
-  const checkboxes = [
-    { id: 'lectures', label: 'Лекции', color: '#1CB87F' },
-    { id: 'seminars', label: 'Семинары', color: '#EAB308' },
-    { id: 'practicals', label: 'Практ.занятия', color: '#38BDF8' },
-    { id: 'labs', label: 'Лаб.занятия', color: '#818CF8' },
-    { id: 'exams', label: 'Экзамены(зачеты)', color: '#FF4848' },
-    { id: 'other', label: 'Прочее', color: '#312E81' }
-  ];
-
-  const tabs = {
-    group: 'schedule:scheduleTranslation.filterBlock.typesTab.group',
-    teacher: 'schedule:scheduleTranslation.filterBlock.typesTab.teacher'
-  };
 
   const [activeTab, setActiveTab] = useState<string>(tabs.group);
 
