@@ -43,13 +43,13 @@ export const Users: React.FC = (): JSX.Element => {
       <UserPageHeader>
         <GroupsBlock>
           <GroupsList>
-            {t('attendance:attendanceTranslation.session-page.groupList')}: {groups.join(', ')}
+            {t('attendance:attendanceTranslation.meeting-page.groupList')}: {groups.join(', ')}
           </GroupsList>
         </GroupsBlock>
 
         <ButtonsBlock>
-          <ShareButton>{t('attendance:attendanceTranslation.session-page.shareButton')}</ShareButton>
-          <SettingsIcon src={SettingsSVG} alt={t('attendance:attendanceTranslation.session-page.shareButtonAlt')} />
+          <ShareButton>{t('attendance:attendanceTranslation.meeting-page.shareButton')}</ShareButton>
+          <SettingsIcon src={SettingsSVG} alt={t('attendance:attendanceTranslation.meeting-page.shareButtonAlt')} />
         </ButtonsBlock>
       </UserPageHeader>
       <UserPageTableWrapper>
@@ -61,7 +61,7 @@ export const Users: React.FC = (): JSX.Element => {
                 <TableCell>{user.group}</TableCell>
                 <TableCell>{user.role}</TableCell>
                 <TableImageCell>
-                  <TableIcon src={TableSVG} alt={t('attendance:attendanceTranslation.session-page.TableIconAlt')} />
+                  <TableIcon src={TableSVG} alt={t('attendance:attendanceTranslation.meeting-page.TableIconAlt')} />
                 </TableImageCell>
               </TableRow>
             ))}
