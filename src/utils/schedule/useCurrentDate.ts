@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 type CurrentDate = {
   day: string;
-  date: number;
+  date: string;
   week: string[];
 };
 
@@ -34,7 +34,7 @@ const useCurrentDate = (data): CurrentDate => {
   }, [data]);
 
   const day = getRussianDay(currentDate);
-  const date = currentDate.getDate();
+  const date = currentDate.getDate().toString();
 
   return {
     day,
