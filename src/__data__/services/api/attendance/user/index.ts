@@ -6,8 +6,8 @@ export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: attendanceBaseQuery,
   endpoints: (builder) => ({
-    getAllUsers: builder.query<AttendanceUser[], void>({
-      query: () => 'users'
+    getAllUsers: builder.query<AttendanceUser, void>({
+      query: () => '/users'
     }),
     getAllTeachers: builder.query<AttendanceUser[], void>({
       query: () => ({
