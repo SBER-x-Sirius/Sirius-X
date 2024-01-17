@@ -1,79 +1,68 @@
+import { MenuItem, TextField } from '@mui/material';
 import { t } from 'i18next';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { AttendanceGroup } from '../../@types/attendance/group';
 import { AttendanceUser } from '../../@types/attendance/user';
-import { AttendanceGroup } from '../../pages/attendance/new-meeting';
-import { buildFullName } from '../../utils/attendance';
-import { DropdownContainer, DropdownContent, DropdownOption, SelectedText } from './style';
+import { setGroups, setTeachers } from '../../__data__/slices/attendance/new-meeting';
+import { buildNameWithInitials } from '../../utils/attendance';
 
 type AttendanceSelectorProps = {
-  selectItem: AttendanceUser[] | AttendanceGroup[];
-  onSelectionChange: (selectedItems: any) => void;
+  selectItems: AttendanceUser[] | AttendanceGroup[];
 };
+type SelectItem = AttendanceUser | AttendanceGroup;
 
-export const AttendanceSelector = ({ selectItem, onSelectionChange }: AttendanceSelectorProps): JSX.Element => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const maxWidth = 150;
-  const dropdownRef = useRef(null);
+export const AttendanceSelector = ({ selectItems }: AttendanceSelectorProps): JSX.Element => {
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const dispatch = useDispatch();
 
-  const toggleDropdown = (): void => {
-    setIsOpen(!isOpen);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedItems(event.target.value as unknown as string[]);
   };
 
-  const toggleOption = (event: React.MouseEvent<HTMLDivElement>): void => {
-    const target = event.target as HTMLElement;
+  function isAttendanceUser(item: SelectItem): item is AttendanceUser {
+    return 'userId' in item;
+  }
 
-    if (event) {
-      const text = target.textContent;
-      target.classList.toggle('selected');
-      if (selectedOptions.includes(text)) {
-        setSelectedOptions(selectedOptions.filter((item) => item !== text));
-      } else {
-        setSelectedOptions([...selectedOptions, text]);
-      }
-    }
-  };
+  function isAttendanceGroup(item: SelectItem): item is AttendanceGroup {
+    return 'groupId' in item;
+  }
 
-  const itsGroup = (): boolean => {
-    return !selectItem[0]?.first_name;
-  };
-
-  const updateSelectedOptionsText = (): string => {
-    const selectedOptionsText = selectedOptions.join(', ');
-    onSelectionChange(selectedOptions);
-    if (selectedOptionsText.length > maxWidth) {
-      return selectedOptionsText.substring(0, maxWidth) + ' ...';
-    } else if (selectedOptionsText.length === 0) {
-      return itsGroup()
-        ? t('attendance:attendanceTranslation.new-meeting.groupSelector')
-        : t('attendance:attendanceTranslation.new-meeting.userSelector');
-    } else {
-      return selectedOptionsText;
-    }
-  };
-
-  useEffect(() => {
-    function handleClickOutside(event: { target: unknown }) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
+  useEffect((): void => {
+    isAttendanceGroup(selectItems[0]) ? dispatch(setGroups(selectedItems)) : dispatch(setTeachers(selectedItems));
+  }, [selectedItems]);
 
   return (
-    <DropdownContainer ref={dropdownRef}>
-      <SelectedText onClick={toggleDropdown}>{updateSelectedOptionsText()}</SelectedText>
-      <DropdownContent isOpen={isOpen}>
-        {selectItem.map((item: AttendanceUser & AttendanceGroup) => (
-          <DropdownOption key={item.id} onClick={toggleOption}>
-            {item.first_name ? buildFullName(item) : item?.title}
-          </DropdownOption>
-        ))}
-      </DropdownContent>
-    </DropdownContainer>
+    <TextField
+      select
+      focused
+      label={
+        isAttendanceUser(selectItems[0]) ? (
+          <>{t('attendance:attendanceTranslation.new-meeting.userSelector')}</>
+        ) : (
+          <>{t('attendance:attendanceTranslation.new-meeting.groupSelector')}</>
+        )
+      }
+      value={selectedItems}
+      onChange={handleChange}
+      color='info'
+      variant='filled'
+      SelectProps={{
+        multiple: true
+      }}
+      sx={{ width: '25rem', backgroundColor: 'white', borderRadius: 1 }}
+    >
+      {selectItems.map((item: SelectItem) =>
+        isAttendanceUser(item) ? (
+          <MenuItem key={item.userId} value={item.userId} tabIndex={0}>
+            {buildNameWithInitials(item)}
+          </MenuItem>
+        ) : (
+          <MenuItem key={item.groupId} value={item.groupId} tabIndex={0}>
+            {`${item.name}`}
+          </MenuItem>
+        )
+      )}
+    </TextField>
   );
 };

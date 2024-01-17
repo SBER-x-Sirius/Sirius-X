@@ -1,8 +1,8 @@
 export type AttendanceUser = {
-  id: string;
-  first_name: string;
-  last_name: string;
-  middle_name: string;
+  userId: string;
+  firstname: string;
+  lastname: string;
+  middlename: string;
   email: string;
   role: string;
 };

@@ -37,7 +37,19 @@ export const Container = styled.div`
   margin: 0 100px;
   height: 100vh;
 
-  @media (max-width: 1024px) {
-    margin: 0 50px;
+  @media (max-width: 1000px) {
+    margin: 0 70px;
   }
+
+    @media (max-width: 870px) {
+        margin: 0 30px;
+    }
+
+    @media (max-width: 480px) {
+        margin: 0 15px;
+    }
+
+    @media (max-width: 375px) {
+        margin: 0 10px;
+    }
 `;

@@ -4,10 +4,21 @@
     "mapIcon": "Map icon",
     "backIcon": "Back",
     "forwardIcon": "Forward",
-    "week": "week"
+    "week": "week",
+    "error": "There is no schedule for this period",
+    "audience": "audience",
+    "copyIcon": "Copy Icon",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "noClasses": "No classes",
+    "noMatches": "No matches found"
   },
   "filterBlock": {
-    "search": "Search...",
+    "search": {
+      "teacher": "Choose a teacher...",
+      "group": "Choose a group...",
+      "option": "Nothing found..."
+    },
     "title": "Display events",
     "typesClass": {
       "lectures": "Lectures",
@@ -21,5 +32,28 @@
       "group": "Group",
       "teacher": "Teacher"
     }
+  },
+  "days": {
+    "ПН": "MO",
+    "ВТ": "TU",
+    "СР": "WE",
+    "ЧТ": "TH",
+    "ПТ": "FR",
+    "СБ": "SA",
+    "ВС": "SU"
+  },
+  "months": {
+    "Январь": "January",
+    "Февраль": "February",
+    "Март": "March",
+    "Апрель": "April",
+    "Май": "May",
+    "Июнь": "June",
+    "Июль": "July",
+    "Август": "August",
+    "Сентябрь": "September",
+    "Октябрь": "October",
+    "Ноябрь": "November",
+    "Декабрь": "December"
   }
 }

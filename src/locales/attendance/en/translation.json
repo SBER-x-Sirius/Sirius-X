@@ -1,7 +1,9 @@
 {
   "sessionForm": {
     "inputPlaceholder": "Enter session code",
-    "btnText": "Connect"
+    "btnText": "Connect",
+    "completed": "Completed",
+    "error": "Error. Try again or check the meeting code"
   },
   "sidebar": {
     "new-meeting": {

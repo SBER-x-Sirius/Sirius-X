@@ -52,12 +52,12 @@ const Sidebar: React.FC = (): JSX.Element => {
 
   return (
     <>
-      {!isStudent && (
+      {!isStudent() && (
         <SidebarMenu>
           {menu.slice(0, isTeacher() ? menu.length - 1 : menu.length).map((item) => (
             <SidebarElement key={item.key}>
               <Link to={getNavigationsValue(staticPath + item.endpoint)}>
-                <SidebarFocus active={activeLink == item.endpoint}>
+                <SidebarFocus active={activeLink === item.endpoint}>
                   <Button src={item.src} alt={item.alt} title={item.title} />
                 </SidebarFocus>
               </Link>

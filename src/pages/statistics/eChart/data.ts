@@ -1,4 +1,4 @@
-import { type Theme } from '@mui/material'
+import { type Theme } from '@mui/material';
 
 export const getOption = (theme: Theme) => ({
   legend: {
@@ -54,4 +54,4 @@ export const getOption = (theme: Theme) => ({
       }
     }
   ]
-})
+});

@@ -17,15 +17,29 @@ export const ContainerHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   max-width: 100%;
-  padding: 0 22px 0 7px;
   margin: 28px 0 0;
   min-height: 50px;
   background-color: ${primaryBackgroundColor};
   border-radius: 30px;
+  font-family: 'Jost', sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 650px) {
+    background-color: transparent;
+    height: 40px;
+  }
 `;
 
 export const MenuNavigation = styled.nav`
   height: 100%;
+  padding-left: 7px;
+
+  @media (max-width: 650px) {
+    display: none;
+  }
 `;
 
 export const MenuList = styled.ul`
@@ -57,6 +71,14 @@ export const MenuLink = styled(Link)<MenuLinkProps>`
   transition:
     background-color 0.3s,
     color 0.3s;
+
+  @media (max-width: 1000px) {
+    min-width: 120px;
+  }
+
+  @media (max-width: 768px) {
+    min-width: 105px;
+  }
 `;
 
 export const LocalizeWrapper = styled.div`
@@ -65,9 +87,16 @@ export const LocalizeWrapper = styled.div`
   padding: 0 3px;
   gap: 5px;
   border-radius: 35px;
-  min-width: 60px;
-  min-height: 24px;
+  min-width: 72px;
+  min-height: 30px;
   background-color: ${localizeBackground};
+
+  @media (max-width: 650px) {
+    min-height: 40px;
+    min-width: 96px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  }
 `;
 
 export const LocalizeButton = styled.button<MenuLinkProps>`
@@ -76,8 +105,8 @@ export const LocalizeButton = styled.button<MenuLinkProps>`
   justify-content: center;
   flex: 1;
   padding-bottom: 3px;
-  width: 23px;
-  height: 18px;
+  width: 30px;
+  height: 22px;
   border: 0;
   border-radius: 35px;
   color: ${primaryTextColor};
@@ -86,6 +115,13 @@ export const LocalizeButton = styled.button<MenuLinkProps>`
     background-color 0.3s,
     color 0.3s;
   cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+
+  @media (max-width: 650px) {
+    width: 28px;
+    height: 36px;
+  }
 `;
 
 export const ProfileLink = styled(Link)`
@@ -105,14 +141,35 @@ export const ProfileLink = styled(Link)`
     background-color: ${activeMenuLinkBackground};
     color: ${activeMenuLinkColor};
   }
+
+  @media (max-width: 1000px) {
+    min-width: 130px;
+  }
+
+  @media (max-width: 768px) {
+    min-width: 115px;
+  }
+
+  @media (max-width: 650px) {
+    display: none;
+  }
 `;
 
 export const LogOutSvg = styled.img`
   cursor: pointer;
+
+  @media (max-width: 650px) {
+    display: none;
+  }
 `;
 
 export const HeaderItemsWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
+  padding-right: 20px;
+
+  @media (max-width: 1000px) {
+    gap: 10px;
+  }
 `;

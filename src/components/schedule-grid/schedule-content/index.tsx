@@ -6,41 +6,37 @@ import { ScheduleItem } from '../../schedule-cell/styles';
 import { useSelector } from 'react-redux';
 import { translateClassType } from '../../../utils/schedule/translations';
 import { filterLessons } from '../../../utils/schedule/filter-lesson';
+import { useTranslation } from 'react-i18next';
+import { DayData, Schedule } from '../../../__data__/services/api/schedule/types';
 
-export type Lesson = {
-  time: string;
-  name: string;
-  placeActivity: string;
-  teacher: string;
-};
-
-export type DaySchedule = {
-  date: string;
-  day: string;
-  lessons: Record<string, Lesson>;
-};
-
-export type ScheduleData = Record<string, DaySchedule>;
-
-const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
+const ScheduleContent = ({ data }: { data: Schedule }): JSX.Element => {
+  const { t } = useTranslation();
   const { day, date, week } = useCurrentDate(data);
   const scheduleElements = [];
 
   const classTypeFilter = useSelector((state: any) => state.filters.classTypeFilter);
+  const inputFilterGroup = useSelector((state: any) => state.filters.inputFilterGroup);
+  const inputFilterTeacher = useSelector((state: any) => state.filters.inputFilterTeacher);
   const translatedFilters = classTypeFilter.map((filter) => translateClassType(filter));
 
   for (const dayKey in data) {
     if (Object.prototype.hasOwnProperty.call(data, dayKey)) {
-      const dataDay = data[dayKey];
+      const dataDay = data[dayKey] as DayData;
+      const translatedDay = `schedule:scheduleTranslation.days.${dataDay.day}`;
 
       if (dataDay.lessons && Object.keys(dataDay.lessons).length > 0) {
         let lessonCounter = 0;
-        const filteredLessonKeys = filterLessons(dataDay.lessons, translatedFilters);
+        const filteredLessonKeys = filterLessons(
+          dataDay.lessons,
+          inputFilterGroup,
+          inputFilterTeacher,
+          translatedFilters
+        );
 
         const dayElement = (
           <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
             <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
-              <div>{dataDay.day}</div>
+              <div>{t(translatedDay as any)}</div>
               <div>{dataDay.date}</div>
             </LeftSide>
             <RightSide>
@@ -49,7 +45,7 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
                 lessonCounter++;
                 return (
                   <React.Fragment key={lessonKey}>
-                    <ScheduleCell data={{ lessonKey, ...lesson }} />
+                    <ScheduleCell data={{ lessonKey, ...lesson, dataDay }} />
                     {index < filteredLessonKeys.length - 1 && <Separator />}
                   </React.Fragment>
                 );
@@ -57,7 +53,7 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
 
               {lessonCounter === 0 && (
                 <>
-                  <ScheduleItem>Совпадений не найдено.</ScheduleItem>
+                  <ScheduleItem>{t('schedule:scheduleTranslation.scheduleGrid.noMatches')}</ScheduleItem>
                 </>
               )}
             </RightSide>
@@ -65,17 +61,19 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
         );
         scheduleElements.push(dayElement);
       } else {
-        scheduleElements.push(
-          <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
-            <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
-              <div>{dataDay.day}</div>
-              <div>{dataDay.date}</div>
-            </LeftSide>
-            <RightSide>
-              <ScheduleItem>Данные о занятиях отсутствуют.</ScheduleItem>
-            </RightSide>
-          </Day>
-        );
+        if (dayKey != 'weekData') {
+          scheduleElements.push(
+            <Day key={dayKey} lastday={week.indexOf(dataDay.date) < week.indexOf(date.toString())}>
+              <LeftSide currentday={dataDay.day === day && dataDay.date == date}>
+                <div>{t(translatedDay as any)}</div>
+                <div>{dataDay.date}</div>
+              </LeftSide>
+              <RightSide>
+                <ScheduleItem>{t('schedule:scheduleTranslation.scheduleGrid.noClasses')}</ScheduleItem>
+              </RightSide>
+            </Day>
+          );
+        }
       }
     }
   }

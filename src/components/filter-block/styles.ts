@@ -8,6 +8,11 @@ export const FilterContainer = styled.div`
   background-color: white;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+    margin-top: 20px;
+  }
 `;
 
 export const FilterSwitchContainer = styled.ul`
@@ -40,6 +45,13 @@ export const CheckboxContainer = styled.div`
   align-items: center;
   & p {
     margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding-top: 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 7px;
   }
 `;
 

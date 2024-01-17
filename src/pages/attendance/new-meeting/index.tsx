@@ -1,57 +1,37 @@
 import { t } from 'i18next';
-import React, { useState } from 'react';
-import { AttendanceUser } from '../../../@types/attendance/user';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { AttendanceState } from '../../../@types/attendance/slice';
+import { useGetAllGroupsQuery } from '../../../__data__/services/api/attendance/group';
+import { useCreateMeetingMutation } from '../../../__data__/services/api/attendance/meeting';
+import { useGetAllTeachersQuery } from '../../../__data__/services/api/attendance/user';
 import { AttendanceSelector } from '../../../components/attendance-selector';
 import BaseForm from '../../../components/form';
 import Sidebar from '../../../components/sidebar';
 import { SessionButton, SessionFormContent } from '../accession/style';
 import { AttendanceWrapper } from '../style';
-
-export type AttendanceGroup = {
-  id: string;
-  title: string;
-};
+import { getNavigationsValue } from '@ijl/cli';
 
 export const NewMeeting: React.FC = (): JSX.Element => {
-  const [selectUsers, setSelectUsers] = useState<(prevState: AttendanceUser) => undefined>();
-  const [selectGroups, setSelectGroups] = useState<(prevState: AttendanceGroup) => undefined>();
+  const { data: groups } = useGetAllGroupsQuery();
+  const { data: teachers } = useGetAllTeachersQuery();
+  const [createMeeting, { data }] = useCreateMeetingMutation();
+  const navigate = useNavigate();
 
-  const users: AttendanceUser[] = [
-    {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-      first_name: 'Иван',
-      last_name: 'Иванович',
-      middle_name: 'Иванов',
-      email: 'myemail',
-      role: 'Студент'
-    },
-    {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa5',
-      first_name: 'Петр',
-      last_name: 'Петрович',
-      middle_name: 'Петров',
-      email: 'myemail',
-      role: 'Студент'
+  const targetGroups = useSelector((state: AttendanceState) => state.newMeetingSlice.groups);
+  const targetTeachers = useSelector((state: AttendanceState) => state.newMeetingSlice.teachers);
+
+  useEffect(() => {
+    if (data) {
+      navigate(getNavigationsValue('sirius-x.attendance.meeting') + '/' + data.meetingId.toString());
     }
-  ];
+  }, [data]);
 
-  const groups: AttendanceGroup[] = [
-    {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-      title: 'K0711-21/1'
-    },
-    {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa5',
-      title: 'K0711-21/2'
+  const handlerClick = async () => {
+    if (targetGroups.length > 0) {
+      await createMeeting({ groups: targetGroups, teachers: targetTeachers });
     }
-  ];
-
-  const handleUserSelection = (selectedUsers: (prevState: AttendanceUser) => undefined): void => {
-    setSelectUsers(selectedUsers);
-  };
-
-  const handleGroupSelection = (selectedGroups: (prevState: AttendanceGroup) => undefined): void => {
-    setSelectGroups(selectedGroups);
   };
 
   return (
@@ -59,9 +39,11 @@ export const NewMeeting: React.FC = (): JSX.Element => {
       <Sidebar />
       <BaseForm>
         <SessionFormContent>
-          <AttendanceSelector selectItem={groups} onSelectionChange={handleGroupSelection} />
-          <AttendanceSelector selectItem={users} onSelectionChange={handleUserSelection} />
-          <SessionButton>{t('attendance:attendanceTranslation.new-meeting.buttonTitle')}</SessionButton>
+          {groups && <AttendanceSelector selectItems={groups} />}
+          {teachers && <AttendanceSelector selectItems={teachers} />}
+          <SessionButton type='button' onClick={handlerClick}>
+            {t('attendance:attendanceTranslation.new-meeting.buttonTitle')}
+          </SessionButton>
         </SessionFormContent>
       </BaseForm>
     </AttendanceWrapper>
