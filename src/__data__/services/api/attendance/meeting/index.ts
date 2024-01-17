@@ -1,6 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { attendanceBaseQuery } from '../../../../../utils/attendance/api';
 import { newMeetingState } from '../../../../slices/attendance/new-meeting';
+import { AttendanceMeeting } from '../../../../../@types/attendance/meeting';
 
 export const meetingApi = createApi({
   reducerPath: 'meetingApi',
@@ -15,8 +16,14 @@ export const meetingApi = createApi({
           teacherIds: meeting.teachers
         }
       })
+    }),
+    getMeeting: builder.query<AttendanceMeeting, string>({
+      query: (meetingId) => ({
+        url: `/meeting/${meetingId}`,
+        method: 'GET'
+      })
     })
   })
 });
 
-export const { useCreateMeetingMutation } = meetingApi;
+export const { useCreateMeetingMutation, useGetMeetingQuery } = meetingApi;
