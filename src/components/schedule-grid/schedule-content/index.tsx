@@ -7,23 +7,9 @@ import { useSelector } from 'react-redux';
 import { translateClassType } from '../../../utils/schedule/translations';
 import { filterLessons } from '../../../utils/schedule/filter-lesson';
 import { useTranslation } from 'react-i18next';
+import { DayData, Schedule } from '../../../__data__/services/api/schedule/types';
 
-export type Lesson = {
-  time: string;
-  name: string;
-  placeActivity: string;
-  teacher: string;
-};
-
-export type DaySchedule = {
-  date: string;
-  day: string;
-  lessons: Record<string, Lesson>;
-};
-
-export type ScheduleData = Record<string, DaySchedule>;
-
-const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
+const ScheduleContent = ({ data }: { data: Schedule }): JSX.Element => {
   const { t } = useTranslation();
   const { day, date, week } = useCurrentDate(data);
   const scheduleElements = [];
@@ -35,7 +21,7 @@ const ScheduleContent = ({ data }: ScheduleData): JSX.Element => {
 
   for (const dayKey in data) {
     if (Object.prototype.hasOwnProperty.call(data, dayKey)) {
-      const dataDay = data[dayKey];
+      const dataDay = data[dayKey] as DayData;
       const translatedDay = `schedule:scheduleTranslation.days.${dataDay.day}`;
 
       if (dataDay.lessons && Object.keys(dataDay.lessons).length > 0) {

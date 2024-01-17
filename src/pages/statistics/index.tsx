@@ -15,13 +15,13 @@ const Statistics = (): JSX.Element => {
     <>
       <FlexContainer>
         <WelcomeCard />
-        <DoubleCard></DoubleCard>
+        <DoubleCard>
+        <AdditionalCard1 />
+        <AdditionalCard2 />
+        </DoubleCard>
       </FlexContainer>
       <FlexContainer>
         <LineChart color={[theme.palette.primary.main, theme.palette.primary.light]} />
-        <AdditionalCard1 />
-        <AdditionalCard2 />
-        <SpecialtyBlock />
         <DoughnutChart color={[theme.palette.primary.dark, theme.palette.primary.main, theme.palette.primary.light]} />
       </FlexContainer>
       <FlexContainer>

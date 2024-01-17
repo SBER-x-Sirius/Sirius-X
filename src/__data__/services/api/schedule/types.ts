@@ -1,13 +1,27 @@
-export type Schedule = {
-  _id: string;
-  date: string;
+export type Lesson = {
   time: string;
-  disciplineName: string;
+  name: string;
   classType: string;
-  users: User[];
-  group: Group;
-  locationAddress: string;
+  placeActivity: string;
+  teacher: string;
   classRoom: string;
+  group: Group;
+};
+
+export type WeekData = {
+  month: string;
+  year: string;
+  week: string;
+};
+
+export type DayData = {
+  date: string;
+  day: string;
+  lessons: Lesson[];
+};
+
+export type Schedule = {
+  [key: string]: DayData | WeekData;
 };
 
 export type Group = {

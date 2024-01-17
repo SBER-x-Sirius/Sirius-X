@@ -9,9 +9,10 @@ export const Card = styled.div`
   background-color: #6b3dde;
   display: flex;
   box-shadow: 0 5px 20px darkgray;
+  margin-top: 40px;
 `
 export const ContainerLeft = styled.div`
-  margin-left: 40px;
+  margin-left: 25px;
   color: white;
 `
 

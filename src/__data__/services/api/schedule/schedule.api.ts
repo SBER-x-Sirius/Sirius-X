@@ -6,13 +6,13 @@ export const apiSchedule = createApi({
   reducerPath: 'apiSchedule',
   baseQuery: fetchBaseQuery({ baseUrl: configApi.baseScheduleAPI }),
   endpoints: (builder) => ({
-    getAllSchedule: builder.query<Schedule[], never>({
+    getAllSchedule: builder.query<Schedule, never>({
       query: () => '/schedule'
     }),
     getScheduleById: builder.query<Schedule, string>({
       query: (scheduleId) => `/schedule/${scheduleId}`
     }),
-    getWeeklySchedule: builder.query<Schedule[], number>({
+    getWeeklySchedule: builder.query<Schedule, number>({
       query: (weekNumber) => `/schedule/week/${weekNumber}`
     })
   })
