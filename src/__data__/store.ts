@@ -6,6 +6,7 @@ import { apiSchedule } from './services/api/schedule/schedule.api';
 import { apiUser } from './services/api/schedule/user.api';
 import { filterReducer } from './slices/schedule/filters';
 
+import { statisticsApi } from './services/api/statistics';
 import { authApi } from './services/api/attendance/auth';
 import { groupsAPI } from './services/api/attendance/group';
 import { meetingApi } from './services/api/attendance/meeting';
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   [apiSchedule.reducerPath]: apiSchedule.reducer,
   [apiUser.reducerPath]: apiUser.reducer,
   [apiScheduleGroup.reducerPath]: apiScheduleGroup.reducer,
+  [statisticsApi.reducerPath]: statisticsApi.reducer,
 
   filters: filterReducer,
   newMeetingSlice: newMeetingReducer
@@ -34,11 +36,13 @@ const apiMiddleware = [
   attendanceApi.middleware,
   meetingApi.middleware,
   groupsAPI.middleware,
-
+  statisticsApi.middleware,
+  
   apiSchedule.middleware,
   apiScheduleGroup.middleware,
   apiUser.middleware
 ];
+
 
 export const store = configureStore({
   reducer: rootReducer,
