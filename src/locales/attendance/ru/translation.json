@@ -1,5 +1,5 @@
 {
-  "sessionForm": {
+  "meetingForm": {
     "inputPlaceholder": "Введите код сессии",
     "btnText": "Подключиться",
     "completed": "Успешно",
@@ -24,10 +24,54 @@
     "userSelector": "Добавьте других преподавателей",
     "buttonTitle": "Создать новую встречу"
   },
-  "session-page": {
+  "meeting-page": {
     "groupList": "Присутствующие группы",
     "shareButton": "Поделиться",
     "shareButtonAlt": "Кнопка настроек",
     "TableIconAlt": "Кнопка дополнительных действий"
+  },
+  "login-form": {
+    "email": {
+      "title": "Электронная почта",
+      "placeholder": "Введите электронную почту"
+    },
+    "password": {
+      "title": "Пароль",
+      "placeholder": "Введите пароль"
+    },
+    "button": {
+      "title": "Войти"
+    },
+    "link": {
+      "title": "Регистрация"
+    }
+  },
+  "registration-form": {
+    "firstName": {
+      "title": "Имя",
+      "placeholder": "Введите имя"
+    },
+    "middleName": {
+      "title": "Отчество",
+      "placeholder": "Введите отчество"
+    },
+    "lastName": {
+      "title": "Фамилия",
+      "placeholder": "Введите фамилия"
+    },
+    "email": {
+      "title": "Электронная почта",
+      "placeholder": "Введите электронную почту"
+    },
+    "password": {
+      "title": "Пароль",
+      "placeholder": "Введите пароль"
+    },
+    "button": {
+      "title": "Регистрация"
+    },
+    "link": {
+      "title": "Авторизация"
+    }
   }
 }

@@ -1,7 +1,10 @@
+import { getNavigationsValue } from '@ijl/cli';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getNavigationsValue } from '@ijl/cli';
+import { useNavigate } from 'react-router-dom';
 import LogOutSVG from '../../assets/svg/log-out.svg';
+import { useAuth } from '../../hooks/attendance/auth';
+import { Burger } from './burger';
 import {
   ContainerHeader,
   HeaderItemsWrapper,
@@ -14,7 +17,6 @@ import {
   MenuNavigation,
   ProfileLink
 } from './styles';
-import { Burger } from './burger';
 
 type Link = {
   text: string;
@@ -23,7 +25,8 @@ type Link = {
 
 const Header: React.FC = (): JSX.Element => {
   const { i18n, t } = useTranslation();
-
+  const navigate = useNavigate();
+  const { setStatus, deleteTokens } = useAuth();
   const [activeLink, setActiveLink] = useState<string>('');
   const [activeLocalizeBtn, setActiveLocalizeBtn] = useState<string>('ru');
 
@@ -56,6 +59,12 @@ const Header: React.FC = (): JSX.Element => {
     </MenuItem>
   ));
 
+  const handlerExit = () => {
+    setStatus(false);
+    deleteTokens();
+    navigate('sirius-x');
+  };
+
   useEffect(() => {
     const storedActiveLink = localStorage.getItem('activeMenuLink');
     const storedActiveLanguage = localStorage.getItem('language');
@@ -85,7 +94,7 @@ const Header: React.FC = (): JSX.Element => {
           </LocalizeButton>
         </LocalizeWrapper>
         <ProfileLink to={'#'}>{t('main:header.menuLinks.profile')}</ProfileLink>
-        <LogOutSvg src={LogOutSVG} alt={t('main:header.logoutIcon')} />
+        <LogOutSvg src={LogOutSVG} alt={t('main:header.logoutIcon')} onClick={handlerExit} />
       </HeaderItemsWrapper>
       <Burger />
     </ContainerHeader>

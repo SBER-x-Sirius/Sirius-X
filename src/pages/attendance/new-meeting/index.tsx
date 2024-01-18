@@ -9,7 +9,7 @@ import { useGetAllTeachersQuery } from '../../../__data__/services/api/attendanc
 import { AttendanceSelector } from '../../../components/attendance-selector';
 import BaseForm from '../../../components/form';
 import Sidebar from '../../../components/sidebar';
-import { SessionButton, SessionFormContent } from '../accession/style';
+import { MeetingButton, MeetingFormContent } from '../accession/style';
 import { AttendanceWrapper } from '../style';
 import { getNavigationsValue } from '@ijl/cli';
 
@@ -38,13 +38,13 @@ export const NewMeeting: React.FC = (): JSX.Element => {
     <AttendanceWrapper>
       <Sidebar />
       <BaseForm>
-        <SessionFormContent>
+        <MeetingFormContent>
           {groups && <AttendanceSelector selectItems={groups} />}
           {teachers && <AttendanceSelector selectItems={teachers} />}
-          <SessionButton type='button' onClick={handlerClick}>
+          <MeetingButton type='button' onClick={handlerClick}>
             {t('attendance:attendanceTranslation.new-meeting.buttonTitle')}
-          </SessionButton>
-        </SessionFormContent>
+          </MeetingButton>
+        </MeetingFormContent>
       </BaseForm>
     </AttendanceWrapper>
   );

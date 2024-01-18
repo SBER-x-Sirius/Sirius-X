@@ -51,7 +51,8 @@ export const Users: React.FC = (): JSX.Element => {
       <UserPageHeader>
         <GroupsBlock>
           <GroupsList>
-            {t('attendance:attendanceTranslation.session-page.groupList')}: {groups_data && groups_data.map((g) => g.name ).join(', ')}
+            {t('attendance:attendanceTranslation.meeting-page.groupList')}:{' '}
+            {groups_data && groups_data.map((g) => g.name).join(', ')}
           </GroupsList>
         </GroupsBlock>
         <ButtonsBlock>

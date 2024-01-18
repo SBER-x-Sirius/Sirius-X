@@ -18,7 +18,8 @@ type UserTableRowProps = {
   user: User;
   index: number;
   handleDelete: any;
-}
+};
+
 
 export const UserTableRow: React.FC<UserTableRowProps> = ({ user, index, handleDelete }) => {
   const { t } = useTranslation();

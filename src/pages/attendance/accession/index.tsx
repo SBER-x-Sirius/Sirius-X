@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Sidebar from '../../../components/sidebar';
 import BaseForm from '../../../components/form';
 import { AttendanceWrapper } from '../style';
-import { SessionButton, SessionFormContent, SessionInput } from './style';
+import { MeetingButton, MeetingFormContent, MeetingInput } from './style';
 import { useAccessionMutation } from '../../../__data__/services/api/attendance/accession';
 import { Alert, Slide, SlideProps } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
@@ -46,17 +46,18 @@ const Accession: React.FC = (): JSX.Element => {
     <AttendanceWrapper>
       <Sidebar />
       <BaseForm>
-        <SessionFormContent>
-          <SessionInput
+        <MeetingFormContent>
+          <MeetingInput
+            width={'400px'}
             onChange={handleMeetingId}
             type='text'
-            placeholder={t('attendance:attendanceTranslation.sessionForm.inputPlaceholder')}
+            placeholder={t('attendance:attendanceTranslation.meetingForm.inputPlaceholder')}
             disabled={showCompletedPopup}
           />
-          <SessionButton onClick={(e) => handleSubmit(e)} disabled={showCompletedPopup}>
-            {t('attendance:attendanceTranslation.sessionForm.btnText')}
-          </SessionButton>
-        </SessionFormContent>
+          <MeetingButton onClick={(e) => handleSubmit(e)} disabled={showCompletedPopup}>
+            {t('attendance:attendanceTranslation.meetingForm.btnText')}
+          </MeetingButton>
+        </MeetingFormContent>
       </BaseForm>
       {(showCompletedPopup || showErrorPopup) && (
         <Snackbar
@@ -70,8 +71,8 @@ const Accession: React.FC = (): JSX.Element => {
         >
           <Alert severity={showCompletedPopup ? 'success' : 'error'} sx={{ zoom: '1.3' }}>
             {showCompletedPopup
-              ? t('attendance:attendanceTranslation.sessionForm.completed')
-              : t('attendance:attendanceTranslation.sessionForm.error')}
+              ? t('attendance:attendanceTranslation.meetingForm.completed')
+              : t('attendance:attendanceTranslation.meetingForm.error')}
           </Alert>
         </Snackbar>
       )}

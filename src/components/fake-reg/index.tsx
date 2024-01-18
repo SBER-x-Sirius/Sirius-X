@@ -1,8 +1,11 @@
 import { getNavigationsValue } from '@ijl/cli';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useRegistrationMutation } from '../../__data__/services/api/attendance/auth';
 import { RegistrationData } from '../../__data__/services/api/attendance/auth/types';
+import { MeetingInput } from '../../pages/attendance/accession/style';
+import { AuthFieldContainer, AuthFieldTitle, AuthFormContainer, AuthSubmitButton } from '../../styles/attendance/auth';
+import { useTranslation } from 'react-i18next';
 
 type Fields = {
   firstName?: string;
@@ -12,11 +15,8 @@ type Fields = {
   password?: string;
 };
 
-type FakeRegProps = {
-  projectTitle: 'attendance' | 'main' | 'schedule' | 'atatistics';
-};
-
-export const FakeReg = (projectTitle: FakeRegProps) => {
+export const FakeReg = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [attendanceRegistration, { error: attendanceRegistrationSuccess }] = useRegistrationMutation();
   const [fields, setFields] = useState<Fields>({
@@ -35,50 +35,37 @@ export const FakeReg = (projectTitle: FakeRegProps) => {
   };
 
   const handleSubmit = async () => {
-    switch (projectTitle.projectTitle) {
-      case 'attendance':
-        await attendanceRegistration(fields as RegistrationData);
-        if (!attendanceRegistrationSuccess) {
-          navigate(getNavigationsValue('sirius-x.attendance'), { replace: true });
-        }
-        break;
-      case 'main':
-        // тут прописываем вызов нужных запросов
-
-        break;
-      case 'schedule':
-        // тут прописываем вызов нужных запросов
-
-        break;
-      case 'atatistics':
-        // тут прописываем вызов нужных запросов
-
-        break;
-
-      default:
-        break;
+    await attendanceRegistration(fields as RegistrationData);
+    if (!attendanceRegistrationSuccess) {
+      navigate(getNavigationsValue('sirius-x.attendance'), { replace: true });
     }
   };
 
   return (
     <>
-      <form style={{ display: 'flex', flexDirection: 'column' }}>
+      <AuthFormContainer>
         {Object.keys(fields).map((field) => (
-          <div key={field} style={{ display: 'flex', flexDirection: 'column' }}>
-            <label htmlFor={field}>{field}</label>
-            <input
+          <AuthFieldContainer key={field} style={{ marginBottom: '6%' }}>
+            <AuthFieldTitle htmlFor={field} style={{ marginBottom: '4%' }}>
+              {t(`attendance:attendanceTranslation.registration-form.${field}.title`)}
+            </AuthFieldTitle>
+            <MeetingInput
               id={field}
-              type={field === 'password' ? 'password' : 'text'}
+              type='text'
               autoComplete='off'
+              placeholder={t(`attendance:attendanceTranslation.registration-form.${field}.placeholder`)}
               value={fields[field]}
               onChange={(e) => handleFieldChange(field.toString() as keyof Fields, e.target.value)}
             />
-          </div>
+          </AuthFieldContainer>
         ))}
-        <button onClick={handleSubmit} type='button'>
-          Submit
-        </button>
-      </form>
+        <AuthSubmitButton onClick={handleSubmit} type='button'>
+          {t('attendance:attendanceTranslation.registration-form.button.title')}
+        </AuthSubmitButton>
+        <Link to={getNavigationsValue('sirius-x.attendance.auth.login')} style={{ color: '#fff' }}>
+          {t('attendance:attendanceTranslation.registration-form.link.title')}
+        </Link>
+      </AuthFormContainer>
     </>
   );
 };
