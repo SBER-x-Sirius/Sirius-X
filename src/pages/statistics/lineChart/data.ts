@@ -1,6 +1,6 @@
 import { Theme } from '@mui/material';
 
-export const getOption = (theme: Theme): JSX.Element => ({
+export const getOption = (theme: Theme) => ({
   grid: { top: '10%', bottom: '10%', left: '5%', right: '5%' },
   legend: {
     itemGap: 20,
@@ -18,7 +18,7 @@ export const getOption = (theme: Theme): JSX.Element => ({
   },
   xAxis: {
     type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     axisLine: { show: false },
     axisTick: { show: false },
     axisLabel: {
@@ -38,19 +38,28 @@ export const getOption = (theme: Theme): JSX.Element => ({
   },
   series: [
     {
-      data: [30, 40, 20, 50, 40, 80, 90],
+      // data: [30, 40, 20, 50, 40, 80, 90],
       type: 'line',
-      stack: 'This month',
-      name: 'This month',
+      stack: 'Первый курс',
+      name: 'Первый курс',
       smooth: true,
       symbolSize: 4,
       lineStyle: { width: 4 }
     },
     {
-      data: [20, 50, 15, 50, 30, 70, 95],
+      // data: [20, 50, 15, 50, 30, 70, 95],
       type: 'line',
-      stack: 'Last month',
-      name: 'Last month',
+      stack: 'Второй курс',
+      name: 'Второй курс',
+      smooth: true,
+      symbolSize: 4,
+      lineStyle: { width: 4 }
+    },
+    {
+      // data: [20, 50, 15, 50, 30, 70, 95],
+      type: 'line',
+      stack: 'Третий курс',
+      name: 'Третий курс',
       smooth: true,
       symbolSize: 4,
       lineStyle: { width: 4 }

@@ -21,8 +21,8 @@ const Statistics = (): JSX.Element => {
         </DoubleCard>
       </FlexContainer>
       <FlexContainer>
-        <LineChart color={[theme.palette.primary.main, theme.palette.primary.light]} />
-        <DoughnutChart color={[theme.palette.primary.dark, theme.palette.primary.main, theme.palette.primary.light]} />
+        <LineChart color={[theme.palette.primary.main, theme.palette.error.light, theme.palette.warning.light]} />
+        <DoughnutChart color={[theme.palette.primary.dark, theme.palette.warning.light, theme.palette.error.light]} />
       </FlexContainer>
       <FlexContainer>
         <SpecialtyBlock />

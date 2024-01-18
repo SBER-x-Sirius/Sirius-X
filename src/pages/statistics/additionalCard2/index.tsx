@@ -11,19 +11,20 @@ import {
 import { useTranslation } from 'react-i18next';
 import { ChartContainer, BarPlot } from '@mui/x-charts';
 import PercentArrow from '../../../assets/svg/PercentArrow.svg'
+import { useGetAttendancePerWeekQuery } from '../../../__data__/services/api/statistics/additionalCard'
 
-const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
 const xLabels = [
   'Page A',
   'Page B',
   'Page C',
   'Page D',
   'Page E',
-  'Page F',
-  'Page G'
+  'Page F'
 ];
 const AdditionalCard2: React.FC = (): JSX.Element => {
   const { t } = useTranslation();
+
+  const { data: avgPerWeek } = useGetAttendancePerWeekQuery()
   return (
     <Card>
       <ContainerLeft>
@@ -34,14 +35,17 @@ const AdditionalCard2: React.FC = (): JSX.Element => {
         </Percentage>
       </ContainerLeft>
       <ContainerRight>
-        <ChartContainer
-          width={200}
-          height={150}
-          series={[{ data: uData, label: 'uv', type: 'bar', color: '#68a1ff' }]}
-          xAxis={[{ scaleType: 'band', data: xLabels }]}
-        >
-          <BarPlot />
-        </ChartContainer>
+        {avgPerWeek ?
+          <ChartContainer
+            width={200}
+            height={150}
+            series={[{ data: avgPerWeek.message, label: 'uv', type: 'bar', color: '#68a1ff' }]}
+            xAxis={[{ scaleType: 'band', data: xLabels }]}
+          >
+            <BarPlot />
+          </ChartContainer> :
+        <></>
+        }
       </ContainerRight>
     </Card>
   );
