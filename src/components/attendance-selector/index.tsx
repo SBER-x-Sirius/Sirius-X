@@ -6,6 +6,7 @@ import { AttendanceGroup } from '../../@types/attendance/group';
 import { AttendanceUser } from '../../@types/attendance/user';
 import { setGroups, setTeachers } from '../../__data__/slices/attendance/new-meeting';
 import { buildNameWithInitials } from '../../utils/attendance';
+import { SelectedField } from './style';
 
 type AttendanceSelectorProps = {
   selectItems: AttendanceUser[] | AttendanceGroup[];
@@ -33,7 +34,7 @@ export const AttendanceSelector = ({ selectItems }: AttendanceSelectorProps): JS
   }, [selectedItems]);
 
   return (
-    <TextField
+    <SelectedField
       select
       focused
       label={
@@ -50,7 +51,6 @@ export const AttendanceSelector = ({ selectItems }: AttendanceSelectorProps): JS
       SelectProps={{
         multiple: true
       }}
-      sx={{ width: '25rem', backgroundColor: 'white', borderRadius: 1 }}
     >
       {selectItems.map((item: SelectItem) =>
         isAttendanceUser(item) ? (
@@ -63,6 +63,6 @@ export const AttendanceSelector = ({ selectItems }: AttendanceSelectorProps): JS
           </MenuItem>
         )
       )}
-    </TextField>
+    </SelectedField>
   );
 };

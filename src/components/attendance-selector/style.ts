@@ -1,8 +1,18 @@
 import styled from 'styled-components';
+import { TextField } from '@mui/material';
 
 type DropdownContentProps = {
   isOpen?: boolean;
 };
+
+export const SelectedField = styled(TextField)`
+  width: 25rem;
+  background-color: white;
+  border-radius: 1;
+  @media (max-width: 650px) {
+    width: 15rem;
+  }
+`;
 
 export const DropdownContainer = styled.div`
   width: 300px;

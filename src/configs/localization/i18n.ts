@@ -38,8 +38,9 @@ const resources = {
   }
 };
 
-export default i18next.use(LanguageDetector).use(initReactI18next).init({
+export default i18next.use(initReactI18next).init({
   debug: true,
+  lng: 'ru',
   fallbackLng: 'ru',
   resources
 });
