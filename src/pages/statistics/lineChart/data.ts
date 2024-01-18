@@ -18,7 +18,7 @@ export const getOption = (theme: Theme) => ({
   },
   xAxis: {
     type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     axisLine: { show: false },
     axisTick: { show: false },
     axisLabel: {
@@ -40,8 +40,8 @@ export const getOption = (theme: Theme) => ({
     {
       // data: [30, 40, 20, 50, 40, 80, 90],
       type: 'line',
-      stack: 'This month',
-      name: 'This month',
+      stack: 'Первый курс',
+      name: 'Первый курс',
       smooth: true,
       symbolSize: 4,
       lineStyle: { width: 4 }
@@ -49,8 +49,8 @@ export const getOption = (theme: Theme) => ({
     {
       // data: [20, 50, 15, 50, 30, 70, 95],
       type: 'line',
-      stack: 'Last month',
-      name: 'Last month',
+      stack: 'Второй курс',
+      name: 'Второй курс',
       smooth: true,
       symbolSize: 4,
       lineStyle: { width: 4 }
@@ -58,8 +58,8 @@ export const getOption = (theme: Theme) => ({
     {
       // data: [20, 50, 15, 50, 30, 70, 95],
       type: 'line',
-      stack: 'Last month',
-      name: 'Last month',
+      stack: 'Третий курс',
+      name: 'Третий курс',
       smooth: true,
       symbolSize: 4,
       lineStyle: { width: 4 }

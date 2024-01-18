@@ -18,7 +18,7 @@ export const getOption = (theme: Theme) => ({
 
   label: {
     fontSize: 13,
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.primary,
     fontFamily: theme.typography.fontFamily
   },
 
@@ -35,22 +35,6 @@ export const getOption = (theme: Theme) => ({
         show: false,
         position: 'center'
       },
-
-      data: [
-        {
-          // value: 0,
-          name: '1 Курс'
-        },
-        {
-          // value: 0,
-          name: '2 Курс'
-        },
-        {
-          // value: 0,
-          name: '3 Курс'
-        }
-      ],
-
       emphasis: {
         itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)' },
         label: {

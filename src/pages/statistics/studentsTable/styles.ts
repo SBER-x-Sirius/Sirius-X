@@ -23,7 +23,8 @@ export const StyledGrid = styled(AgGridReact)`
 `;
 
 export const TableContainer = styled.div`
-  width: 1095px;
+  min-width: 443px;
+    width: 100%;
   height: 581px;
   margin: auto;
   padding: 24px 40px 0 40px;
