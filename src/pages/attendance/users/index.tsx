@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Sidebar from '../../../components/sidebar';
@@ -7,16 +7,16 @@ import {
   UserPageHeader,
   GroupsBlock,
   GroupsList,
-  ShareButton,
   SettingsIcon,
   ButtonsBlock
 } from './style';
 import SettingsSVG from '../../../assets/svg/settings_24px.svg';
 import UserTable from '../../../components/user-table';
-import { useGetAllUsersQuery } from '../../../__data__/services/api/attendance/user';
+import { useDeleteUserMutation, useGetAllUsersQuery } from '../../../__data__/services/api/attendance/user';
 import { useGetAllGroupsQuery } from '../../../__data__/services/api/attendance/group';
 
 type User = {
+  id: string;
   initials: string;
   group: string;
   role: string;
@@ -25,8 +25,25 @@ type User = {
 export const Users: React.FC = (): JSX.Element => {
   const { t } = useTranslation();
 
+  const [ deleteUser ] = useDeleteUserMutation();
   const { data: groups_data } = useGetAllGroupsQuery();
-  const { data: users } = useGetAllUsersQuery();
+  const { data: usersData } = useGetAllUsersQuery();
+  const [users, setUsers] = useState<User[]>(null);
+
+  const handleDeleteUser = async (userId: string) => {
+    try {
+      await deleteUser(userId);
+      setUsers((prevUsers) => prevUsers.filter((u) => u.id !== userId));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    if (usersData) {
+      setUsers(usersData as any);
+    }
+  }, [usersData]);
 
   return (
     <UsersPageWrapper>
@@ -38,11 +55,10 @@ export const Users: React.FC = (): JSX.Element => {
           </GroupsList>
         </GroupsBlock>
         <ButtonsBlock>
-          <ShareButton>{t('attendance:attendanceTranslation.session-page.shareButton')}</ShareButton>
           <SettingsIcon src={SettingsSVG} alt={t('attendance:attendanceTranslation.session-page.shareButtonAlt')} />
         </ButtonsBlock>
       </UserPageHeader>
-      {users && <UserTable users={users}/>}
+      {users && <UserTable users={users} handleDelete={handleDeleteUser} />}
     </UsersPageWrapper>
   );
 };
