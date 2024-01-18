@@ -37,9 +37,18 @@ export const getOption = (theme: Theme) => ({
       },
 
       data: [
-        { value: 65, name: '1 Курс' },
-        { value: 20, name: '2 Курс' },
-        { value: 15, name: '3 Курс' }
+        {
+          // value: 0,
+          name: '1 Курс'
+        },
+        {
+          // value: 0,
+          name: '2 Курс'
+        },
+        {
+          // value: 0,
+          name: '3 Курс'
+        }
       ],
 
       emphasis: {
