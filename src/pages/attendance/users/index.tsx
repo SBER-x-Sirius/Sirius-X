@@ -34,15 +34,16 @@ export const Users: React.FC = (): JSX.Element => {
       <UserPageHeader>
         <GroupsBlock>
           <GroupsList>
-            {t('attendance:attendanceTranslation.session-page.groupList')}: {groups_data && groups_data.map((g) => g.name ).join(', ')}
+            {t('attendance:attendanceTranslation.meeting-page.groupList')}:{' '}
+            {groups_data && groups_data.map((g) => g.name).join(', ')}
           </GroupsList>
         </GroupsBlock>
         <ButtonsBlock>
-          <ShareButton>{t('attendance:attendanceTranslation.session-page.shareButton')}</ShareButton>
-          <SettingsIcon src={SettingsSVG} alt={t('attendance:attendanceTranslation.session-page.shareButtonAlt')} />
+          <ShareButton>{t('attendance:attendanceTranslation.meeting-page.shareButton')}</ShareButton>
+          <SettingsIcon src={SettingsSVG} alt={t('attendance:attendanceTranslation.meeting-page.shareButtonAlt')} />
         </ButtonsBlock>
       </UserPageHeader>
-      {users && <UserTable users={users}/>}
+      {users && <UserTable users={users} />}
     </UsersPageWrapper>
   );
 };

@@ -7,7 +7,7 @@ export const Registration: React.FC = (): JSX.Element => {
       id='registration-container'
       style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}
     >
-      <FakeReg projectTitle={'attendance'} />
+      <FakeReg />
     </div>
   );
 };

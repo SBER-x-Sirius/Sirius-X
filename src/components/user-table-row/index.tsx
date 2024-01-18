@@ -12,7 +12,7 @@ export type User = {
 type UserTableRowProps = {
   user: User;
   index: number;
-}
+};
 
 export const UserTableRow: React.FC<UserTableRowProps> = ({ user, index }) => {
   const { t } = useTranslation();
@@ -23,7 +23,7 @@ export const UserTableRow: React.FC<UserTableRowProps> = ({ user, index }) => {
       <TableCell>{user.group}</TableCell>
       <TableCell>{user.role}</TableCell>
       <TableImageCell>
-        <img src={TableSVG} alt={t('attendance:attendanceTranslation.session-page.TableIconAlt')} />
+        <img src={TableSVG} alt={t('attendance:attendanceTranslation.meeting-page.TableIconAlt')} />
       </TableImageCell>
     </TableRow>
   );

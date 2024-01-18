@@ -1,6 +1,6 @@
 {
-  "sessionForm": {
-    "inputPlaceholder": "Enter session code",
+  "meetingForm": {
+    "inputPlaceholder": "Enter meeting code",
     "btnText": "Connect",
     "completed": "Completed",
     "error": "Error. Try again or check the meeting code"
@@ -24,10 +24,54 @@
     "userSelector": "Add other teachers",
     "buttonTitle": "Create a new meeting"
   },
-  "session-page": {
+  "meeting-page": {
     "groupList": "Groups attending",
     "shareButton": "Share",
     "shareButtonAlt": "Settings button",
     "TableIconAlt": "Additional action button"
+  },
+  "login-form": {
+    "email": {
+      "title": "Email",
+      "placeholder": "Enter email"
+    },
+    "password": {
+      "title": "Password",
+      "placeholder": "Enter password"
+    },
+    "button": {
+      "title": "Sign In"
+    },
+    "link": {
+      "title": "Sign Up"
+    }
+  },
+  "registration-form": {
+    "firstName": {
+      "title": "First name",
+      "placeholder": "Enter first name"
+    },
+    "middleName": {
+      "title": "Middle name",
+      "placeholder": "Enter middle name"
+    },
+    "lastName": {
+      "title": "Last name",
+      "placeholder": "Enter last name"
+    },
+    "email": {
+      "title": "Email",
+      "placeholder": "Enter email"
+    },
+    "password": {
+      "title": "Password",
+      "placeholder": "Enter password"
+    },
+    "button": {
+      "title": "Sign Up"
+    },
+    "link": {
+      "title": "Sign In"
+    }
   }
 }
