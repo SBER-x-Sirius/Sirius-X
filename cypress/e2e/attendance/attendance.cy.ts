@@ -23,7 +23,6 @@ describe('template spec', () => {
     cy.get('img[alt="Список пользователей"]').click();
 
     cy.url().should('include', '/attendance/users');
-    cy.contains('Поделиться');
     cy.contains('Присутствующие группы:');
     cy.get('img[alt="Присоединиться к встрече"]').click();
 
@@ -31,5 +30,5 @@ describe('template spec', () => {
     cy.get('input[placeholder="Введите код сессии"]').type('test');
     cy.contains('Подключиться').click();
     cy.contains('Ошибка. Попробуйте снова или проверьте код встречи');
-  })
-})
+  });
+});

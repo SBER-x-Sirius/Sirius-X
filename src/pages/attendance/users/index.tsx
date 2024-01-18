@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import Sidebar from '../../../components/sidebar';
 import {
   UsersPageWrapper,
@@ -55,9 +54,6 @@ export const Users: React.FC = (): JSX.Element => {
             {groups_data && groups_data.map((g) => g.name).join(', ')}
           </GroupsList>
         </GroupsBlock>
-        <ButtonsBlock>
-          <SettingsIcon src={SettingsSVG} alt={t('attendance:attendanceTranslation.session-page.shareButtonAlt')} />
-        </ButtonsBlock>
       </UserPageHeader>
       {users && <UserTable users={users} handleDelete={handleDeleteUser} />}
     </UsersPageWrapper>
