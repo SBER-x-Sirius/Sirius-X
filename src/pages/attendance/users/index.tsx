@@ -1,20 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
-import Sidebar from '../../../components/sidebar';
-import {
-  UsersPageWrapper,
-  UserPageHeader,
-  GroupsBlock,
-  GroupsList,
-  ShareButton,
-  SettingsIcon,
-  ButtonsBlock
-} from './style';
-import SettingsSVG from '../../../assets/svg/settings_24px.svg';
-import UserTable from '../../../components/user-table';
-import { useGetAllUsersQuery } from '../../../__data__/services/api/attendance/user';
 import { useGetAllGroupsQuery } from '../../../__data__/services/api/attendance/group';
+import { useGetAllUsersQuery } from '../../../__data__/services/api/attendance/user';
+import Sidebar from '../../../components/sidebar';
+import UserTable from '../../../components/user-table';
+import { GroupsBlock, GroupsList, UserPageHeader, UsersPageWrapper } from './style';
 
 type User = {
   initials: string;
@@ -38,10 +28,6 @@ export const Users: React.FC = (): JSX.Element => {
             {groups_data && groups_data.map((g) => g.name).join(', ')}
           </GroupsList>
         </GroupsBlock>
-        <ButtonsBlock>
-          <ShareButton>{t('attendance:attendanceTranslation.meeting-page.shareButton')}</ShareButton>
-          <SettingsIcon src={SettingsSVG} alt={t('attendance:attendanceTranslation.meeting-page.shareButtonAlt')} />
-        </ButtonsBlock>
       </UserPageHeader>
       {users && <UserTable users={users} />}
     </UsersPageWrapper>

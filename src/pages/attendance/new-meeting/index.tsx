@@ -1,3 +1,4 @@
+import { getNavigationsValue } from '@ijl/cli';
 import { t } from 'i18next';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -11,7 +12,6 @@ import BaseForm from '../../../components/form';
 import Sidebar from '../../../components/sidebar';
 import { MeetingButton, MeetingFormContent } from '../accession/style';
 import { AttendanceWrapper } from '../style';
-import { getNavigationsValue } from '@ijl/cli';
 
 export const NewMeeting: React.FC = (): JSX.Element => {
   const { data: groups } = useGetAllGroupsQuery();
